@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated studyplans -->
+      <package
+            uri="platform:/plugin/assignment1/model/studyplans.ecore"
+            class="studyplans.StudyplansPackage"
+            genModel="model/studyplans.genmodel"/>
+   </extension>
+
+</plugin>
