@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studyplans:University
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:studyplans="platform:/plugin/assignment1/model/studyplans.ecore"
+    xsi:schemaLocation="platform:/plugin/assignment1/model/studyplans.ecore studyplans.ecore">
+  <programmes
+      code="MTDT"
+      name="Datateknologi"
+      specializations="//@programmes.1 //@programmes.2">
+    <semesters>
+      <courses
+          mandatory="true"
+          course="//@courses.0"/>
+      <courses
+          mandatory="true"
+          course="//@courses.1"/>
+    </semesters>
+  </programmes>
+  <programmes
+      code="MTDTPS"
+      name="Programvare-systemer"
+      specializationOf="//@programmes.0"/>
+  <programmes
+      code="MTDTAI"
+      name="AI"
+      specializationOf="//@programmes.0"/>
+  <courses code="TMA4100"
+      name="Matte 1"
+      credits="7.5"
+      level="1"
+      field="math"/>
+  <courses code="TDT4100"
+      name="ITGK"
+      credits="7.5"
+      level="1"/>
+</studyplans:University>
