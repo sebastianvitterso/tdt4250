@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see studyplans.StudyplansPackage#getSemester()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='semesterNumberMatchesPositionInList'"
  * @generated
  */
 public interface Semester extends EObject {

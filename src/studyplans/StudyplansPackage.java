@@ -626,7 +626,7 @@ public interface StudyplansPackage extends EPackage {
 	 * @return the meta object for data type '<em>Course Code</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='isValid'"
+	 *        extendedMetaData="pattern='[A-Z]{2,3}[0-9]{4}'"
 	 * @generated
 	 */
 	EDataType getCourseCode();

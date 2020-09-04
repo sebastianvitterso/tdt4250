@@ -12,10 +12,21 @@
     <semesters>
       <courses
           mandatory="true"
+          groupId="1"
           course="//@courses.0"/>
       <courses
-          mandatory="true"
+          groupId="2"
           course="//@courses.1"/>
+    </semesters>
+    <semesters
+        number="1">
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.2"/>
+      <courses
+          groupId="1"
+          course="//@courses.0"/>
     </semesters>
   </programmes>
   <programmes
@@ -35,4 +46,6 @@
       name="ITGK"
       credits="7.5"
       level="1"/>
+  <courses code="FB1000"
+      name="Fotball"/>
 </studyplans:University>

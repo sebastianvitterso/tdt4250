@@ -500,6 +500,8 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
 	}
 
 	/**
@@ -511,10 +513,26 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
+		  (semesterEClass,
+		   source,
+		   new String[] {
+			   "constraints", "semesterNumberMatchesPositionInList"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation
 		  (courseCodeEDataType,
 		   source,
 		   new String[] {
-			   "constraints", "isValid"
+			   "pattern", "[A-Z]{2,3}[0-9]{4}"
 		   });
 	}
 
