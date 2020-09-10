@@ -162,7 +162,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	public float getCredits() {
 		float sum = 0;
 		for (AvailableCourse availableCourse : getCourses()) {
-			sum += availableCourse.getCourse.getCredits();
+			sum += availableCourse.getCourse().getCredits();
 		}
 		for (OpenSlot openSlot : getOpenSlots()) {
 			sum += openSlot.getCredits();
