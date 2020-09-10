@@ -25,7 +25,7 @@
           groupId="1"
           course="//@courses.2"/>
       <courses
-          groupId="2"
+          groupId="1"
           course="//@courses.0"/>
     </semesters>
   </programmes>
