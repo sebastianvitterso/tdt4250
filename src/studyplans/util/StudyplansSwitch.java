@@ -96,6 +96,12 @@ public class StudyplansSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StudyplansPackage.OPEN_SLOT: {
+				OpenSlot openSlot = (OpenSlot)theEObject;
+				T result = caseOpenSlot(openSlot);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -172,6 +178,21 @@ public class StudyplansSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCourse(Course object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Open Slot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Open Slot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOpenSlot(OpenSlot object) {
 		return null;
 	}
 

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import studyplans.AvailableCourse;
+import studyplans.OpenSlot;
 import studyplans.Semester;
 import studyplans.StudyplansPackage;
 
@@ -32,6 +33,8 @@ import studyplans.StudyplansPackage;
  * <ul>
  *   <li>{@link studyplans.impl.SemesterImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link studyplans.impl.SemesterImpl#getCourses <em>Courses</em>}</li>
+ *   <li>{@link studyplans.impl.SemesterImpl#getOpenSlots <em>Open Slots</em>}</li>
+ *   <li>{@link studyplans.impl.SemesterImpl#getCredits <em>Credits</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +69,26 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @ordered
 	 */
 	protected EList<AvailableCourse> courses;
+
+	/**
+	 * The cached value of the '{@link #getOpenSlots() <em>Open Slots</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOpenSlots()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OpenSlot> openSlots;
+
+	/**
+	 * The default value of the '{@link #getCredits() <em>Credits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCredits()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float CREDITS_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,11 +147,41 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<OpenSlot> getOpenSlots() {
+		if (openSlots == null) {
+			openSlots = new EObjectContainmentEList<OpenSlot>(OpenSlot.class, this, StudyplansPackage.SEMESTER__OPEN_SLOTS);
+		}
+		return openSlots;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public float getCredits() {
+		float sum = 0;
+		for (AvailableCourse availableCourse : getCourses()) {
+			sum += availableCourse.getCourse.getCredits();
+		}
+		for (OpenSlot openSlot : getOpenSlots()) {
+			sum += openSlot.getCredits();
+		}
+		return sum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case StudyplansPackage.SEMESTER__COURSES:
 				return ((InternalEList<?>)getCourses()).basicRemove(otherEnd, msgs);
+			case StudyplansPackage.SEMESTER__OPEN_SLOTS:
+				return ((InternalEList<?>)getOpenSlots()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -145,6 +198,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return getNumber();
 			case StudyplansPackage.SEMESTER__COURSES:
 				return getCourses();
+			case StudyplansPackage.SEMESTER__OPEN_SLOTS:
+				return getOpenSlots();
+			case StudyplansPackage.SEMESTER__CREDITS:
+				return getCredits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +222,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				getCourses().clear();
 				getCourses().addAll((Collection<? extends AvailableCourse>)newValue);
 				return;
+			case StudyplansPackage.SEMESTER__OPEN_SLOTS:
+				getOpenSlots().clear();
+				getOpenSlots().addAll((Collection<? extends OpenSlot>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +244,9 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 			case StudyplansPackage.SEMESTER__COURSES:
 				getCourses().clear();
 				return;
+			case StudyplansPackage.SEMESTER__OPEN_SLOTS:
+				getOpenSlots().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +263,10 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return number != NUMBER_EDEFAULT;
 			case StudyplansPackage.SEMESTER__COURSES:
 				return courses != null && !courses.isEmpty();
+			case StudyplansPackage.SEMESTER__OPEN_SLOTS:
+				return openSlots != null && !openSlots.isEmpty();
+			case StudyplansPackage.SEMESTER__CREDITS:
+				return getCredits() != CREDITS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

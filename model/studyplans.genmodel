@@ -27,9 +27,12 @@
     <genClasses ecoreClass="studyplans.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//Semester/number"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplans.ecore#//Semester/courses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplans.ecore#//Semester/openSlots"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//Semester/credits"/>
     </genClasses>
     <genClasses ecoreClass="studyplans.ecore#//AvailableCourse">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//AvailableCourse/mandatory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//AvailableCourse/groupId"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference studyplans.ecore#//AvailableCourse/course"/>
     </genClasses>
     <genClasses ecoreClass="studyplans.ecore#//Course">
@@ -38,6 +41,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//Course/credits"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//Course/level"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//Course/field"/>
+    </genClasses>
+    <genClasses ecoreClass="studyplans.ecore#//OpenSlot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//OpenSlot/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//OpenSlot/fields"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//OpenSlot/fromField"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//OpenSlot/credits"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

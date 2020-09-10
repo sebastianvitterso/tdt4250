@@ -25,18 +25,30 @@
           groupId="1"
           course="//@courses.2"/>
       <courses
-          groupId="1"
+          groupId="2"
           course="//@courses.0"/>
     </semesters>
   </programmes>
   <programmes
       code="MTDTPS"
       name="Programvare-systemer"
-      specializationOf="//@programmes.0"/>
+      specializationOf="//@programmes.0">
+    <semesters>
+      <courses
+          groupId="1"
+          course="//@courses.1"/>
+    </semesters>
+  </programmes>
   <programmes
       code="MTDTAI"
       name="AI"
-      specializationOf="//@programmes.0"/>
+      specializationOf="//@programmes.0">
+    <semesters>
+      <courses
+          groupId="1"
+          course="//@courses.1"/>
+    </semesters>
+  </programmes>
   <courses code="TMA4100"
       name="Matte 1"
       credits="7.5"

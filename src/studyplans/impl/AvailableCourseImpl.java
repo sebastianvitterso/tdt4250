@@ -23,6 +23,7 @@ import studyplans.StudyplansPackage;
  * </p>
  * <ul>
  *   <li>{@link studyplans.impl.AvailableCourseImpl#isMandatory <em>Mandatory</em>}</li>
+ *   <li>{@link studyplans.impl.AvailableCourseImpl#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link studyplans.impl.AvailableCourseImpl#getCourse <em>Course</em>}</li>
  * </ul>
  *
@@ -48,6 +49,26 @@ public class AvailableCourseImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected boolean mandatory = MANDATORY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroupId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GROUP_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroupId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String groupId = GROUP_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCourse() <em>Course</em>}' reference.
@@ -104,6 +125,27 @@ public class AvailableCourseImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getGroupId() {
+		return groupId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGroupId(String newGroupId) {
+		String oldGroupId = groupId;
+		groupId = newGroupId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyplansPackage.AVAILABLE_COURSE__GROUP_ID, oldGroupId, groupId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Course getCourse() {
 		if (course != null && course.eIsProxy()) {
 			InternalEObject oldCourse = (InternalEObject)course;
@@ -147,6 +189,8 @@ public class AvailableCourseImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case StudyplansPackage.AVAILABLE_COURSE__MANDATORY:
 				return isMandatory();
+			case StudyplansPackage.AVAILABLE_COURSE__GROUP_ID:
+				return getGroupId();
 			case StudyplansPackage.AVAILABLE_COURSE__COURSE:
 				if (resolve) return getCourse();
 				return basicGetCourse();
@@ -164,6 +208,9 @@ public class AvailableCourseImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case StudyplansPackage.AVAILABLE_COURSE__MANDATORY:
 				setMandatory((Boolean)newValue);
+				return;
+			case StudyplansPackage.AVAILABLE_COURSE__GROUP_ID:
+				setGroupId((String)newValue);
 				return;
 			case StudyplansPackage.AVAILABLE_COURSE__COURSE:
 				setCourse((Course)newValue);
@@ -183,6 +230,9 @@ public class AvailableCourseImpl extends MinimalEObjectImpl.Container implements
 			case StudyplansPackage.AVAILABLE_COURSE__MANDATORY:
 				setMandatory(MANDATORY_EDEFAULT);
 				return;
+			case StudyplansPackage.AVAILABLE_COURSE__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
 			case StudyplansPackage.AVAILABLE_COURSE__COURSE:
 				setCourse((Course)null);
 				return;
@@ -200,6 +250,8 @@ public class AvailableCourseImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case StudyplansPackage.AVAILABLE_COURSE__MANDATORY:
 				return mandatory != MANDATORY_EDEFAULT;
+			case StudyplansPackage.AVAILABLE_COURSE__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
 			case StudyplansPackage.AVAILABLE_COURSE__COURSE:
 				return course != null;
 		}
@@ -218,6 +270,8 @@ public class AvailableCourseImpl extends MinimalEObjectImpl.Container implements
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (mandatory: ");
 		result.append(mandatory);
+		result.append(", groupId: ");
+		result.append(groupId);
 		result.append(')');
 		return result.toString();
 	}

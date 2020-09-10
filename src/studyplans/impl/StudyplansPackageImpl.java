@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import studyplans.AvailableCourse;
 import studyplans.Course;
 import studyplans.Field;
+import studyplans.OpenSlot;
 import studyplans.Programme;
 import studyplans.Semester;
 import studyplans.StudyplansFactory;
@@ -64,6 +65,13 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 	 * @generated
 	 */
 	private EClass courseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass openSlotEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -271,6 +279,24 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSemester_OpenSlots() {
+		return (EReference)semesterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSemester_Credits() {
+		return (EAttribute)semesterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAvailableCourse() {
 		return availableCourseEClass;
 	}
@@ -289,8 +315,17 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAvailableCourse_GroupId() {
+		return (EAttribute)availableCourseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAvailableCourse_Course() {
-		return (EReference)availableCourseEClass.getEStructuralFeatures().get(1);
+		return (EReference)availableCourseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -345,6 +380,51 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 	 */
 	public EAttribute getCourse_Field() {
 		return (EAttribute)courseEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOpenSlot() {
+		return openSlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpenSlot_Level() {
+		return (EAttribute)openSlotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpenSlot_Fields() {
+		return (EAttribute)openSlotEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpenSlot_FromField() {
+		return (EAttribute)openSlotEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpenSlot_Credits() {
+		return (EAttribute)openSlotEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -408,9 +488,12 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 		semesterEClass = createEClass(SEMESTER);
 		createEAttribute(semesterEClass, SEMESTER__NUMBER);
 		createEReference(semesterEClass, SEMESTER__COURSES);
+		createEReference(semesterEClass, SEMESTER__OPEN_SLOTS);
+		createEAttribute(semesterEClass, SEMESTER__CREDITS);
 
 		availableCourseEClass = createEClass(AVAILABLE_COURSE);
 		createEAttribute(availableCourseEClass, AVAILABLE_COURSE__MANDATORY);
+		createEAttribute(availableCourseEClass, AVAILABLE_COURSE__GROUP_ID);
 		createEReference(availableCourseEClass, AVAILABLE_COURSE__COURSE);
 
 		courseEClass = createEClass(COURSE);
@@ -419,6 +502,12 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 		createEAttribute(courseEClass, COURSE__CREDITS);
 		createEAttribute(courseEClass, COURSE__LEVEL);
 		createEAttribute(courseEClass, COURSE__FIELD);
+
+		openSlotEClass = createEClass(OPEN_SLOT);
+		createEAttribute(openSlotEClass, OPEN_SLOT__LEVEL);
+		createEAttribute(openSlotEClass, OPEN_SLOT__FIELDS);
+		createEAttribute(openSlotEClass, OPEN_SLOT__FROM_FIELD);
+		createEAttribute(openSlotEClass, OPEN_SLOT__CREDITS);
 
 		// Create enums
 		fieldEEnum = createEEnum(FIELD);
@@ -472,9 +561,12 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemester_Number(), ecorePackage.getEInt(), "number", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemester_Courses(), this.getAvailableCourse(), null, "courses", null, 1, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSemester_OpenSlots(), this.getOpenSlot(), null, "openSlots", null, 0, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSemester_Credits(), ecorePackage.getEFloat(), "credits", null, 0, 1, Semester.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(availableCourseEClass, AvailableCourse.class, "AvailableCourse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAvailableCourse_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 0, 1, AvailableCourse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailableCourse_GroupId(), ecorePackage.getEString(), "groupId", null, 1, 1, AvailableCourse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAvailableCourse_Course(), this.getCourse(), null, "course", null, 1, 1, AvailableCourse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -483,6 +575,12 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 		initEAttribute(getCourse_Credits(), ecorePackage.getEFloat(), "credits", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Level(), ecorePackage.getEInt(), "level", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCourse_Field(), this.getField(), "field", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(openSlotEClass, OpenSlot.class, "OpenSlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOpenSlot_Level(), ecorePackage.getEInt(), "level", null, 0, 1, OpenSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpenSlot_Fields(), this.getField(), "fields", null, 0, -1, OpenSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpenSlot_FromField(), ecorePackage.getEBoolean(), "fromField", null, 0, 1, OpenSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpenSlot_Credits(), ecorePackage.getEFloat(), "credits", null, 0, 1, OpenSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(fieldEEnum, Field.class, "Field");
@@ -500,6 +598,8 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http://www.eclipse.org/acceleo/query/1.0
+		create_1Annotations();
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
 	}
@@ -513,10 +613,38 @@ public class StudyplansPackageImpl extends EPackageImpl implements StudyplansPac
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
+		   });
+		addAnnotation
 		  (semesterEClass,
 		   source,
 		   new String[] {
 			   "constraints", "semesterNumberMatchesPositionInList"
+		   });
+		addAnnotation
+		  (availableCourseEClass,
+		   source,
+		   new String[] {
+			   "constraints", "mandatoryAloneInGroup"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/acceleo/query/1.0</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void create_1Annotations() {
+		String source = "http://www.eclipse.org/acceleo/query/1.0";
+		addAnnotation
+		  (availableCourseEClass,
+		   source,
+		   new String[] {
+			   "mandatoryAloneInGroup", "aql:self->select(a | a.mandatory).eContainer().eContents()->select( c | c.groupId = self.groupId and c != self)->size() = 0"
 		   });
 	}
 

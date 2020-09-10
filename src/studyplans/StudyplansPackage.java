@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see studyplans.StudyplansFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore validationDelegates='http://www.eclipse.org/acceleo/query/1.0'"
  * @generated
  */
 public interface StudyplansPackage extends EPackage {
@@ -215,13 +216,31 @@ public interface StudyplansPackage extends EPackage {
 	int SEMESTER__COURSES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Open Slots</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__OPEN_SLOTS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__CREDITS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Semester</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMESTER_FEATURE_COUNT = 2;
+	int SEMESTER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Semester</em>' class.
@@ -252,13 +271,22 @@ public interface StudyplansPackage extends EPackage {
 	int AVAILABLE_COURSE__MANDATORY = 0;
 
 	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_COURSE__GROUP_ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Course</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_COURSE__COURSE = 1;
+	int AVAILABLE_COURSE__COURSE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Available Course</em>' class.
@@ -267,7 +295,7 @@ public interface StudyplansPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_COURSE_FEATURE_COUNT = 2;
+	int AVAILABLE_COURSE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Available Course</em>' class.
@@ -352,6 +380,70 @@ public interface StudyplansPackage extends EPackage {
 	int COURSE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link studyplans.impl.OpenSlotImpl <em>Open Slot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see studyplans.impl.OpenSlotImpl
+	 * @see studyplans.impl.StudyplansPackageImpl#getOpenSlot()
+	 * @generated
+	 */
+	int OPEN_SLOT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPEN_SLOT__LEVEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPEN_SLOT__FIELDS = 1;
+
+	/**
+	 * The feature id for the '<em><b>From Field</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPEN_SLOT__FROM_FIELD = 2;
+
+	/**
+	 * The feature id for the '<em><b>Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPEN_SLOT__CREDITS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Open Slot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPEN_SLOT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Open Slot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPEN_SLOT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link studyplans.Field <em>Field</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,7 +451,7 @@ public interface StudyplansPackage extends EPackage {
 	 * @see studyplans.impl.StudyplansPackageImpl#getField()
 	 * @generated
 	 */
-	int FIELD = 5;
+	int FIELD = 6;
 
 	/**
 	 * The meta object id for the '<em>Course Code</em>' data type.
@@ -369,7 +461,7 @@ public interface StudyplansPackage extends EPackage {
 	 * @see studyplans.impl.StudyplansPackageImpl#getCourseCode()
 	 * @generated
 	 */
-	int COURSE_CODE = 6;
+	int COURSE_CODE = 7;
 
 
 	/**
@@ -513,6 +605,28 @@ public interface StudyplansPackage extends EPackage {
 	EReference getSemester_Courses();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link studyplans.Semester#getOpenSlots <em>Open Slots</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Open Slots</em>'.
+	 * @see studyplans.Semester#getOpenSlots()
+	 * @see #getSemester()
+	 * @generated
+	 */
+	EReference getSemester_OpenSlots();
+
+	/**
+	 * Returns the meta object for the attribute '{@link studyplans.Semester#getCredits <em>Credits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Credits</em>'.
+	 * @see studyplans.Semester#getCredits()
+	 * @see #getSemester()
+	 * @generated
+	 */
+	EAttribute getSemester_Credits();
+
+	/**
 	 * Returns the meta object for class '{@link studyplans.AvailableCourse <em>Available Course</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,6 +646,17 @@ public interface StudyplansPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAvailableCourse_Mandatory();
+
+	/**
+	 * Returns the meta object for the attribute '{@link studyplans.AvailableCourse#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see studyplans.AvailableCourse#getGroupId()
+	 * @see #getAvailableCourse()
+	 * @generated
+	 */
+	EAttribute getAvailableCourse_GroupId();
 
 	/**
 	 * Returns the meta object for the reference '{@link studyplans.AvailableCourse#getCourse <em>Course</em>}'.
@@ -608,6 +733,60 @@ public interface StudyplansPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCourse_Field();
+
+	/**
+	 * Returns the meta object for class '{@link studyplans.OpenSlot <em>Open Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Open Slot</em>'.
+	 * @see studyplans.OpenSlot
+	 * @generated
+	 */
+	EClass getOpenSlot();
+
+	/**
+	 * Returns the meta object for the attribute '{@link studyplans.OpenSlot#getLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Level</em>'.
+	 * @see studyplans.OpenSlot#getLevel()
+	 * @see #getOpenSlot()
+	 * @generated
+	 */
+	EAttribute getOpenSlot_Level();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link studyplans.OpenSlot#getFields <em>Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Fields</em>'.
+	 * @see studyplans.OpenSlot#getFields()
+	 * @see #getOpenSlot()
+	 * @generated
+	 */
+	EAttribute getOpenSlot_Fields();
+
+	/**
+	 * Returns the meta object for the attribute '{@link studyplans.OpenSlot#isFromField <em>From Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>From Field</em>'.
+	 * @see studyplans.OpenSlot#isFromField()
+	 * @see #getOpenSlot()
+	 * @generated
+	 */
+	EAttribute getOpenSlot_FromField();
+
+	/**
+	 * Returns the meta object for the attribute '{@link studyplans.OpenSlot#getCredits <em>Credits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Credits</em>'.
+	 * @see studyplans.OpenSlot#getCredits()
+	 * @see #getOpenSlot()
+	 * @generated
+	 */
+	EAttribute getOpenSlot_Credits();
 
 	/**
 	 * Returns the meta object for enum '{@link studyplans.Field <em>Field</em>}'.
@@ -765,6 +944,22 @@ public interface StudyplansPackage extends EPackage {
 		EReference SEMESTER__COURSES = eINSTANCE.getSemester_Courses();
 
 		/**
+		 * The meta object literal for the '<em><b>Open Slots</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMESTER__OPEN_SLOTS = eINSTANCE.getSemester_OpenSlots();
+
+		/**
+		 * The meta object literal for the '<em><b>Credits</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEMESTER__CREDITS = eINSTANCE.getSemester_Credits();
+
+		/**
 		 * The meta object literal for the '{@link studyplans.impl.AvailableCourseImpl <em>Available Course</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -781,6 +976,14 @@ public interface StudyplansPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AVAILABLE_COURSE__MANDATORY = eINSTANCE.getAvailableCourse_Mandatory();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AVAILABLE_COURSE__GROUP_ID = eINSTANCE.getAvailableCourse_GroupId();
 
 		/**
 		 * The meta object literal for the '<em><b>Course</b></em>' reference feature.
@@ -839,6 +1042,48 @@ public interface StudyplansPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COURSE__FIELD = eINSTANCE.getCourse_Field();
+
+		/**
+		 * The meta object literal for the '{@link studyplans.impl.OpenSlotImpl <em>Open Slot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see studyplans.impl.OpenSlotImpl
+		 * @see studyplans.impl.StudyplansPackageImpl#getOpenSlot()
+		 * @generated
+		 */
+		EClass OPEN_SLOT = eINSTANCE.getOpenSlot();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPEN_SLOT__LEVEL = eINSTANCE.getOpenSlot_Level();
+
+		/**
+		 * The meta object literal for the '<em><b>Fields</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPEN_SLOT__FIELDS = eINSTANCE.getOpenSlot_Fields();
+
+		/**
+		 * The meta object literal for the '<em><b>From Field</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPEN_SLOT__FROM_FIELD = eINSTANCE.getOpenSlot_FromField();
+
+		/**
+		 * The meta object literal for the '<em><b>Credits</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPEN_SLOT__CREDITS = eINSTANCE.getOpenSlot_Credits();
 
 		/**
 		 * The meta object literal for the '{@link studyplans.Field <em>Field</em>}' enum.

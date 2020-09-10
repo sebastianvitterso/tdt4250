@@ -62,6 +62,7 @@ public class StudyplansFactoryImpl extends EFactoryImpl implements StudyplansFac
 			case StudyplansPackage.SEMESTER: return createSemester();
 			case StudyplansPackage.AVAILABLE_COURSE: return createAvailableCourse();
 			case StudyplansPackage.COURSE: return createCourse();
+			case StudyplansPackage.OPEN_SLOT: return createOpenSlot();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -149,6 +150,16 @@ public class StudyplansFactoryImpl extends EFactoryImpl implements StudyplansFac
 	public Course createCourse() {
 		CourseImpl course = new CourseImpl();
 		return course;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OpenSlot createOpenSlot() {
+		OpenSlotImpl openSlot = new OpenSlotImpl();
+		return openSlot;
 	}
 
 	/**

@@ -97,6 +97,8 @@ public class StudyplansValidator extends EObjectValidator {
 				return validateAvailableCourse((AvailableCourse)value, diagnostics, context);
 			case StudyplansPackage.COURSE:
 				return validateCourse((Course)value, diagnostics, context);
+			case StudyplansPackage.OPEN_SLOT:
+				return validateOpenSlot((OpenSlot)value, diagnostics, context);
 			case StudyplansPackage.FIELD:
 				return validateField((Field)value, diagnostics, context);
 			case StudyplansPackage.COURSE_CODE:
@@ -180,7 +182,46 @@ public class StudyplansValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAvailableCourse(AvailableCourse availableCourse, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(availableCourse, diagnostics, context);
+		if (!validate_NoCircularContainment(availableCourse, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(availableCourse, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAvailableCourse_mandatoryAloneInGroup(availableCourse, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * The cached validation expression for the mandatoryAloneInGroup constraint of '<em>Available Course</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String AVAILABLE_COURSE__MANDATORY_ALONE_IN_GROUP__EEXPRESSION = "aql:self->select(a | a.mandatory).eContainer().eContents()->select( c | c.groupId = self.groupId and c != self)->size() = 0";
+
+	/**
+	 * Validates the mandatoryAloneInGroup constraint of '<em>Available Course</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAvailableCourse_mandatoryAloneInGroup(AvailableCourse availableCourse, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(StudyplansPackage.Literals.AVAILABLE_COURSE,
+				 availableCourse,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/acceleo/query/1.0",
+				 "mandatoryAloneInGroup",
+				 AVAILABLE_COURSE__MANDATORY_ALONE_IN_GROUP__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -190,6 +231,15 @@ public class StudyplansValidator extends EObjectValidator {
 	 */
 	public boolean validateCourse(Course course, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(course, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOpenSlot(OpenSlot openSlot, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(openSlot, diagnostics, context);
 	}
 
 	/**

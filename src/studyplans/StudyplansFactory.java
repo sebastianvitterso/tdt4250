@@ -67,6 +67,15 @@ public interface StudyplansFactory extends EFactory {
 	Course createCourse();
 
 	/**
+	 * Returns a new object of class '<em>Open Slot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Open Slot</em>'.
+	 * @generated
+	 */
+	OpenSlot createOpenSlot();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

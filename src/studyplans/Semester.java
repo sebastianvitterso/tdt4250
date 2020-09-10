@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link studyplans.Semester#getNumber <em>Number</em>}</li>
  *   <li>{@link studyplans.Semester#getCourses <em>Courses</em>}</li>
+ *   <li>{@link studyplans.Semester#getOpenSlots <em>Open Slots</em>}</li>
+ *   <li>{@link studyplans.Semester#getCredits <em>Credits</em>}</li>
  * </ul>
  *
  * @see studyplans.StudyplansPackage#getSemester()
@@ -57,5 +59,28 @@ public interface Semester extends EObject {
 	 * @generated
 	 */
 	EList<AvailableCourse> getCourses();
+
+	/**
+	 * Returns the value of the '<em><b>Open Slots</b></em>' containment reference list.
+	 * The list contents are of type {@link studyplans.OpenSlot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Open Slots</em>' containment reference list.
+	 * @see studyplans.StudyplansPackage#getSemester_OpenSlots()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<OpenSlot> getOpenSlots();
+
+	/**
+	 * Returns the value of the '<em><b>Credits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Credits</em>' attribute.
+	 * @see studyplans.StudyplansPackage#getSemester_Credits()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getCredits();
 
 } // Semester
