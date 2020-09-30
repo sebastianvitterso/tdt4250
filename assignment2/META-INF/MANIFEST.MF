@@ -20,4 +20,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-14
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true
 Export-Package: assignment2.main
+Automatic-Module-Name: assignment2
 
