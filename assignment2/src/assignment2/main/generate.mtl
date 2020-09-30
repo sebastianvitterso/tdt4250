@@ -5,6 +5,19 @@
 [template public generateElement(university : University) ]
 [comment @main/]
 [file (university.name + '.html', false, 'UTF-8')]
+<html>
+<head>
+	<title>UNIVERSITY</title>
+	<meta charset="utf-8"/>
+	<style>
+		table, th, td  {
+			border: 1px solid black;
+			border-collapse: collapse;
+			padding: 3px;	
+		}
+	</style>
+</head>
+<body>
 	<h2>Studieplan ved [university.name /]:</h2>
 
 	[for (programme : Programme | university.programmes)]
@@ -13,14 +26,54 @@
 		[/if]
 	[/for]
 	
+</body>
+<script>
 
+</script>
 
 [/file]
 [/template]
 
 [template public generateProgramme(programme : Programme, level : Integer)]
-	<p> ['Level: ' + (level) /] - [ programme.name /] ([ programme.code /])  </p>
+	<p> [repeatString('&mdash;', level) /] [ programme.name /] ([ programme.code /])  </p>
+	[for (semester : Semester | programme.semesters)]
+		<br/>
+		Semester [semester.number + 1/]: 
+		[generateSemester(semester, level)/]
+	[/for]
 	[for (child : Programme | programme.specializations)]
 		[generateProgramme(child, level + 1) /]
 	[/for]
 [/template]
+
+
+[template public generateSemester(semester : Semester, indentation : Integer)]
+	<div style="margin-left: [4*indentation/]px">
+		<table>
+			<thead>
+				<tr>
+				    <th>Code</th>
+				    <th>Name</th>
+				    <th>Credits</th>
+				    <th>Mandatory</th>
+				</tr>
+			</thead>
+			<tbody>
+				[for (avCourse : AvailableCourse | semester.courses)]
+
+				<tr>
+					<td>[avCourse.course.code/]</td>
+					<td>[avCourse.course.name/]</td>
+					<td>[avCourse.course.credits/]</td>
+					<td>[if avCourse.mandatory] Yes [else] No [/if] </td>
+				</tr>
+				[/for]
+			</tbody>
+			</table>
+	</div>
+[/template]
+
+
+[query public repeatString(str : String, repetitions : Integer) : String = 
+	invoke('assignment2.main.Helper', 'repeatString(java.lang.String, int)',  Sequence{str, repetitions})
+/]
