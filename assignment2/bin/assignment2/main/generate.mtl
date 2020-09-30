@@ -1,0 +1,13 @@
+[comment encoding = UTF-8 /]
+[module generate('platform:/plugin/assignment1/model/studyplans.ecore', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+
+[template public generateElement(university : University)]
+[comment @main/]
+[file (university.name + '.html', false, 'UTF-8')]
+	<h2>Hey [university.name /]</h2>
+		[for (course : Course | university.courses)]
+			<p> [ course.name /] ([ course.code /])  </p>
+		[/for]
+[/file]
+[/template]
