@@ -68,8 +68,7 @@
 					<td>[if avCourse.mandatory] Yes [else] No [/if] </td>
 				</tr>
 				[/for]
-				[if semester.openSlots <> null]
-				[for (course : Course| semester.inProgramme.inUniversity.courses )]
+				[for (course : Course | getOpenSlotCourses(semester) )]
 				<tr>
 					<td>[course.code/]</td>
 					<td>[course.name/]</td>
@@ -77,7 +76,6 @@
 					<td>No</td>
 				</tr>
 				[/for]
-				[/if]
 			</tbody>
 			</table>
 	</div>
@@ -86,4 +84,8 @@
 
 [query public repeatString(str : String, repetitions : Integer) : String = 
 	invoke('assignment2.main.Helper', 'repeatString(java.lang.String, int)',  Sequence{str, repetitions})
+/]
+
+[query public getOpenSlotCourses(semester : Semester) : OrderedSet(Semester) = 
+	invoke('assignment2.main.Helper', 'getOpenSlotCourses(java.lang.String, int)',  Sequence{semester})
 /]
