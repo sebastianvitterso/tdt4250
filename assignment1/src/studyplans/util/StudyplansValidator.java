@@ -201,7 +201,7 @@ public class StudyplansValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String AVAILABLE_COURSE__MANDATORY_ALONE_IN_GROUP__EEXPRESSION = "aql:self->select(a | a.mandatory).eContainer().eContents()->select( c | c.groupId = self.groupId and c != self)->size() = 0";
+	protected static final String AVAILABLE_COURSE__MANDATORY_ALONE_IN_GROUP__EEXPRESSION = "self.eContainer().courses->select(c | self.mandatory and c.groupId = self.groupId and c != self)->size() = 0";
 
 	/**
 	 * Validates the mandatoryAloneInGroup constraint of '<em>Available Course</em>'.
@@ -270,7 +270,7 @@ public class StudyplansValidator extends EObjectValidator {
 	public static final  PatternMatcher [][] COURSE_CODE__PATTERN__VALUES =
 		new PatternMatcher [][] {
 			new PatternMatcher [] {
-				XMLTypeUtil.createPatternMatcher("[A-Z]{2,3}[0-9]{4}")
+				XMLTypeUtil.createPatternMatcher("[A-Z]{2,4}[0-9]{4}")
 			}
 		};
 

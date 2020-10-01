@@ -10,6 +10,10 @@
       <genEnumLiterals ecoreEnumLiteral="studyplans.ecore#//Field/el"/>
       <genEnumLiterals ecoreEnumLiteral="studyplans.ecore#//Field/math"/>
       <genEnumLiterals ecoreEnumLiteral="studyplans.ecore#//Field/philosophy"/>
+      <genEnumLiterals ecoreEnumLiteral="studyplans.ecore#//Field/science"/>
+      <genEnumLiterals ecoreEnumLiteral="studyplans.ecore#//Field/eco"/>
+      <genEnumLiterals ecoreEnumLiteral="studyplans.ecore#//Field/lang"/>
+      <genEnumLiterals ecoreEnumLiteral="studyplans.ecore#//Field/culture"/>
     </genEnums>
     <genDataTypes ecoreDataType="studyplans.ecore#//CourseCode"/>
     <genClasses ecoreClass="studyplans.ecore#//University">
@@ -23,12 +27,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference studyplans.ecore#//Programme/specializations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference studyplans.ecore#//Programme/specializationOf"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplans.ecore#//Programme/semesters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyplans.ecore#//Programme/inUniversity"/>
     </genClasses>
     <genClasses ecoreClass="studyplans.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//Semester/number"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplans.ecore#//Semester/courses"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplans.ecore#//Semester/openSlots"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//Semester/credits"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference studyplans.ecore#//Semester/inProgramme"/>
     </genClasses>
     <genClasses ecoreClass="studyplans.ecore#//AvailableCourse">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplans.ecore#//AvailableCourse/mandatory"/>

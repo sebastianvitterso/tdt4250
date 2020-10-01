@@ -14,14 +14,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import studyplans.Programme;
 import studyplans.Semester;
 import studyplans.StudyplansPackage;
+import studyplans.University;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +37,7 @@ import studyplans.StudyplansPackage;
  *   <li>{@link studyplans.impl.ProgrammeImpl#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link studyplans.impl.ProgrammeImpl#getSpecializationOf <em>Specialization Of</em>}</li>
  *   <li>{@link studyplans.impl.ProgrammeImpl#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link studyplans.impl.ProgrammeImpl#getInUniversity <em>In University</em>}</li>
  * </ul>
  *
  * @generated
@@ -251,9 +253,50 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 */
 	public EList<Semester> getSemesters() {
 		if (semesters == null) {
-			semesters = new EObjectContainmentEList<Semester>(Semester.class, this, StudyplansPackage.PROGRAMME__SEMESTERS);
+			semesters = new EObjectContainmentWithInverseEList<Semester>(Semester.class, this, StudyplansPackage.PROGRAMME__SEMESTERS, StudyplansPackage.SEMESTER__IN_PROGRAMME);
 		}
 		return semesters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public University getInUniversity() {
+		if (eContainerFeatureID() != StudyplansPackage.PROGRAMME__IN_UNIVERSITY) return null;
+		return (University)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInUniversity(University newInUniversity, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newInUniversity, StudyplansPackage.PROGRAMME__IN_UNIVERSITY, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInUniversity(University newInUniversity) {
+		if (newInUniversity != eInternalContainer() || (eContainerFeatureID() != StudyplansPackage.PROGRAMME__IN_UNIVERSITY && newInUniversity != null)) {
+			if (EcoreUtil.isAncestor(this, newInUniversity))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newInUniversity != null)
+				msgs = ((InternalEObject)newInUniversity).eInverseAdd(this, StudyplansPackage.UNIVERSITY__PROGRAMMES, University.class, msgs);
+			msgs = basicSetInUniversity(newInUniversity, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyplansPackage.PROGRAMME__IN_UNIVERSITY, newInUniversity, newInUniversity));
 	}
 
 	/**
@@ -271,6 +314,12 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				if (specializationOf != null)
 					msgs = ((InternalEObject)specializationOf).eInverseRemove(this, StudyplansPackage.PROGRAMME__SPECIALIZATIONS, Programme.class, msgs);
 				return basicSetSpecializationOf((Programme)otherEnd, msgs);
+			case StudyplansPackage.PROGRAMME__SEMESTERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemesters()).basicAdd(otherEnd, msgs);
+			case StudyplansPackage.PROGRAMME__IN_UNIVERSITY:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetInUniversity((University)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -289,8 +338,24 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return basicSetSpecializationOf(null, msgs);
 			case StudyplansPackage.PROGRAMME__SEMESTERS:
 				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
+			case StudyplansPackage.PROGRAMME__IN_UNIVERSITY:
+				return basicSetInUniversity(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case StudyplansPackage.PROGRAMME__IN_UNIVERSITY:
+				return eInternalContainer().eInverseRemove(this, StudyplansPackage.UNIVERSITY__PROGRAMMES, University.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -312,6 +377,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return basicGetSpecializationOf();
 			case StudyplansPackage.PROGRAMME__SEMESTERS:
 				return getSemesters();
+			case StudyplansPackage.PROGRAMME__IN_UNIVERSITY:
+				return getInUniversity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -342,6 +409,9 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				getSemesters().clear();
 				getSemesters().addAll((Collection<? extends Semester>)newValue);
 				return;
+			case StudyplansPackage.PROGRAMME__IN_UNIVERSITY:
+				setInUniversity((University)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -369,6 +439,9 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case StudyplansPackage.PROGRAMME__SEMESTERS:
 				getSemesters().clear();
 				return;
+			case StudyplansPackage.PROGRAMME__IN_UNIVERSITY:
+				setInUniversity((University)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -391,6 +464,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return specializationOf != null;
 			case StudyplansPackage.PROGRAMME__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
+			case StudyplansPackage.PROGRAMME__IN_UNIVERSITY:
+				return getInUniversity() != null;
 		}
 		return super.eIsSet(featureID);
 	}

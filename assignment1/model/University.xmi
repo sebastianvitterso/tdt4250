@@ -9,62 +9,715 @@
   <programmes
       code="MTDT"
       name="Datateknologi"
-      specializations="//@programmes.1 //@programmes.2">
+      specializations="//@programmes.1 //@programmes.4 //@programmes.5 //@programmes.8">
     <semesters>
       <courses
           mandatory="true"
-          groupId="1"
+          groupId="0"
           course="//@courses.0"/>
       <courses
-          groupId="2"
+          mandatory="true"
+          groupId="1"
           course="//@courses.1"/>
-      <openSlots
-          fromField="true"
-          credits="7.5">
-        <fields>it</fields>
-        <fields>el</fields>
-        <fields>math</fields>
-        <fields>philosophy</fields>
-      </openSlots>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.2"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.3"/>
     </semesters>
     <semesters
         number="1">
       <courses
           mandatory="true"
-          groupId="1"
-          course="//@courses.2"/>
+          groupId="0"
+          course="//@courses.4"/>
       <courses
+          mandatory="true"
           groupId="1"
-          course="//@courses.0"/>
+          course="//@courses.5"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.6"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.7"/>
+    </semesters>
+    <semesters
+        number="2">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.8"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.9"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.10"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.11"/>
+    </semesters>
+    <semesters
+        number="3">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.12"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.13"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.14"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.15"/>
     </semesters>
   </programmes>
   <programmes
       code="MTDTPS"
-      name="Programvare-systemer"
-      specializations="//@programmes.3"
+      name="Programvaresystemer"
+      specializations="//@programmes.2 //@programmes.3"
       specializationOf="//@programmes.0">
     <semesters
-        number="2">
+        number="4">
       <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.16"/>
+      <courses
+          mandatory="true"
           groupId="1"
-          course="//@courses.1"/>
+          course="//@courses.17"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.18"/>
+      <courses
+          groupId="3"
+          course="//@courses.20"/>
+      <courses
+          groupId="3"
+          course="//@courses.19"/>
+      <courses
+          groupId="3"
+          course="//@courses.21"/>
+      <courses
+          groupId="3"
+          course="//@courses.46"/>
     </semesters>
-  </programmes>
-  <programmes
-      code="MTDTAI"
-      name="AI"
-      specializationOf="//@programmes.0">
     <semesters
-        number="2">
+        number="5">
       <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.22"/>
+      <courses
+          mandatory="true"
           groupId="1"
-          course="//@courses.1"/>
+          course="//@courses.23"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.24"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.25"/>
     </semesters>
   </programmes>
   <programmes
       code="MTDTPSPU"
-      name="Programvare-utvikling"
-      specializationOf="//@programmes.1"/>
+      name="Programvareutvikling"
+      specializationOf="//@programmes.1">
+    <semesters
+        number="6">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.28"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.26"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="7">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.37"/>
+      <courses
+          groupId="1"
+          course="//@courses.51"/>
+      <courses
+          groupId="1"
+          course="//@courses.36"/>
+      <courses
+          groupId="2"
+          course="//@courses.38"/>
+      <courses
+          groupId="2"
+          course="//@courses.39"/>
+      <courses
+          groupId="2"
+          course="//@courses.58"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.40"/>
+    </semesters>
+    <semesters
+        number="8">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.41"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.42"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="9">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.45"/>
+    </semesters>
+  </programmes>
+  <programmes
+      code="MTDTPSPU"
+      name="Interaksjonsdesign og spillteknologi"
+      specializationOf="//@programmes.1">
+    <semesters
+        number="6">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.27"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.26"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="7">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.69"/>
+      <courses
+          groupId="1"
+          course="//@courses.51"/>
+      <courses
+          groupId="1"
+          course="//@courses.36"/>
+      <courses
+          groupId="2"
+          course="//@courses.38"/>
+      <courses
+          groupId="2"
+          course="//@courses.39"/>
+      <courses
+          groupId="2"
+          course="//@courses.58"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.40"/>
+    </semesters>
+    <semesters
+        number="8">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.41"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.42"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="9">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.45"/>
+    </semesters>
+  </programmes>
+  <programmes
+      code="MTDTAI"
+      name="Kunstig intelligens"
+      specializationOf="//@programmes.0">
+    <semesters
+        number="4">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.16"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.46"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.18"/>
+      <courses
+          groupId="3"
+          course="//@courses.20"/>
+      <courses
+          groupId="3"
+          course="//@courses.19"/>
+      <courses
+          groupId="3"
+          course="//@courses.21"/>
+      <courses
+          groupId="3"
+          course="//@courses.17"/>
+    </semesters>
+    <semesters
+        number="5">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.47"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.23"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.24"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.25"/>
+    </semesters>
+    <semesters
+        number="6">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.48"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.26"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="7">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.70"/>
+      <courses
+          groupId="1"
+          course="//@courses.49"/>
+      <courses
+          groupId="1"
+          course="//@courses.51"/>
+      <courses
+          groupId="2"
+          course="//@courses.38"/>
+      <courses
+          groupId="2"
+          course="//@courses.39"/>
+      <courses
+          groupId="2"
+          course="//@courses.58"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.40"/>
+    </semesters>
+    <semesters
+        number="8">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.41"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.42"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="9">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.45"/>
+    </semesters>
+  </programmes>
+  <programmes
+      code="MTDTPS"
+      name="Algoritmer og datamaskiner"
+      specializations="//@programmes.6 //@programmes.7"
+      specializationOf="//@programmes.0">
+    <semesters
+        number="4">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.16"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.59"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.18"/>
+      <courses
+          groupId="3"
+          course="//@courses.20"/>
+      <courses
+          groupId="3"
+          course="//@courses.19"/>
+      <courses
+          groupId="3"
+          course="//@courses.21"/>
+      <courses
+          groupId="3"
+          course="//@courses.46"/>
+    </semesters>
+    <semesters
+        number="5">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.22"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.60"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.24"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.25"/>
+    </semesters>
+  </programmes>
+  <programmes
+      code="MTDTPSPU"
+      name="Datamaskiner og systemprogramvare"
+      specializationOf="//@programmes.5">
+    <semesters
+        number="6">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.66"/>
+      <courses
+          groupId="1"
+          course="//@courses.26"/>
+      <courses
+          groupId="1"
+          course="//@courses.61"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="7">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.65"/>
+      <courses
+          groupId="1"
+          course="//@courses.63"/>
+      <courses
+          groupId="1"
+          course="//@courses.64"/>
+      <courses
+          groupId="1"
+          course="//@courses.36"/>
+      <courses
+          groupId="2"
+          course="//@courses.38"/>
+      <courses
+          groupId="2"
+          course="//@courses.39"/>
+      <courses
+          groupId="2"
+          course="//@courses.58"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.40"/>
+    </semesters>
+    <semesters
+        number="8">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.41"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.42"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="9">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.45"/>
+    </semesters>
+  </programmes>
+  <programmes
+      code="MTDTPSPU"
+      name="Algoritmer og HPC"
+      specializationOf="//@programmes.5">
+    <semesters
+        number="6">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.62"/>
+      <courses
+          groupId="1"
+          course="//@courses.26"/>
+      <courses
+          groupId="1"
+          course="//@courses.61"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="7">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.63"/>
+      <courses
+          groupId="1"
+          course="//@courses.65"/>
+      <courses
+          groupId="1"
+          course="//@courses.64"/>
+      <courses
+          groupId="1"
+          course="//@courses.36"/>
+      <courses
+          groupId="2"
+          course="//@courses.38"/>
+      <courses
+          groupId="2"
+          course="//@courses.39"/>
+      <courses
+          groupId="2"
+          course="//@courses.58"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.40"/>
+    </semesters>
+    <semesters
+        number="8">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.41"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.42"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="9">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.45"/>
+    </semesters>
+  </programmes>
+  <programmes
+      code="MTDTAI"
+      name="Databaser og søk"
+      specializationOf="//@programmes.0">
+    <semesters
+        number="4">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.16"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.19"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.18"/>
+      <courses
+          groupId="3"
+          course="//@courses.46"/>
+      <courses
+          groupId="3"
+          course="//@courses.20"/>
+      <courses
+          groupId="3"
+          course="//@courses.21"/>
+      <courses
+          groupId="3"
+          course="//@courses.17"/>
+    </semesters>
+    <semesters
+        number="5">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.47"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.53"/>
+      <courses
+          mandatory="true"
+          groupId="2"
+          course="//@courses.24"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.25"/>
+    </semesters>
+    <semesters
+        number="6">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.54"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.26"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="7">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.55"/>
+      <courses
+          groupId="1"
+          course="//@courses.56"/>
+      <courses
+          groupId="1"
+          course="//@courses.51"/>
+      <courses
+          groupId="1"
+          course="//@courses.57"/>
+      <courses
+          groupId="1"
+          course="//@courses.58"/>
+      <courses
+          groupId="2"
+          course="//@courses.38"/>
+      <courses
+          groupId="2"
+          course="//@courses.39"/>
+      <courses
+          groupId="2"
+          course="//@courses.58"/>
+      <courses
+          mandatory="true"
+          groupId="3"
+          course="//@courses.40"/>
+    </semesters>
+    <semesters
+        number="8">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.41"/>
+      <courses
+          mandatory="true"
+          groupId="1"
+          course="//@courses.42"/>
+      <openSlots
+          level="1"
+          credits="7.5">
+        <fields>it</fields>
+      </openSlots>
+    </semesters>
+    <semesters
+        number="9">
+      <courses
+          mandatory="true"
+          groupId="0"
+          course="//@courses.45"/>
+    </semesters>
+  </programmes>
   <courses code="TMA4100"
       name="Matte 1"
       credits="7.5"
@@ -105,21 +758,260 @@
   <courses code="TDT4113"
       name="Datateknologi, programmeringsprosjekt"
       credits="7.5"
-      level="1"/>
+      level="2"/>
   <courses code="TDT4120"
-      name="Programmeringslab for datateknologi"
+      name="Algoritmer og datastrukturer"
+      credits="7.5"
+      level="2"/>
+  <courses code="TDT4160"
+      name="Datamaskiner og digitalteknikk"
+      credits="7.5"
+      level="2"/>
+  <courses code="TMA4240"
+      name="Statistikk"
+      credits="7.5"
+      level="2"/>
+  <courses code="TDT4140"
+      name="Programvareutvikling"
+      credits="7.5"
+      level="2"/>
+  <courses code="TDT4145"
+      name="Datamodellering og databasesystemer"
+      credits="7.5"
+      level="2"/>
+  <courses code="TDT4180"
+      name="Menneskemaskin-interaksjon"
+      credits="7.5"
+      level="2"/>
+  <courses code="TTM4100"
+      name="Kommunikasjon - Tjenester og nett"
+      credits="7.5"
+      level="2"/>
+  <courses code="TDT4136"
+      name="Introduksjon til kunstig intelligens"
+      credits="7.5"
+      level="3"/>
+  <courses code="TDT4175"
+      name="Informasjonssystemer"
+      credits="7.5"
+      level="3"/>
+  <courses code="TMA4135"
+      name="Matematikk 4D"
+      credits="7.5"
+      level="3"
+      field="math"/>
+  <courses code="TDT4117"
+      name="Informasjonsgjenfinning"
+      credits="7.5"
+      level="3"/>
+  <courses code="IT2810"
+      name="Webutvikling"
       credits="7.5"
       level="1"/>
-  <courses code="TDT4112"
-      name="Programmeringslab for datateknologi"
+  <courses code="TDT4165"
+      name="Programmeringsspråk"
       credits="7.5"
-      level="1"/>
-  <courses code="TDT4112"
-      name="Programmeringslab for datateknologi"
+      level="3"/>
+  <courses code="TDT4186"
+      name="Operativsystemer"
       credits="7.5"
-      level="1"/>
-  <courses code="TDT4112"
-      name="Programmeringslab for datateknologi"
+      level="3"/>
+  <courses code="TDT4240"
+      name="Programvarearkitektur"
       credits="7.5"
-      level="1"/>
+      level="3"/>
+  <courses code="TFY4125"
+      name="Fysikk"
+      credits="7.5"
+      level="3"
+      field="science"/>
+  <courses code="IT2810"
+      name="Teknologiledelse"
+      credits="7.5"
+      level="3"
+      field="eco"/>
+  <courses code="TDT4290"
+      name="Kundestyrt prosjekt"
+      credits="15.0"
+      level="4"/>
+  <courses code="IT3402"
+      name="Design av grafiske brukergrensesnitt"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4250"
+      name="Avansert programvaredesign"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4252"
+      name="Virksomhets-arkitektur og -innovasjon"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4259"
+      name="Anvendt data science"
+      credits="7.5"
+      level="4"/>
+  <courses code="TIO4201"
+      name="Risikohåndtering, Samfunnssikkerhet og kritisk infrastruktur"
+      credits="7.5"
+      level="2"/>
+  <courses code="TTM4165"
+      name="Digital økonomi"
+      credits="7.5"
+      level="2"/>
+  <courses code="POL2019"
+      name="Øst-Asia: Internasjonal politikk"
+      credits="7.5"
+      level="2"
+      field="culture"/>
+  <courses code="TDT4290"
+      name="Kundestyrt prosjekt"
+      credits="7.5"
+      level="4"/>
+  <courses code="IT3022"
+      name="Deltagende design"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4237"
+      name="Programvaresikkerhet og personvern"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4242"
+      name="Avansert programvareutvikling"
+      credits="7.5"
+      level="4"/>
+  <courses code="MEDT4165"
+      name="Signalbehandling i ultralyd-avbildning"
+      credits="7.5"
+      level="4"/>
+  <courses code="TMA4105"
+      name="Matematikk 2"
+      credits="7.5"
+      level="4"
+      field="el"/>
+  <courses code="EIT4000"
+      name="Eksperter i team"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4501"
+      name="Datateknologi, fordypningsprosjekt"
+      credits="15.0"
+      level="5"/>
+  <courses code="TDT4506"
+      name="Datateknologi, fordypningsemne"
+      credits="7.5"
+      level="5"/>
+  <courses code="TDT4501"
+      name="Operasjonsanalyse, grunnkurs"
+      credits="7.5"
+      level="3"
+      field="eco"/>
+  <courses code="TDT4501"
+      name="Finans for teknisk-naturvitenskapelige studenter"
+      credits="7.5"
+      level="3"
+      field="eco"/>
+  <courses code="TDT4900"
+      name="Datateknologi, masteroppgave"
+      credits="30.0"
+      level="5"/>
+  <courses code="TDT4137"
+      name="Kognitive arkitekturer"
+      credits="7.5"
+      level="3"/>
+  <courses code="TDT4171"
+      name="Metoder i kunstig intelligens"
+      credits="7.5"
+      level="3"/>
+  <courses code="TDT4173"
+      name="Maskinlæring"
+      credits="7.5"
+      level="4"/>
+  <courses code="IT3708"
+      name="Bio-inspirert kunstig intelligens"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4265"
+      name="Datasyn og dyp læring"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4215"
+      name="Anbefalingssystemer"
+      credits="7.5"
+      level="4"/>
+  <courses code="IT3030"
+      name="Dyp læring"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4300"
+      name="Datavarehus og datagruvedrift"
+      credits="7.5"
+      level="3"/>
+  <courses code="TDT4225"
+      name="Store, distribuerte datamengder"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4305"
+      name="Big Data-arkitektur"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4150"
+      name="Avanserte databasesystemer"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4310"
+      name="Intelligent tekstanalyse og språkforståelse"
+      credits="7.5"
+      level="4"/>
+  <courses code="TTM4135"
+      name="Anvendt kryptografi og nettverksikkerhet"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4258"
+      name="Maskinnær programmering"
+      credits="7.5"
+      level="3"/>
+  <courses code="TDT4205"
+      name="Kompilatorteknikk"
+      credits="7.5"
+      level="3"/>
+  <courses code="TDT4295"
+      name="Datamaskinprosjekt"
+      credits="15.0"
+      level="4"/>
+  <courses code="TDT4200"
+      name="Parallelle beregninger"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4125"
+      name="Algoritmekonstruksjon"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4230"
+      name="Grafikk og visualisering"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4260"
+      name="Datamaskinarkitektur"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4255"
+      name="Datamaskinkonstruksjon"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4265"
+      name="Datasyn og dyp læring"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4195"
+      name="Grunnleggende visuell databehandling"
+      credits="7.5"
+      level="4"/>
+  <courses code="TDT4245"
+      name="Samhandlingsteknologi og sosiale medier"
+      credits="7.5"
+      level="4"/>
+  <courses code="IT3105"
+      name="Kunstig intelligens programmering"
+      credits="7.5"
+      level="4"/>
 </studyplans:University>

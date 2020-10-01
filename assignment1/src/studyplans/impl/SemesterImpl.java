@@ -16,10 +16,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import studyplans.AvailableCourse;
 import studyplans.OpenSlot;
+import studyplans.Programme;
 import studyplans.Semester;
 import studyplans.StudyplansPackage;
 
@@ -35,6 +37,7 @@ import studyplans.StudyplansPackage;
  *   <li>{@link studyplans.impl.SemesterImpl#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyplans.impl.SemesterImpl#getOpenSlots <em>Open Slots</em>}</li>
  *   <li>{@link studyplans.impl.SemesterImpl#getCredits <em>Credits</em>}</li>
+ *   <li>{@link studyplans.impl.SemesterImpl#getInProgramme <em>In Programme</em>}</li>
  * </ul>
  *
  * @generated
@@ -175,6 +178,63 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Programme getInProgramme() {
+		if (eContainerFeatureID() != StudyplansPackage.SEMESTER__IN_PROGRAMME) return null;
+		return (Programme)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInProgramme(Programme newInProgramme, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newInProgramme, StudyplansPackage.SEMESTER__IN_PROGRAMME, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInProgramme(Programme newInProgramme) {
+		if (newInProgramme != eInternalContainer() || (eContainerFeatureID() != StudyplansPackage.SEMESTER__IN_PROGRAMME && newInProgramme != null)) {
+			if (EcoreUtil.isAncestor(this, newInProgramme))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newInProgramme != null)
+				msgs = ((InternalEObject)newInProgramme).eInverseAdd(this, StudyplansPackage.PROGRAMME__SEMESTERS, Programme.class, msgs);
+			msgs = basicSetInProgramme(newInProgramme, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyplansPackage.SEMESTER__IN_PROGRAMME, newInProgramme, newInProgramme));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case StudyplansPackage.SEMESTER__IN_PROGRAMME:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetInProgramme((Programme)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -182,8 +242,24 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return ((InternalEList<?>)getCourses()).basicRemove(otherEnd, msgs);
 			case StudyplansPackage.SEMESTER__OPEN_SLOTS:
 				return ((InternalEList<?>)getOpenSlots()).basicRemove(otherEnd, msgs);
+			case StudyplansPackage.SEMESTER__IN_PROGRAMME:
+				return basicSetInProgramme(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case StudyplansPackage.SEMESTER__IN_PROGRAMME:
+				return eInternalContainer().eInverseRemove(this, StudyplansPackage.PROGRAMME__SEMESTERS, Programme.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -202,6 +278,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return getOpenSlots();
 			case StudyplansPackage.SEMESTER__CREDITS:
 				return getCredits();
+			case StudyplansPackage.SEMESTER__IN_PROGRAMME:
+				return getInProgramme();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,6 +304,9 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				getOpenSlots().clear();
 				getOpenSlots().addAll((Collection<? extends OpenSlot>)newValue);
 				return;
+			case StudyplansPackage.SEMESTER__IN_PROGRAMME:
+				setInProgramme((Programme)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -247,6 +328,9 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 			case StudyplansPackage.SEMESTER__OPEN_SLOTS:
 				getOpenSlots().clear();
 				return;
+			case StudyplansPackage.SEMESTER__IN_PROGRAMME:
+				setInProgramme((Programme)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -267,6 +351,8 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return openSlots != null && !openSlots.isEmpty();
 			case StudyplansPackage.SEMESTER__CREDITS:
 				return getCredits() != CREDITS_EDEFAULT;
+			case StudyplansPackage.SEMESTER__IN_PROGRAMME:
+				return getInProgramme() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link studyplans.Programme#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link studyplans.Programme#getSpecializationOf <em>Specialization Of</em>}</li>
  *   <li>{@link studyplans.Programme#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link studyplans.Programme#getInUniversity <em>In University</em>}</li>
  * </ul>
  *
  * @see studyplans.StudyplansPackage#getProgramme()
@@ -112,13 +113,39 @@ public interface Programme extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
 	 * The list contents are of type {@link studyplans.Semester}.
+	 * It is bidirectional and its opposite is '{@link studyplans.Semester#getInProgramme <em>In Programme</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Semesters</em>' containment reference list.
 	 * @see studyplans.StudyplansPackage#getProgramme_Semesters()
-	 * @model containment="true" required="true" upper="10"
+	 * @see studyplans.Semester#getInProgramme
+	 * @model opposite="inProgramme" containment="true" required="true" upper="10"
 	 * @generated
 	 */
 	EList<Semester> getSemesters();
+
+	/**
+	 * Returns the value of the '<em><b>In University</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link studyplans.University#getProgrammes <em>Programmes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In University</em>' container reference.
+	 * @see #setInUniversity(University)
+	 * @see studyplans.StudyplansPackage#getProgramme_InUniversity()
+	 * @see studyplans.University#getProgrammes
+	 * @model opposite="programmes" transient="false"
+	 * @generated
+	 */
+	University getInUniversity();
+
+	/**
+	 * Sets the value of the '{@link studyplans.Programme#getInUniversity <em>In University</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In University</em>' container reference.
+	 * @see #getInUniversity()
+	 * @generated
+	 */
+	void setInUniversity(University value);
 
 } // Programme

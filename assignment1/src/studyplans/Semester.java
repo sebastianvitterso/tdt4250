@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link studyplans.Semester#getCourses <em>Courses</em>}</li>
  *   <li>{@link studyplans.Semester#getOpenSlots <em>Open Slots</em>}</li>
  *   <li>{@link studyplans.Semester#getCredits <em>Credits</em>}</li>
+ *   <li>{@link studyplans.Semester#getInProgramme <em>In Programme</em>}</li>
  * </ul>
  *
  * @see studyplans.StudyplansPackage#getSemester()
@@ -82,5 +83,29 @@ public interface Semester extends EObject {
 	 * @generated
 	 */
 	float getCredits();
+
+	/**
+	 * Returns the value of the '<em><b>In Programme</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link studyplans.Programme#getSemesters <em>Semesters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Programme</em>' container reference.
+	 * @see #setInProgramme(Programme)
+	 * @see studyplans.StudyplansPackage#getSemester_InProgramme()
+	 * @see studyplans.Programme#getSemesters
+	 * @model opposite="semesters" transient="false"
+	 * @generated
+	 */
+	Programme getInProgramme();
+
+	/**
+	 * Sets the value of the '{@link studyplans.Semester#getInProgramme <em>In Programme</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Programme</em>' container reference.
+	 * @see #getInProgramme()
+	 * @generated
+	 */
+	void setInProgramme(Programme value);
 
 } // Semester

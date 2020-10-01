@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import studyplans.Course;
@@ -126,7 +127,7 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 	 */
 	public EList<Programme> getProgrammes() {
 		if (programmes == null) {
-			programmes = new EObjectContainmentEList<Programme>(Programme.class, this, StudyplansPackage.UNIVERSITY__PROGRAMMES);
+			programmes = new EObjectContainmentWithInverseEList<Programme>(Programme.class, this, StudyplansPackage.UNIVERSITY__PROGRAMMES, StudyplansPackage.PROGRAMME__IN_UNIVERSITY);
 		}
 		return programmes;
 	}
@@ -141,6 +142,21 @@ public class UniversityImpl extends MinimalEObjectImpl.Container implements Univ
 			courses = new EObjectContainmentEList<Course>(Course.class, this, StudyplansPackage.UNIVERSITY__COURSES);
 		}
 		return courses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case StudyplansPackage.UNIVERSITY__PROGRAMMES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProgrammes()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

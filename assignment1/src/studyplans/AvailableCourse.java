@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see studyplans.StudyplansPackage#getAvailableCourse()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='mandatoryAloneInGroup'"
- *        annotation="http://www.eclipse.org/acceleo/query/1.0 mandatoryAloneInGroup='aql:self-&gt;select(a | a.mandatory).eContainer().eContents()-&gt;select( c | c.groupId = self.groupId and c != self)-&gt;size() = 0'"
+ *        annotation="http://www.eclipse.org/acceleo/query/1.0 mandatoryAloneInGroup='self.eContainer().courses-&gt;select(c | self.mandatory and c.groupId = self.groupId and c != self)-&gt;size() = 0'"
  * @generated
  */
 public interface AvailableCourse extends EObject {

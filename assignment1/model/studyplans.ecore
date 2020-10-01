@@ -75,5 +75,9 @@
     <eLiterals name="el" value="1"/>
     <eLiterals name="math" value="2"/>
     <eLiterals name="philosophy" value="3"/>
+    <eLiterals name="science" value="4"/>
+    <eLiterals name="eco" value="5"/>
+    <eLiterals name="lang" value="6"/>
+    <eLiterals name="culture" value="7"/>
   </eClassifiers>
 </ecore:EPackage>

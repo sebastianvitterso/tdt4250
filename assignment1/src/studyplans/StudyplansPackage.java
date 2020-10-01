@@ -170,13 +170,22 @@ public interface StudyplansPackage extends EPackage {
 	int PROGRAMME__SEMESTERS = 4;
 
 	/**
+	 * The feature id for the '<em><b>In University</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME__IN_UNIVERSITY = 5;
+
+	/**
 	 * The number of structural features of the '<em>Programme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAMME_FEATURE_COUNT = 5;
+	int PROGRAMME_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Programme</em>' class.
@@ -234,13 +243,22 @@ public interface StudyplansPackage extends EPackage {
 	int SEMESTER__CREDITS = 3;
 
 	/**
+	 * The feature id for the '<em><b>In Programme</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMESTER__IN_PROGRAMME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Semester</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMESTER_FEATURE_COUNT = 4;
+	int SEMESTER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Semester</em>' class.
@@ -573,6 +591,17 @@ public interface StudyplansPackage extends EPackage {
 	EReference getProgramme_Semesters();
 
 	/**
+	 * Returns the meta object for the container reference '{@link studyplans.Programme#getInUniversity <em>In University</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>In University</em>'.
+	 * @see studyplans.Programme#getInUniversity()
+	 * @see #getProgramme()
+	 * @generated
+	 */
+	EReference getProgramme_InUniversity();
+
+	/**
 	 * Returns the meta object for class '{@link studyplans.Semester <em>Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -625,6 +654,17 @@ public interface StudyplansPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSemester_Credits();
+
+	/**
+	 * Returns the meta object for the container reference '{@link studyplans.Semester#getInProgramme <em>In Programme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>In Programme</em>'.
+	 * @see studyplans.Semester#getInProgramme()
+	 * @see #getSemester()
+	 * @generated
+	 */
+	EReference getSemester_InProgramme();
 
 	/**
 	 * Returns the meta object for class '{@link studyplans.AvailableCourse <em>Available Course</em>}'.
@@ -805,7 +845,7 @@ public interface StudyplansPackage extends EPackage {
 	 * @return the meta object for data type '<em>Course Code</em>'.
 	 * @see java.lang.String
 	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="pattern='[A-Z]{2,3}[0-9]{4}'"
+	 *        extendedMetaData="pattern='[A-Z]{2,4}[0-9]{4}'"
 	 * @generated
 	 */
 	EDataType getCourseCode();
@@ -918,6 +958,14 @@ public interface StudyplansPackage extends EPackage {
 		EReference PROGRAMME__SEMESTERS = eINSTANCE.getProgramme_Semesters();
 
 		/**
+		 * The meta object literal for the '<em><b>In University</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAMME__IN_UNIVERSITY = eINSTANCE.getProgramme_InUniversity();
+
+		/**
 		 * The meta object literal for the '{@link studyplans.impl.SemesterImpl <em>Semester</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -958,6 +1006,14 @@ public interface StudyplansPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SEMESTER__CREDITS = eINSTANCE.getSemester_Credits();
+
+		/**
+		 * The meta object literal for the '<em><b>In Programme</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMESTER__IN_PROGRAMME = eINSTANCE.getSemester_InProgramme();
 
 		/**
 		 * The meta object literal for the '{@link studyplans.impl.AvailableCourseImpl <em>Available Course</em>}' class.

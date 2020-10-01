@@ -50,11 +50,13 @@ public interface University extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Programmes</b></em>' containment reference list.
 	 * The list contents are of type {@link studyplans.Programme}.
+	 * It is bidirectional and its opposite is '{@link studyplans.Programme#getInUniversity <em>In University</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Programmes</em>' containment reference list.
 	 * @see studyplans.StudyplansPackage#getUniversity_Programmes()
-	 * @model containment="true"
+	 * @see studyplans.Programme#getInUniversity
+	 * @model opposite="inUniversity" containment="true"
 	 * @generated
 	 */
 	EList<Programme> getProgrammes();

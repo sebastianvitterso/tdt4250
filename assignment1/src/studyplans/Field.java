@@ -56,7 +56,39 @@ public enum Field implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHILOSOPHY(3, "philosophy", "philosophy");
+	PHILOSOPHY(3, "philosophy", "philosophy"), /**
+	 * The '<em><b>Science</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SCIENCE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SCIENCE(4, "science", "science"), /**
+	 * The '<em><b>Eco</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ECO_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ECO(5, "eco", "eco"), /**
+	 * The '<em><b>Lang</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LANG_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	LANG(6, "lang", "lang"), /**
+	 * The '<em><b>Culture</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CULTURE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CULTURE(7, "culture", "culture");
 
 	/**
 	 * The '<em><b>It</b></em>' literal value.
@@ -103,6 +135,50 @@ public enum Field implements Enumerator {
 	public static final int PHILOSOPHY_VALUE = 3;
 
 	/**
+	 * The '<em><b>Science</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SCIENCE
+	 * @model name="science"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SCIENCE_VALUE = 4;
+
+	/**
+	 * The '<em><b>Eco</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ECO
+	 * @model name="eco"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ECO_VALUE = 5;
+
+	/**
+	 * The '<em><b>Lang</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LANG
+	 * @model name="lang"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LANG_VALUE = 6;
+
+	/**
+	 * The '<em><b>Culture</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CULTURE
+	 * @model name="culture"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CULTURE_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Field</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,6 +190,10 @@ public enum Field implements Enumerator {
 			EL,
 			MATH,
 			PHILOSOPHY,
+			SCIENCE,
+			ECO,
+			LANG,
+			CULTURE,
 		};
 
 	/**
@@ -174,6 +254,10 @@ public enum Field implements Enumerator {
 			case EL_VALUE: return EL;
 			case MATH_VALUE: return MATH;
 			case PHILOSOPHY_VALUE: return PHILOSOPHY;
+			case SCIENCE_VALUE: return SCIENCE;
+			case ECO_VALUE: return ECO;
+			case LANG_VALUE: return LANG;
+			case CULTURE_VALUE: return CULTURE;
 		}
 		return null;
 	}
