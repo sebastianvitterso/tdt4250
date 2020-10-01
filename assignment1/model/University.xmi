@@ -18,6 +18,14 @@
       <courses
           groupId="2"
           course="//@courses.1"/>
+      <openSlots
+          fromField="true"
+          credits="7.5">
+        <fields>it</fields>
+        <fields>el</fields>
+        <fields>math</fields>
+        <fields>philosophy</fields>
+      </openSlots>
     </semesters>
     <semesters
         number="1">
@@ -66,6 +74,52 @@
       name="ITGK"
       credits="7.5"
       level="1"/>
-  <courses code="AAE5321"
-      name="Fotball"/>
+  <courses code="EXPH0004"
+      name="Exphil"
+      credits="7.5"
+      level="1"
+      field="philosophy"/>
+  <courses code="TMA4140"
+      name="Diskret matematikk"
+      credits="7.5"
+      level="1"
+      field="math"/>
+  <courses code="TDT4100"
+      name="Objektorientert programmering"
+      credits="7.5"
+      level="1"/>
+  <courses code="TDT4112"
+      name="Programmeringslab for datateknologi"
+      credits="7.5"
+      level="1"/>
+  <courses code="TFE4101"
+      name="Krets- og digitalteknikk"
+      credits="7.5"
+      level="1"
+      field="el"/>
+  <courses code="TMA4115"
+      name="Matematikk 3"
+      credits="7.5"
+      level="1"
+      field="math"/>
+  <courses code="TDT4113"
+      name="Datateknologi, programmeringsprosjekt"
+      credits="7.5"
+      level="1"/>
+  <courses code="TDT4120"
+      name="Programmeringslab for datateknologi"
+      credits="7.5"
+      level="1"/>
+  <courses code="TDT4112"
+      name="Programmeringslab for datateknologi"
+      credits="7.5"
+      level="1"/>
+  <courses code="TDT4112"
+      name="Programmeringslab for datateknologi"
+      credits="7.5"
+      level="1"/>
+  <courses code="TDT4112"
+      name="Programmeringslab for datateknologi"
+      credits="7.5"
+      level="1"/>
 </studyplans:University>

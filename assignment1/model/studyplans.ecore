@@ -8,7 +8,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="University">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="programmes" upperBound="-1"
-        eType="#//Programme" containment="true"/>
+        eType="#//Programme" containment="true" eOpposite="#//Programme/inUniversity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
         eType="#//Course" containment="true"/>
   </eClassifiers>
@@ -20,7 +20,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializationOf" eType="#//Programme"
         eOpposite="#//Programme/specializations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" lowerBound="1"
-        upperBound="10" eType="#//Semester" containment="true"/>
+        upperBound="10" eType="#//Semester" containment="true" eOpposite="#//Semester/inProgramme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inUniversity" eType="#//University"
+        eOpposite="#//University/programmes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Semester">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -33,6 +35,8 @@
         eType="#//OpenSlot" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inProgramme" eType="#//Programme"
+        eOpposite="#//Programme/semesters"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AvailableCourse">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -63,7 +67,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="CourseCode" instanceClassName="java.lang.String">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="pattern" value="[A-Z]{2,3}[0-9]{4}"/>
+      <details key="pattern" value="[A-Z]{2,4}[0-9]{4}"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Field">

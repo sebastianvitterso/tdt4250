@@ -68,6 +68,16 @@
 					<td>[if avCourse.mandatory] Yes [else] No [/if] </td>
 				</tr>
 				[/for]
+				[if semester.openSlots <> null]
+				[for (course : Course| semester.inProgramme.inUniversity.courses )]
+				<tr>
+					<td>[course.code/]</td>
+					<td>[course.name/]</td>
+					<td>[course.credits/]</td>
+					<td>No</td>
+				</tr>
+				[/for]
+				[/if]
 			</tbody>
 			</table>
 	</div>
