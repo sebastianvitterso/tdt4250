@@ -33,7 +33,7 @@
 <h1 class="mt-4 [if level = 1]display-3[/if]">  [ programme.name /] ([ programme.code /])  </h1>
 [for (semester : Semester | programme.semesters)]
 <br/>
-<h5>Semester [semester.number + 1/]: </h5>
+<h5>Semester [semester.number + 1/] ([semester.credits /]): </h5>
 [generateSemester(semester)/]
 [/for]
 [for (child : Programme | programme.specializations)]

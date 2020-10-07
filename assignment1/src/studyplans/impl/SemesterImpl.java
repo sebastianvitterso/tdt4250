@@ -163,7 +163,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated NOT
 	 */
 	public float getCredits() {
-		float sum = 0;
+		float sum = 0.0f;
 		for (AvailableCourse availableCourse : getCourses()) {
 			sum += availableCourse.getCourse().getCredits();
 		}
