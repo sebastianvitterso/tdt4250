@@ -75,11 +75,12 @@ public interface Semester extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Credits</b></em>' attribute.
+	 * The default value is <code>"30"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Credits</em>' attribute.
 	 * @see studyplans.StudyplansPackage#getSemester_Credits()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model default="30" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	float getCredits();
