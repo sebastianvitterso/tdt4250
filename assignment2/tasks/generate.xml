@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="assignment2">
-    <property name="ECLIPSE_HOME" value="../../../../../eclipse/dsl-2020-06/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../eclipse-workspace"/>
+    <property name="ECLIPSE_HOME" value="../../../../eclipse/dsl-2020-09/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../eclipse-workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="assignment2.libraryclasspath">
