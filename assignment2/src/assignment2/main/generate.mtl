@@ -67,8 +67,8 @@
 			[/for]
 			[if semester.openSlots->size() > 0]
 [comment] To be fixed[/comment]
-[comment]			[for (course : Course | getOpenSlotCourses(semester) )][/comment]
-			[for (course : Course | semester.inProgramme.inUniversity.courses )]
+			[for (course : Course | getOpenSlotCourses(semester) )]
+[comment]			[for (course : Course | semester.inProgramme.inUniversity.courses )][/comment]
 			<tr>
 				<td>
 					<a href="https://www.ntnu.no/studier/emner/[course.code/]/2016#tab=omEmnet">[course.code/]</a>
