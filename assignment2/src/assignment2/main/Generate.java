@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 /**
  * Entry point of the 'Generate' generation module.
@@ -335,13 +336,16 @@ public class Generate extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
         if (!isInWorkspace(org.eclipse.emf.ecore.EcorePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.emf.ecore.EcorePackage.eINSTANCE.getNsURI(), org.eclipse.emf.ecore.EcorePackage.eINSTANCE);
+        }
+        if (!isInWorkspace(studyplans.StudyplansPackage.class)) {
+        	resourceSet.getPackageRegistry().put(studyplans.StudyplansPackage.eINSTANCE.getNsURI(), studyplans.StudyplansPackage.eINSTANCE);
         }
         
         /*
@@ -382,7 +386,7 @@ public class Generate extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
@@ -403,7 +407,7 @@ public class Generate extends AbstractAcceleoGenerator {
          * To learn more about the registration of Resource Factories, have a look at the Acceleo documentation (Help -> Help Contents). 
          */ 
         
-        // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(XyzResource.FILE_EXTENSION, XyzResource.Factory.INSTANCE);
+         resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(".xmi", new XMIResourceFactoryImpl());
         
         /*
          * Some metamodels require a very complex setup for standalone usage. For example, if you want to use a generator
