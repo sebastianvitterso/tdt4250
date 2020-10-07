@@ -91,7 +91,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float CREDITS_EDEFAULT = 30.0F;
+	protected static final float CREDITS_EDEFAULT = 5.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
