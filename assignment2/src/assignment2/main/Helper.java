@@ -1,5 +1,8 @@
 package assignment2.main;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.ocl.ecore.OrderedSetType;
@@ -17,7 +20,7 @@ public class Helper {
 		return str.repeat(num);
 	}
 	
-	public EList<Course> getOpenSlotCourses(Semester semester) {
+	public Collection<Course> getOpenSlotCourses(Semester semester) {
 		EList<OpenSlot> slots = semester.getOpenSlots();
 
 		EList<Field> acceptedFields = new EObjectContainmentEList<Field>(Field.class, null, StudyplansPackage.FIELD);
@@ -27,12 +30,12 @@ public class Helper {
 		}
 		
 		
-		EList<Course> courses = new EObjectContainmentEList<Course>(Course.class, null, StudyplansPackage.COURSE);
+		Collection<Course> courses = new EObjectContainmentEList<Course>(Course.class, null, StudyplansPackage.COURSE);
 		
 		EList<Course> allCourses = semester.getInProgramme().getInUniversity().getCourses();
 		
 		for (Course course : allCourses) {
-			if(acceptedFields.contains(course.getField())) {
+			if(!acceptedFields.contains(course.getField())) {
 				courses.add(course);
 			}
 		}

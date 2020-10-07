@@ -33,7 +33,7 @@
 <h1 class="mt-4 [if level = 1]display-3[/if]">  [ programme.name /] ([ programme.code /])  </h1>
 [for (semester : Semester | programme.semesters)]
 <br/>
-<h5>Semester [semester.number + 1/] ([semester.credits /]): </h5>
+<h5>Semester [semester.number + 1/] ([semester.credits /] credits): </h5>
 [generateSemester(semester)/]
 [/for]
 [for (child : Programme | programme.specializations)]
@@ -66,7 +66,7 @@
 			</tr>
 			[/for]
 			[if semester.openSlots->size() > 0]
-			[for (course : Course | semester.inProgramme.inUniversity.courses )]
+			[for (course : Course | getOpenSlotCourses(semester) )]
 			<tr>
 				<td>
 					<a href="https://www.ntnu.no/studier/emner/[course.code/]/2016#tab=omEmnet">[course.code/]</a>
@@ -87,6 +87,6 @@
 	invoke('assignment2.main.Helper', 'repeatString(java.lang.String, int)',  Sequence{str, repetitions})
 /]
 
-[query public getOpenSlotCourses(semester : Semester) : OrderedSet(Semester) = 
-	invoke('assignment2.main.Helper', 'getOpenSlotCourses(java.lang.String, int)',  Sequence{semester})
+[query public getOpenSlotCourses(semester : Semester) : Collection(Course) = 
+	invoke('assignment2.main.Helper', 'getOpenSlotCourses(studyplans.Semester)',  Sequence{semester})
 /]
