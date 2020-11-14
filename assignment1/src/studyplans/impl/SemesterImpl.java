@@ -2,7 +2,9 @@
  */
 package studyplans.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -91,7 +93,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float CREDITS_EDEFAULT = 0.0F;
+	protected static final float CREDITS_EDEFAULT = 5.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,9 +165,15 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated NOT
 	 */
 	public float getCredits() {
-		float sum = 0;
+		float sum = 0.0f;
+		List<String> usedIds = new ArrayList<String>();
 		for (AvailableCourse availableCourse : getCourses()) {
-			sum += availableCourse.getCourse().getCredits();
+			if(!usedIds.contains(availableCourse.getGroupId())) {
+				sum += availableCourse.getCourse().getCredits();
+				if(availableCourse.getGroupId() != null) {
+					usedIds.add(availableCourse.getGroupId());
+				}
+			}
 		}
 		for (OpenSlot openSlot : getOpenSlots()) {
 			sum += openSlot.getCredits();

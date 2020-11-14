@@ -1,5 +1,10 @@
 package assignment2.main;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.ocl.ecore.OrderedSetType;
@@ -17,17 +22,24 @@ public class Helper {
 		return str.repeat(num);
 	}
 	
-	public EList<Course> getOpenSlotCourses(Semester semester) {
+	public Collection<Course> getOpenSlotCourses(Semester semester) {
 		EList<OpenSlot> slots = semester.getOpenSlots();
 
-		EList<Field> acceptedFields = new EObjectContainmentEList<Field>(Field.class, null, StudyplansPackage.FIELD);
-		
+		Collection<Field> acceptedFields = new java.util.ArrayList<Field>();
+		Collection<Field> allFields = Arrays.asList(Field.values()); 
 		for (OpenSlot openSlot : slots) {
-			acceptedFields.addAll(openSlot.getFields());
+			if (openSlot.isFromField()) {
+				acceptedFields.addAll(openSlot.getFields());
+			} else {
+				acceptedFields.addAll(
+					allFields.stream()
+						.filter(fld -> !openSlot.getFields().contains(fld))
+						.collect(Collectors.toList())
+				);
+			}
 		}
 		
-		
-		EList<Course> courses = new EObjectContainmentEList<Course>(Course.class, null, StudyplansPackage.COURSE);
+		Collection<Course> courses = new java.util.ArrayList<Course>();
 		
 		EList<Course> allCourses = semester.getInProgramme().getInUniversity().getCourses();
 		
@@ -36,7 +48,6 @@ public class Helper {
 				courses.add(course);
 			}
 		}
-		
 		
 		return courses;
 	}

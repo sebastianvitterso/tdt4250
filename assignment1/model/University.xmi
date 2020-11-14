@@ -154,8 +154,10 @@
           course="//@courses.26"/>
       <openSlots
           level="1"
+          fromField="true"
           credits="7.5">
-        <fields>it</fields>
+        <fields>math</fields>
+        <fields>philosophy</fields>
       </openSlots>
     </semesters>
     <semesters
@@ -770,7 +772,8 @@
   <courses code="TMA4240"
       name="Statistikk"
       credits="7.5"
-      level="2"/>
+      level="2"
+      field="math"/>
   <courses code="TDT4140"
       name="Programvareutvikling"
       credits="7.5"
