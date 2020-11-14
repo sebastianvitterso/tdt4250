@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atb:Bussfirm xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:atb="platform:/plugin/atb/model/atb.ecore" xsi:schemaLocation="platform:/plugin/atb/model/atb.ecore platform:/resource/atb/model/atb.ecore" name="Atb">
+  <busstops name="Prinsens gate P1" stopId="100269" nodeId="16010015" longitude="10.3919" latitude="63.430866">
+    <departures line="1" registeredDepartureTime="2020-11-13T10:21:00.000+0100" scheduledDepartureTime="2020-11-13T10:21:00.000+0100" destination="Kattem" destinationStop="//@busstops.1"/>
+    <departures line="1" registeredDepartureTime="2020-11-14T12:59:00.000+0100" scheduledDepartureTime="2020-11-14T12:59:00.000+0100" destination="Kattem" destinationStop="//@busstops.1"/>
+  </busstops>
+  <busstops name="Valøyvegen" stopId="100676" nodeId="16010543" longitude="10.398027" latitude="63.40785"/>
+  <busstops name="&lt;name>"/>
+  <passengers firstName="Sebastian" lastName="Vittersø" phoneNumber="12345678"/>
+  <passengers firstName="Ingebrigt" lastName="Nygård" phoneNumber="12345678"/>
+  <passengers firstName="&lt;name>" lastName="&lt;name>"/>
+  <registrations passenger="//@passengers.1" from="//@busstops.0" to="//@busstops.1" departure="//@busstops.0/@departures.0" fromTime="2020-11-13T10:13:40.790+0100" toTime="2020-11-13T10:40:40.790+0100" line="1"/>
+</atb:Bussfirm>
