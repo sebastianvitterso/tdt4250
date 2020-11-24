@@ -12,14 +12,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atb.ecore#//Bussfirm/passengers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atb.ecore#//Bussfirm/registrations"/>
     </genClasses>
-    <genClasses ecoreClass="atb.ecore#//Busstops">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstops/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstops/stopId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstops/nodeId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstops/longitude"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstops/langitude"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstops/isGoingTowardsCentrum"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atb.ecore#//Busstops/departures"/>
+    <genClasses ecoreClass="atb.ecore#//Busstop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstop/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstop/stopId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstop/nodeId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstop/longitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstop/latitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Busstop/isGoingTowardsCentrum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference atb.ecore#//Busstop/departures"/>
     </genClasses>
     <genClasses ecoreClass="atb.ecore#//Departure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atb.ecore#//Departure/line"/>
