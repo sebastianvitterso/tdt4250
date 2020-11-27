@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/atb.model.import/src" modelPluginID="atb.model.import"
+    modelName="Import" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>import.ecore</foreignModel>
+  <genPackages prefix="Import" disposableProviderFactory="true" ecorePackage="import.ecore#/">
+    <genClasses ecoreClass="import.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/quays"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/realtimes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/trips"/>
+    </genClasses>
+    <genClasses ecoreClass="import.ecore#//Quay">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/stopPlaceId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/place"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/compassBearing"/>
+    </genClasses>
+    <genClasses ecoreClass="import.ecore#//Realtime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Realtime/busStopID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Realtime/busStopName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Realtime/longitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Realtime/latitude"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference import.ecore#//Realtime/departureForecasts"/>
+    </genClasses>
+    <genClasses ecoreClass="import.ecore#//Departure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/line"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/destinationDisplay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/originRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/originName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/destinationRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/destinationName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/registeredDepartureTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/scheduledDepartureTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/isRealTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/tripId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/groupMapKey"/>
+    </genClasses>
+    <genClasses ecoreClass="import.ecore#//Trip">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Trip/tripID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Trip/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Trip/line"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Trip/destination"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference import.ecore#//Trip/stops"/>
+    </genClasses>
+    <genClasses ecoreClass="import.ecore#//Stop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/destination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/busstopID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/aimedDepartureTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/expectedDepartureTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/realtime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/longitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/latitude"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

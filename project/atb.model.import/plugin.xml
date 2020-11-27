@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated import -->
+      <package
+            uri="platform:/plugin/atb/model/import.ecore"
+            class="import_.ImportPackage"
+            genModel="model/import.genmodel"/>
+   </extension>
+
+</plugin>

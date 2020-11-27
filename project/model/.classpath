@@ -10,5 +10,8 @@
 	<classpathentry kind="lib" path="lib/json-20201115.jar"/>
 	<classpathentry kind="lib" path="lib/emfjson-jackson-1.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/emfjson-core-0.13.0.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.11.3.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.11.3.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.11.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
