@@ -3,8 +3,8 @@
 package import_.impl;
 
 import import_.ImportPackage;
-import import_.Quay;
 import import_.Realtime;
+import import_.StopPlace;
 import import_.Trip;
 
 import java.util.Collection;
@@ -41,7 +41,7 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Quay> stopPlaces;
+	protected EList<StopPlace> stopPlaces;
 
 	/**
 	 * The cached value of the '{@link #getRealtimes() <em>Realtimes</em>}' containment reference list.
@@ -87,9 +87,9 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Quay> getStopPlaces() {
+	public EList<StopPlace> getStopPlaces() {
 		if (stopPlaces == null) {
-			stopPlaces = new EObjectContainmentEList<Quay>(Quay.class, this, ImportPackage.CONTAINER__STOP_PLACES);
+			stopPlaces = new EObjectContainmentEList<StopPlace>(StopPlace.class, this, ImportPackage.CONTAINER__STOP_PLACES);
 		}
 		return stopPlaces;
 	}
@@ -165,7 +165,7 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 		switch (featureID) {
 			case ImportPackage.CONTAINER__STOP_PLACES:
 				getStopPlaces().clear();
-				getStopPlaces().addAll((Collection<? extends Quay>)newValue);
+				getStopPlaces().addAll((Collection<? extends StopPlace>)newValue);
 				return;
 			case ImportPackage.CONTAINER__REALTIMES:
 				getRealtimes().clear();

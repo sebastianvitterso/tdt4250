@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Container extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Stop Places</b></em>' containment reference list.
-	 * The list contents are of type {@link import_.Quay}.
+	 * The list contents are of type {@link import_.StopPlace}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Stop Places</em>' containment reference list.
@@ -34,7 +34,7 @@ public interface Container extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Quay> getStopPlaces();
+	EList<StopPlace> getStopPlaces();
 
 	/**
 	 * Returns the value of the '<em><b>Realtimes</b></em>' containment reference list.

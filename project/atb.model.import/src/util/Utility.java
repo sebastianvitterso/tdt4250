@@ -46,7 +46,7 @@ import org.emfjson.jackson.module.EMFModule;
 public class Utility {
 	
 	public static void main(String[] args) {
-		JSONObject container = getBusStops();
+		JSONObject container = DataFetcher.getBusStops();
 		parseJsonToXmi(container);
 	}
 	
