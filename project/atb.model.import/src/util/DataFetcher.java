@@ -64,7 +64,7 @@ public class DataFetcher {
 	}
 		
 	
-	public static void getBusStops() {
+	public static JSONObject getBusStops() {
 		long startTime = System.currentTimeMillis();
 		System.out.println("Begin.");
 		String prinsenP1 = "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71184";
@@ -145,6 +145,7 @@ public class DataFetcher {
 		container.put("stopPlaces", new JSONArray(stopPlaces));
 		container.put("trips", lines);
 		
+		return container;
 		
 	}
 
