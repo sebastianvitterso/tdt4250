@@ -17,9 +17,6 @@ import java.util.stream.Collectors;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import atb.AtbFactory;
-import atb.Busstops;
-
 public class Utility {
 	
 	private static ExecutorService executor = Executors.newCachedThreadPool();
@@ -119,8 +116,9 @@ public class Utility {
 				
 			}
 		}
-		
-		
+
+		System.out.println("\nBeginning stop-place requests, there are " + quays.size() + " of them");
+		startTime = System.currentTimeMillis();
 		
 		List<String> stopPlaceUrls = quays.stream()
 				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/stopSearch/" + quay.getString("busstopID"))
@@ -134,9 +132,10 @@ public class Utility {
 				})
 				.collect(Collectors.toList());
 		
+		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, got " + stopPlaces.size() + " responses");
 		
-		System.out.println(stopPlaces);
-		System.out.println(stopPlaces.size());
+		
+		System.out.println(stopPlaces.get(0));
 		
 		
 		
