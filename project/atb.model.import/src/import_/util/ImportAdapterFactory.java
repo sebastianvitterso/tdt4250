@@ -72,6 +72,10 @@ public class ImportAdapterFactory extends AdapterFactoryImpl {
 				return createContainerAdapter();
 			}
 			@Override
+			public Adapter caseStopPlace(StopPlace object) {
+				return createStopPlaceAdapter();
+			}
+			@Override
 			public Adapter caseQuay(Quay object) {
 				return createQuayAdapter();
 			}
@@ -122,6 +126,20 @@ public class ImportAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link import_.StopPlace <em>Stop Place</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see import_.StopPlace
+	 * @generated
+	 */
+	public Adapter createStopPlaceAdapter() {
 		return null;
 	}
 

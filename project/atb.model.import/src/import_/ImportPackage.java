@@ -68,13 +68,13 @@ public interface ImportPackage extends EPackage {
 	int CONTAINER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Quays</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Stop Places</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__QUAYS = 0;
+	int CONTAINER__STOP_PLACES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Realtimes</b></em>' containment reference list.
@@ -113,6 +113,52 @@ public interface ImportPackage extends EPackage {
 	int CONTAINER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link import_.impl.StopPlaceImpl <em>Stop Place</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see import_.impl.StopPlaceImpl
+	 * @see import_.impl.ImportPackageImpl#getStopPlace()
+	 * @generated
+	 */
+	int STOP_PLACE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_PLACE__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Quays</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_PLACE__QUAYS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Stop Place</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_PLACE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Stop Place</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_PLACE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link import_.impl.QuayImpl <em>Quay</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,7 +166,7 @@ public interface ImportPackage extends EPackage {
 	 * @see import_.impl.ImportPackageImpl#getQuay()
 	 * @generated
 	 */
-	int QUAY = 1;
+	int QUAY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -211,7 +257,7 @@ public interface ImportPackage extends EPackage {
 	 * @see import_.impl.ImportPackageImpl#getRealtime()
 	 * @generated
 	 */
-	int REALTIME = 2;
+	int REALTIME = 3;
 
 	/**
 	 * The feature id for the '<em><b>Bus Stop ID</b></em>' attribute.
@@ -284,7 +330,7 @@ public interface ImportPackage extends EPackage {
 	 * @see import_.impl.ImportPackageImpl#getDeparture()
 	 * @generated
 	 */
-	int DEPARTURE = 3;
+	int DEPARTURE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Line</b></em>' attribute.
@@ -420,7 +466,7 @@ public interface ImportPackage extends EPackage {
 	 * @see import_.impl.ImportPackageImpl#getTrip()
 	 * @generated
 	 */
-	int TRIP = 4;
+	int TRIP = 5;
 
 	/**
 	 * The feature id for the '<em><b>Trip ID</b></em>' attribute.
@@ -493,7 +539,7 @@ public interface ImportPackage extends EPackage {
 	 * @see import_.impl.ImportPackageImpl#getStop()
 	 * @generated
 	 */
-	int STOP = 5;
+	int STOP = 6;
 
 	/**
 	 * The feature id for the '<em><b>Destination</b></em>' attribute.
@@ -597,15 +643,15 @@ public interface ImportPackage extends EPackage {
 	EClass getContainer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link import_.Container#getQuays <em>Quays</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Container#getStopPlaces <em>Stop Places</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Quays</em>'.
-	 * @see import_.Container#getQuays()
+	 * @return the meta object for the containment reference list '<em>Stop Places</em>'.
+	 * @see import_.Container#getStopPlaces()
 	 * @see #getContainer()
 	 * @generated
 	 */
-	EReference getContainer_Quays();
+	EReference getContainer_StopPlaces();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link import_.Container#getRealtimes <em>Realtimes</em>}'.
@@ -628,6 +674,38 @@ public interface ImportPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContainer_Trips();
+
+	/**
+	 * Returns the meta object for class '{@link import_.StopPlace <em>Stop Place</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stop Place</em>'.
+	 * @see import_.StopPlace
+	 * @generated
+	 */
+	EClass getStopPlace();
+
+	/**
+	 * Returns the meta object for the attribute '{@link import_.StopPlace#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see import_.StopPlace#getId()
+	 * @see #getStopPlace()
+	 * @generated
+	 */
+	EAttribute getStopPlace_Id();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link import_.StopPlace#getQuays <em>Quays</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Quays</em>'.
+	 * @see import_.StopPlace#getQuays()
+	 * @see #getStopPlace()
+	 * @generated
+	 */
+	EReference getStopPlace_Quays();
 
 	/**
 	 * Returns the meta object for class '{@link import_.Quay <em>Quay</em>}'.
@@ -1120,12 +1198,12 @@ public interface ImportPackage extends EPackage {
 		EClass CONTAINER = eINSTANCE.getContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Quays</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Stop Places</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONTAINER__QUAYS = eINSTANCE.getContainer_Quays();
+		EReference CONTAINER__STOP_PLACES = eINSTANCE.getContainer_StopPlaces();
 
 		/**
 		 * The meta object literal for the '<em><b>Realtimes</b></em>' containment reference list feature.
@@ -1142,6 +1220,32 @@ public interface ImportPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER__TRIPS = eINSTANCE.getContainer_Trips();
+
+		/**
+		 * The meta object literal for the '{@link import_.impl.StopPlaceImpl <em>Stop Place</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see import_.impl.StopPlaceImpl
+		 * @see import_.impl.ImportPackageImpl#getStopPlace()
+		 * @generated
+		 */
+		EClass STOP_PLACE = eINSTANCE.getStopPlace();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STOP_PLACE__ID = eINSTANCE.getStopPlace_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Quays</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STOP_PLACE__QUAYS = eINSTANCE.getStopPlace_Quays();
 
 		/**
 		 * The meta object literal for the '{@link import_.impl.QuayImpl <em>Quay</em>}' class.

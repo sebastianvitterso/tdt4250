@@ -7,9 +7,13 @@
   <foreignModel>import.ecore</foreignModel>
   <genPackages prefix="Import" disposableProviderFactory="true" ecorePackage="import.ecore#/">
     <genClasses ecoreClass="import.ecore#//Container">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/quays"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/stopPlaces"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/realtimes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/trips"/>
+    </genClasses>
+    <genClasses ecoreClass="import.ecore#//StopPlace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//StopPlace/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//StopPlace/quays"/>
     </genClasses>
     <genClasses ecoreClass="import.ecore#//Quay">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/id"/>

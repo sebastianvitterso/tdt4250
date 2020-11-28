@@ -146,8 +146,6 @@ public class Utility {
 		container.put("trips", lines);
 		
 		
-		
-		
 	}
 
 }

@@ -8,6 +8,7 @@ import import_.ImportPackage;
 import import_.Quay;
 import import_.Realtime;
 import import_.Stop;
+import import_.StopPlace;
 import import_.Trip;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -30,6 +31,13 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * @generated
 	 */
 	private EClass containerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stopPlaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,7 +149,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Quays() {
+	public EReference getContainer_StopPlaces() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -161,6 +169,33 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 */
 	public EReference getContainer_Trips() {
 		return (EReference)containerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStopPlace() {
+		return stopPlaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStopPlace_Id() {
+		return (EAttribute)stopPlaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStopPlace_Quays() {
+		return (EReference)stopPlaceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -570,9 +605,13 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 
 		// Create classes and their features
 		containerEClass = createEClass(CONTAINER);
-		createEReference(containerEClass, CONTAINER__QUAYS);
+		createEReference(containerEClass, CONTAINER__STOP_PLACES);
 		createEReference(containerEClass, CONTAINER__REALTIMES);
 		createEReference(containerEClass, CONTAINER__TRIPS);
+
+		stopPlaceEClass = createEClass(STOP_PLACE);
+		createEAttribute(stopPlaceEClass, STOP_PLACE__ID);
+		createEReference(stopPlaceEClass, STOP_PLACE__QUAYS);
 
 		quayEClass = createEClass(QUAY);
 		createEAttribute(quayEClass, QUAY__ID);
@@ -653,9 +692,13 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, import_.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContainer_Quays(), this.getQuay(), null, "quays", null, 0, -1, import_.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContainer_StopPlaces(), this.getQuay(), null, "stopPlaces", null, 0, -1, import_.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Realtimes(), this.getRealtime(), null, "realtimes", null, 0, -1, import_.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Trips(), this.getTrip(), null, "trips", null, 0, -1, import_.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stopPlaceEClass, StopPlace.class, "StopPlace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStopPlace_Id(), ecorePackage.getEString(), "id", null, 0, 1, StopPlace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStopPlace_Quays(), this.getQuay(), null, "quays", null, 0, -1, StopPlace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(quayEClass, Quay.class, "Quay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuay_Id(), ecorePackage.getEString(), "id", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

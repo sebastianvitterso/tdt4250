@@ -7,8 +7,16 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -36,68 +44,19 @@ import org.emfjson.jackson.module.EMFModule;
 
 
 public class Utility {
-
-	public static String getData(String url) throws IOException {
-		return new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
-	}
 	
 	public static void main(String[] args) {
-		getBusStops();
+		JSONObject container = getBusStops();
+		parseJsonToXmi(container);
 	}
 	
-	private static void getBusStops() {
-		long startTime = System.currentTimeMillis();
-		System.out.println("Begin.");
-		String prinsenP1 = "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71184";
-		String prinsenP2 = "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71181";
-		JSONObject prinsenP1Json = null;
-		JSONObject prinsenP2Json = null;
+	public static void parseJsonToXmi(JSONObject object) {
 		try {
-			prinsenP1Json = new JSONObject(getData(prinsenP1));
-			prinsenP2Json = new JSONObject(getData(prinsenP2));
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(0);
-		}
-		
-		
-//		JSONArray prinsenP1Lines = prinsenP1Json.getJSONArray("departureForecasts");
-//		JSONArray prinsenP2Lines = prinsenP2Json.getJSONArray("departureForecasts");
-//		List<String> lineIds = new ArrayList<String>();
-//		for(int i = 0; i < prinsenP1Lines.length(); i++) {
-//			JSONObject line = prinsenP1Lines.getJSONObject(i);
-//			lineIds.add(line.getString("tripId"));
-//		}
-//		for(int i = 0; i < prinsenP2Lines.length(); i++) {
-//			JSONObject line = prinsenP2Lines.getJSONObject(i);
-//			lineIds.add(line.getString("tripId"));
-//		}
-//		System.out.println("Done with initial call in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, now awaits " + lineIds.size() + " subsequent calls");
-//		
-//		JSONArray connectedQuays = new JSONArray(); 
-//		for (String lineId : lineIds) {
-//			try {
-//				String line = getData("https://bartebuss-prod.appspot.com/_ah/api/unified/v1/trip/" + lineId);
-//				connectedQuays.put(new JSONObject(line));
-//			} catch(IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds");
-//		
-//		System.out.println(connectedQuays.length());
-//		
-		
-		try {
-
-			prinsenP2Json.put("eClass", "platform:/plugin/atb/model/import.ecore#//Realtime");
+			object.put("eClass", "platform:/plugin/atb/model/import.ecore#//Container");
 			
-			saveToFile(prinsenP2Json.toString());
-			Realtime realtime = (Realtime)loadEObjectFromFile(ImportPackage.eINSTANCE);
+			Container container = (Container)loadEObjectFromStringThroughFile(object.toString(), ImportPackage.eINSTANCE);
 			
-			System.out.println(realtime);
-			
-			saveEObjectToFile(realtime);
+			saveEObjectToXmi(container);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -115,6 +74,11 @@ public class Utility {
 	    return resource.getContents().get(0);
 	}
 	
+	private static EObject loadEObjectFromStringThroughFile(String model, EPackage ePackage) throws IOException { 
+		saveToFile(model);
+		return loadEObjectFromFile(ePackage);
+	}
+	
 	private static EObject loadEObjectFromFile(EPackage ePackage) throws IOException { 
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
@@ -125,7 +89,7 @@ public class Utility {
 	    return resource.getContents().get(0);
 	}
 	
-	private static void saveEObjectToFile(EObject eObject) throws IOException {
+	private static void saveEObjectToXmi(EObject eObject) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry()
 						.getExtensionToFactoryMap()

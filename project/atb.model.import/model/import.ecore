@@ -6,7 +6,7 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stopPlaces" upperBound="-1"
-        eType="#//StopPlace" containment="true"/>
+        eType="#//Quay" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="realtimes" upperBound="-1"
         eType="#//Realtime" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trips" upperBound="-1"
@@ -16,7 +16,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="quays" upperBound="-1"
-        containment="true"/>
+        eType="#//Quay" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Quay">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
