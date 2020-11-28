@@ -14,31 +14,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.emfjson.jackson.resource.JsonResourceFactory;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-
-import org.emfjson.jackson.databind.EMFContext;
-import org.emfjson.jackson.module.EMFModule;
-
-
 import atb.AtbFactory;
-import atb.Bussfirm;
-import atb.Busstop;
 import atb.Busstops;
 
 public class Utility {
 	
 	private static ExecutorService executor = Executors.newCachedThreadPool();
+
+	public static void main(String[] args) {
+		getBusStops();
+	}
 
 	public static String getData(String url) throws IOException {
 		return new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
@@ -77,101 +65,7 @@ public class Utility {
 		});
 		return data;
 	}
-	
-	public static void main(String[] args) {
-		getBusStops();
-//		testEmfJson1();
-
-	}
 		
-	private static void testEmfJson() {
-		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry()
-						.getExtensionToFactoryMap()
-						.put("json", new JsonResourceFactory());
-		
-		Resource resource = resourceSet.createResource
-				  (URI.createFileURI("src/util/data.json"));
-		
-		Busstops prinsens = AtbFactory.eINSTANCE.createBusstops();
-		prinsens.setName("Prinsensgate");
-		prinsens.setNodeId(1);
-		prinsens.setStopId(1);
-		System.out.println(prinsens);
-		
-		resource.getContents().add(prinsens);
-		try {
-			resource.save(null);
-			System.out.println("Saved");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
-			resource.load(null);
-			System.out.println("Load");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Busstops prinsens1 = (Busstops) resource.getContents().get(0);
-		System.out.println(prinsens1);
-		
-	}
-	
-	private static void testEmfJson1() {
-		ObjectMapper mapper = EMFModule.setupDefaultMapper();
-		
-		JsonResourceFactory factory = new JsonResourceFactory(mapper);
-		mapper = factory.getMapper();
-		
-		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry()
-			.getExtensionToFactoryMap()
-			.put("json", factory);
-		Resource resource = resourceSet.createResource
-				  (URI.createFileURI("src/util/data.json"));
-		
-		Busstops prinsens = AtbFactory.eINSTANCE.createBusstops();
-		prinsens.setName("Prinsensgate");
-		prinsens.setNodeId(1);
-		prinsens.setStopId(1);
-		resource.getContents().add(prinsens);
-		try {
-			String jsonString = mapper.writeValueAsString(resource);
-			JsonNode jsonNode = mapper.valueToTree(prinsens);
-			String jsonString2 = mapper.writeValueAsString(prinsens);
-			System.out.println(jsonString2);
-			resource.save(null);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-//		JsonNode data = mapper.valueToTree(prinsens);
-//		String json = "{ \"stopId\" : \"1\" } ";
-
-
-//		try {
-//			JsonNode data = mapper.readTree(json);
-////			resource = mapper
-////			  .reader()
-////				.withAttribute(EMFContext.Attributes.RESOURCE_SET, resourceSet)
-////			  .withAttribute(EMFContext.Attributes.RESOURCE_URI, "src/main/resources/data.json")
-////				.forType(Resource.class)
-////				.readValue(data);
-//			
-//			Busstops busstops = mapper.reader()
-//					.withAttribute(EMFContext.Attributes.RESOURCE, resource)
-//					.forType(Busstops.class)
-//					.readValue(data);
-//			
-//			System.out.println(busstops.getName());
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
-		
-	}
-	
 	
 	private static void getBusStops() {
 		long startTime = System.currentTimeMillis();
@@ -226,21 +120,27 @@ public class Utility {
 			}
 		}
 		
-		List<String> quaySearchUrls = quays.stream()
-				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/stopSearch/NSR:Quay:71184" + quay.getString("busstopID"))
+		
+		
+		List<String> stopPlaceUrls = quays.stream()
+				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/stopSearch/" + quay.getString("busstopID"))
 				.collect(Collectors.toList());
 		
-//		List<String> 
+		List<JSONObject> stopPlaces = getDataParallell(stopPlaceUrls, SLEEP_TIME).stream()
+				.map(jsonString -> new JSONObject(jsonString))
+				.map(stopPlace -> {
+					stopPlace.put("id", stopPlace.getJSONArray("items").getJSONObject(0).getString("stopPlaceId"));
+					return stopPlace;
+				})
+				.collect(Collectors.toList());
 		
-		for(JSONObject quay : quays) {
-			
-		}
 		
-		System.out.println(quays.size());
+		System.out.println(stopPlaces);
+		System.out.println(stopPlaces.size());
 		
 		
 		
-		JSONObject container = new JSONObject();
+//		JSONObject container = new JSONObject();
 		
 		
 		
