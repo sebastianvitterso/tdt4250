@@ -201,51 +201,47 @@ public class Utility {
 		System.out.println("Done with initial call in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, now awaits " + lineIds.size() + " subsequent calls");
 		startTime = System.currentTimeMillis();
 		List<JSONObject> quays = new ArrayList<>();
-		Set<List<String>> quayEdges = new HashSet<>();
 		Set<String> quayIds = new HashSet<>();
 		
 		List<String> urls = lineIds.stream().map(str -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/trip/" + str).collect(Collectors.toList());
 		
 		final long SLEEP_TIME = 20; // if we don't sleep, or the sleep time is too short, the requests might not go through.
 		List<String> lineJsonStrings = getDataParallell(urls, SLEEP_TIME);
-		
+		JSONArray lines = new JSONArray();
 		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, got " + lineJsonStrings.size() + " responses");
 		
 		for (String lineJsonString : lineJsonStrings) {
 			JSONObject line = new JSONObject(lineJsonString);
+			lines.put(line);
 			JSONArray stops = line.getJSONArray("stops");
 			for (int i = 0; i < stops.length(); i++) {
 				JSONObject currentQuay = stops.getJSONObject(i);
 				
 				//check uniqueness
 				if(!quayIds.contains(currentQuay.getString("busstopID"))) {
-					quays.add(currentQuay);
 					quayIds.add(currentQuay.getString("busstopID"));
-				}
-				
-				if(i > 0) {
-					List<String> edge = new ArrayList<>();
-					edge.add(stops.getJSONObject(i - 1).getString("busstopID"));
-					edge.add(stops.getJSONObject(i).getString("busstopID"));
-					
-					//check uniqueness
-					if(!quayEdges.contains(edge)) {
-						quayEdges.add(edge);
-					}
+					quays.add(currentQuay);
 				}
 				
 			}
 		}
 		
+		List<String> quaySearchUrls = quays.stream()
+				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/stopSearch/NSR:Quay:71184" + quay.getString("busstopID"))
+				.collect(Collectors.toList());
 		
-//		for(int i = 0; i < quays.length(); i++) {
-//			JSONObject quay = quays.getJSONObject(i);
-//			System.out.println(quay.getString("destination"));
-//			System.out.println(quay);
-//		}
+//		List<String> 
+		
+		for(JSONObject quay : quays) {
+			
+		}
 		
 		System.out.println(quays.size());
-		System.out.println(quayEdges.size());
+		
+		
+		
+		JSONObject container = new JSONObject();
+		
 		
 		
 		
