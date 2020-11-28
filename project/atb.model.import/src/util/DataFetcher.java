@@ -3,8 +3,10 @@ package util;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.Callable;
@@ -104,6 +106,8 @@ public class DataFetcher {
 		List<JSONObject> lines = new ArrayList<>();
 		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, got " + lineJsonStrings.size() + " responses");
 		
+		List<JSONObject> quayEdges = new ArrayList<>();
+		
 		for (String lineJsonString : lineJsonStrings) {
 			JSONObject line = new JSONObject(lineJsonString);
 			lines.add(line);
@@ -117,9 +121,16 @@ public class DataFetcher {
 					quays.add(currentQuay);
 				}
 				
+				if(i > 0) {
+					JSONObject edge = new JSONObject();
+					edge.put("from", stops.getJSONObject(i-1).getString("busstopID"));
+					edge.put("to", stops.getJSONObject(i).getString("busstopID"));
+					quayEdges.add(edge);
+				}
+				
 			}
 		}
-
+		
 		System.out.println("\nBeginning stop-place requests, there are " + quays.size() + " of them");
 		startTime = System.currentTimeMillis();
 		
@@ -127,16 +138,37 @@ public class DataFetcher {
 				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/stopSearch/" + quay.getString("busstopID"))
 				.collect(Collectors.toList());
 		
+		Map<String, String> quayIdToStopPlaceId = new HashMap<String,String>();
+		
 		List<JSONObject> stopPlaces = getDataParallell(stopPlaceUrls, SLEEP_TIME).stream()
 				.map(jsonString -> new JSONObject(jsonString))
 				.map(stopPlace -> {
 					stopPlace.put("id", stopPlace.getJSONArray("items").getJSONObject(0).getString("stopPlaceId"));
 					stopPlace.put("quays", stopPlace.getJSONArray("items"));
+					
+					stopPlace.getJSONArray("quays")
+							.forEach(quayObj -> {
+								JSONObject quay = (JSONObject) quayObj;
+								quayIdToStopPlaceId.put(quay.getString("id"), stopPlace.getString("id"));
+							});
+					
 					return stopPlace;
 				})
 				.collect(Collectors.toList());
 		
 		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, got " + stopPlaces.size() + " responses");
+		
+		List<JSONObject> stopPlaceEdges = quayEdges.stream()
+				.map(quayEdge -> {
+					JSONObject edge = new JSONObject();
+					edge.put("from", quayIdToStopPlaceId.get(quayEdge.get("from")));
+					edge.put("to", quayIdToStopPlaceId.get(quayEdge.get("to")));
+					return edge;
+				})
+				.collect(Collectors.toList());
+		
+		System.out.println(quayEdges);
+		System.out.println(stopPlaceEdges);
 		
 		
 		System.out.println(stopPlaces.get(0));
@@ -156,6 +188,8 @@ public class DataFetcher {
 					return trip;
 				})
 				.collect(Collectors.toList());
+		
+		//TODO: Add edges to stopPlaces!
 		
 		System.out.println(trips.get(0));
 		

@@ -13,6 +13,7 @@ export const container = {
   stopPlaces: [
     { // stopPlace 1
       id: "NSR:StopPlace:41613",
+      neighbours: [],
       quays: [ // containment
         {
           id: "NSR:Quay:71181",
@@ -59,5 +60,5 @@ export const container = {
       ]
     },
     // ...
-  ]
+  ],
 }
