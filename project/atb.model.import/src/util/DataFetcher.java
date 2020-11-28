@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Utility {
+public class DataFetcher {
 	
 	private static ExecutorService executor = Executors.newCachedThreadPool();
 
@@ -64,7 +64,7 @@ public class Utility {
 	}
 		
 	
-	private static void getBusStops() {
+	public static void getBusStops() {
 		long startTime = System.currentTimeMillis();
 		System.out.println("Begin.");
 		String prinsenP1 = "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71184";
