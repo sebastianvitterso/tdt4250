@@ -26,7 +26,10 @@ public class DataFetcher {
 	}
 
 	public static String getData(String url) throws IOException {
-		return new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
+		Scanner s = new Scanner(new URL(url).openStream(), "UTF-8");
+		String str = s.useDelimiter("\\A").next();
+		s.close();
+		return str;
 	}
 	
 	public static Callable<String> callableGetData(String url) {
@@ -138,12 +141,27 @@ public class DataFetcher {
 		
 		System.out.println(stopPlaces.get(0));
 		
+		List<JSONObject> trips = lines.stream()
+				.map(trip -> {
+					List<JSONObject> stops = new ArrayList<>();
+					
+					trip.getJSONArray("stops")
+							.forEach(stopObject -> {
+								JSONObject stop = (JSONObject) stopObject;
+								stop.put("$ref", stop.getString("busstopID"));
+								stops.add(stop);
+							});
+					
+					trip.put("stops", new JSONArray(stops));
+					return trip;
+				})
+				.collect(Collectors.toList());
 		
-		
+		System.out.println(trips.get(0));
 		
 		JSONObject container = new JSONObject();
 		container.put("stopPlaces", new JSONArray(stopPlaces));
-		container.put("trips", lines);
+		container.put("trips", new JSONArray(trips));
 		
 		return container;
 		
