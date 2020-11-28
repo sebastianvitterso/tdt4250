@@ -57,6 +57,7 @@ public class ImportFactoryImpl extends EFactoryImpl implements ImportFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ImportPackage.CONTAINER: return createContainer();
+			case ImportPackage.STOP_PLACE: return createStopPlace();
 			case ImportPackage.QUAY: return createQuay();
 			case ImportPackage.REALTIME: return createRealtime();
 			case ImportPackage.DEPARTURE: return createDeparture();
@@ -75,6 +76,16 @@ public class ImportFactoryImpl extends EFactoryImpl implements ImportFactory {
 	public import_.Container createContainer() {
 		ContainerImpl container = new ContainerImpl();
 		return container;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StopPlace createStopPlace() {
+		StopPlaceImpl stopPlace = new StopPlaceImpl();
+		return stopPlace;
 	}
 
 	/**

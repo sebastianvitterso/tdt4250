@@ -2,8 +2,6 @@
  */
 package import_;
 
-import java.util.Date;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -55,12 +53,12 @@ public interface Trip extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Date</em>' attribute.
-	 * @see #setDate(Date)
+	 * @see #setDate(String)
 	 * @see import_.ImportPackage#getTrip_Date()
 	 * @model
 	 * @generated
 	 */
-	Date getDate();
+	String getDate();
 
 	/**
 	 * Sets the value of the '{@link import_.Trip#getDate <em>Date</em>}' attribute.
@@ -70,7 +68,7 @@ public interface Trip extends EObject {
 	 * @see #getDate()
 	 * @generated
 	 */
-	void setDate(Date value);
+	void setDate(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Line</b></em>' attribute.

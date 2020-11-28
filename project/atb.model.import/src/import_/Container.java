@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link import_.Container#getQuays <em>Quays</em>}</li>
+ *   <li>{@link import_.Container#getStopPlaces <em>Stop Places</em>}</li>
  *   <li>{@link import_.Container#getRealtimes <em>Realtimes</em>}</li>
  *   <li>{@link import_.Container#getTrips <em>Trips</em>}</li>
  * </ul>
@@ -25,16 +25,16 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Container extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Quays</b></em>' containment reference list.
-	 * The list contents are of type {@link import_.Quay}.
+	 * Returns the value of the '<em><b>Stop Places</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.StopPlace}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quays</em>' containment reference list.
-	 * @see import_.ImportPackage#getContainer_Quays()
+	 * @return the value of the '<em>Stop Places</em>' containment reference list.
+	 * @see import_.ImportPackage#getContainer_StopPlaces()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Quay> getQuays();
+	EList<StopPlace> getStopPlaces();
 
 	/**
 	 * Returns the value of the '<em><b>Realtimes</b></em>' containment reference list.

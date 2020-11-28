@@ -72,6 +72,12 @@ public class ImportSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ImportPackage.STOP_PLACE: {
+				StopPlace stopPlace = (StopPlace)theEObject;
+				T result = caseStopPlace(stopPlace);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ImportPackage.QUAY: {
 				Quay quay = (Quay)theEObject;
 				T result = caseQuay(quay);
@@ -118,6 +124,21 @@ public class ImportSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContainer(Container object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Stop Place</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Stop Place</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStopPlace(StopPlace object) {
 		return null;
 	}
 

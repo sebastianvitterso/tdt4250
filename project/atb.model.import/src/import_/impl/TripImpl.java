@@ -7,8 +7,6 @@ import import_.Stop;
 import import_.Trip;
 
 import java.util.Collection;
-import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -67,7 +65,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date DATE_EDEFAULT = null;
+	protected static final String DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
@@ -77,7 +75,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * @generated
 	 * @ordered
 	 */
-	protected Date date = DATE_EDEFAULT;
+	protected String date = DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLine() <em>Line</em>}' attribute.
@@ -174,7 +172,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
@@ -183,8 +181,8 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDate(Date newDate) {
-		Date oldDate = date;
+	public void setDate(String newDate) {
+		String oldDate = date;
 		date = newDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ImportPackage.TRIP__DATE, oldDate, date));
@@ -293,7 +291,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 				setTripID((String)newValue);
 				return;
 			case ImportPackage.TRIP__DATE:
-				setDate((Date)newValue);
+				setDate((String)newValue);
 				return;
 			case ImportPackage.TRIP__LINE:
 				setLine((String)newValue);
