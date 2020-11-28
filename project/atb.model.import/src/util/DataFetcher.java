@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Utility {
+public class DataFetcher {
 	
 	private static ExecutorService executor = Executors.newCachedThreadPool();
 
