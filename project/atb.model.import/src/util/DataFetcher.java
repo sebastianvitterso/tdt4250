@@ -167,11 +167,7 @@ public class DataFetcher {
 				})
 				.collect(Collectors.toList());
 		
-		System.out.println(quayEdges);
-		System.out.println(stopPlaceEdges);
 		
-		
-		System.out.println(stopPlaces.get(0));
 		
 		List<JSONObject> trips = lines.stream()
 				.map(trip -> {
@@ -189,9 +185,43 @@ public class DataFetcher {
 				})
 				.collect(Collectors.toList());
 		
-		//TODO: Add edges to stopPlaces!
+		//Sorry for the mess!
 		
-		System.out.println(trips.get(0));
+		Map<String, JSONArray> neighbourMap = new HashMap<String, JSONArray>();
+		Map<String, Set<String>> neighbourMapSet = new HashMap<String, Set<String>>();
+		
+		for (JSONObject stopPlaceEdge : stopPlaceEdges) {
+			String from = stopPlaceEdge.getString("from");
+			String to = stopPlaceEdge.getString("to");
+			
+			if(!neighbourMap.containsKey(from)) {
+				neighbourMap.put(from, new JSONArray());
+				neighbourMapSet.put(from, new HashSet<>());
+			}
+			if(!neighbourMapSet.get(from).contains(to)) {
+				neighbourMap.get(from).put(new JSONObject("{\"$ref\": \"" + to + "\"}"));	// {"$ref": " {{to}} " }	
+				neighbourMapSet.get(from).add(to);
+			}
+			
+			if(!neighbourMap.containsKey(to)) {
+				neighbourMap.put(to, new JSONArray());
+				neighbourMapSet.put(to, new HashSet<>());
+			}
+			if(!neighbourMapSet.get(from).contains(to)) {
+				neighbourMap.get(to).put(new JSONObject("{\"$ref\": \"" + from + "\"}"));	// {"$ref": " {{to}} " }		
+				neighbourMapSet.get(to).add(from);
+			}
+		}
+		
+		
+		stopPlaces.stream()
+				.map(stopPlace -> {
+					stopPlace.put("neighbour", neighbourMap.get(stopPlace.getString("id")));
+					return stopPlace;
+				})
+				.collect(Collectors.toList());
+		
+		System.out.println(stopPlaces.get(0));
 		
 		JSONObject container = new JSONObject();
 		container.put("stopPlaces", new JSONArray(stopPlaces));
