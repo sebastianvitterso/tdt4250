@@ -98,12 +98,12 @@ public class Utility {
 		
 		final long SLEEP_TIME = 20; // if we don't sleep, or the sleep time is too short, the requests might not go through.
 		List<String> lineJsonStrings = getDataParallell(urls, SLEEP_TIME);
-		JSONArray lines = new JSONArray();
+		List<JSONObject> lines = new ArrayList<>();
 		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, got " + lineJsonStrings.size() + " responses");
 		
 		for (String lineJsonString : lineJsonStrings) {
 			JSONObject line = new JSONObject(lineJsonString);
-			lines.put(line);
+			lines.add(line);
 			JSONArray stops = line.getJSONArray("stops");
 			for (int i = 0; i < stops.length(); i++) {
 				JSONObject currentQuay = stops.getJSONObject(i);
@@ -128,6 +128,7 @@ public class Utility {
 				.map(jsonString -> new JSONObject(jsonString))
 				.map(stopPlace -> {
 					stopPlace.put("id", stopPlace.getJSONArray("items").getJSONObject(0).getString("stopPlaceId"));
+					stopPlace.put("quays", stopPlace.getJSONArray("items"));
 					return stopPlace;
 				})
 				.collect(Collectors.toList());
@@ -139,8 +140,10 @@ public class Utility {
 		
 		
 		
-//		JSONObject container = new JSONObject();
 		
+		JSONObject container = new JSONObject();
+		container.put("stopPlaces", new JSONArray(stopPlaces));
+		container.put("trips", lines);
 		
 		
 		
