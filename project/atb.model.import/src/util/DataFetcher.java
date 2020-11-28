@@ -64,7 +64,7 @@ public class DataFetcher {
 	}
 		
 	
-	private static void getBusStops() {
+	public static void getBusStops() {
 		long startTime = System.currentTimeMillis();
 		System.out.println("Begin.");
 		String prinsenP1 = "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71184";
