@@ -3,8 +3,16 @@ package util;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -29,14 +37,50 @@ import atb.Busstop;
 import atb.Busstops;
 
 public class Utility {
+	
+	private static ExecutorService executor = Executors.newCachedThreadPool();
 
 	public static String getData(String url) throws IOException {
 		return new Scanner(new URL(url).openStream(), "UTF-8").useDelimiter("\\A").next();
 	}
 	
+	public static Callable<String> callableGetData(String url) {
+		return () -> {
+			try {
+				return getData(url);
+			} catch (IOException e) {
+				System.err.println("Request failed. URL: " + url);
+				return null;
+			}
+		};
+	}
+	
+	public static List<String> getDataParallell(List<String> urls, long sleepTime) {
+		List<Future<String>> futures = new ArrayList<>();
+		urls.stream().forEach(str -> {
+			futures.add(executor.submit(callableGetData(str)));
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {}
+		});
+		
+		List<String> data = new ArrayList<>();
+		futures.stream().forEach(future -> {
+			try {
+				String result = future.get();
+				if(result != null) {
+					data.add(result);
+				}
+			} catch (InterruptedException | ExecutionException e) {
+				System.err.println("Execution stopped.");
+			}
+		});
+		return data;
+	}
+	
 	public static void main(String[] args) {
-//		getBusStops();
-		testEmfJson1();
+		getBusStops();
+//		testEmfJson1();
 
 	}
 		
@@ -155,19 +199,57 @@ public class Utility {
 			lineIds.add(line.getString("tripId"));
 		}
 		System.out.println("Done with initial call in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, now awaits " + lineIds.size() + " subsequent calls");
+		startTime = System.currentTimeMillis();
+		List<JSONObject> quays = new ArrayList<>();
+		Set<List<String>> quayEdges = new HashSet<>();
+		Set<String> quayIds = new HashSet<>();
 		
-		JSONArray connectedQuays = new JSONArray(); 
-		for (String lineId : lineIds) {
-			try {
-				String line = getData("https://bartebuss-prod.appspot.com/_ah/api/unified/v1/trip/" + lineId);
-				connectedQuays.put(new JSONObject(line));
-			} catch(IOException e) {
-				e.printStackTrace();
+		List<String> urls = lineIds.stream().map(str -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/trip/" + str).collect(Collectors.toList());
+		
+		final long SLEEP_TIME = 20; // if we don't sleep, or the sleep time is too short, the requests might not go through.
+		List<String> lineJsonStrings = getDataParallell(urls, SLEEP_TIME);
+		
+		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, got " + lineJsonStrings.size() + " responses");
+		
+		for (String lineJsonString : lineJsonStrings) {
+			JSONObject line = new JSONObject(lineJsonString);
+			JSONArray stops = line.getJSONArray("stops");
+			for (int i = 0; i < stops.length(); i++) {
+				JSONObject currentQuay = stops.getJSONObject(i);
+				
+				//check uniqueness
+				if(!quayIds.contains(currentQuay.getString("busstopID"))) {
+					quays.add(currentQuay);
+					quayIds.add(currentQuay.getString("busstopID"));
+				}
+				
+				if(i > 0) {
+					List<String> edge = new ArrayList<>();
+					edge.add(stops.getJSONObject(i - 1).getString("busstopID"));
+					edge.add(stops.getJSONObject(i).getString("busstopID"));
+					
+					//check uniqueness
+					if(!quayEdges.contains(edge)) {
+						quayEdges.add(edge);
+					}
+				}
+				
 			}
 		}
-		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds");
 		
-		System.out.println(connectedQuays.length());
+		
+//		for(int i = 0; i < quays.length(); i++) {
+//			JSONObject quay = quays.getJSONObject(i);
+//			System.out.println(quay.getString("destination"));
+//			System.out.println(quay);
+//		}
+		
+		System.out.println(quays.size());
+		System.out.println(quayEdges.size());
+		
+		
+		
+		
 	}
 
 }
