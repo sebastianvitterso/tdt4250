@@ -68,7 +68,7 @@ public interface ImportPackage extends EPackage {
 	int CONTAINER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Quays</b></em>' containment reference.
+	 * The feature id for the '<em><b>Quays</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -77,7 +77,7 @@ public interface ImportPackage extends EPackage {
 	int CONTAINER__QUAYS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Realtimes</b></em>' containment reference.
+	 * The feature id for the '<em><b>Realtimes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -86,7 +86,7 @@ public interface ImportPackage extends EPackage {
 	int CONTAINER__REALTIMES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Trips</b></em>' containment reference.
+	 * The feature id for the '<em><b>Trips</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -250,7 +250,7 @@ public interface ImportPackage extends EPackage {
 	int REALTIME__LATITUDE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Departure Forecasts</b></em>' reference.
+	 * The feature id for the '<em><b>Departure Forecasts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -386,13 +386,22 @@ public interface ImportPackage extends EPackage {
 	int DEPARTURE__GROUP_MAP_KEY = 10;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPARTURE__ID = 11;
+
+	/**
 	 * The number of structural features of the '<em>Departure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPARTURE_FEATURE_COUNT = 11;
+	int DEPARTURE_FEATURE_COUNT = 12;
 
 	/**
 	 * The number of operations of the '<em>Departure</em>' class.
@@ -450,7 +459,7 @@ public interface ImportPackage extends EPackage {
 	int TRIP__DESTINATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Stops</b></em>' reference.
+	 * The feature id for the '<em><b>Stops</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -588,10 +597,10 @@ public interface ImportPackage extends EPackage {
 	EClass getContainer();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link import_.Container#getQuays <em>Quays</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Container#getQuays <em>Quays</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Quays</em>'.
+	 * @return the meta object for the containment reference list '<em>Quays</em>'.
 	 * @see import_.Container#getQuays()
 	 * @see #getContainer()
 	 * @generated
@@ -599,10 +608,10 @@ public interface ImportPackage extends EPackage {
 	EReference getContainer_Quays();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link import_.Container#getRealtimes <em>Realtimes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Container#getRealtimes <em>Realtimes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Realtimes</em>'.
+	 * @return the meta object for the containment reference list '<em>Realtimes</em>'.
 	 * @see import_.Container#getRealtimes()
 	 * @see #getContainer()
 	 * @generated
@@ -610,10 +619,10 @@ public interface ImportPackage extends EPackage {
 	EReference getContainer_Realtimes();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link import_.Container#getTrips <em>Trips</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Container#getTrips <em>Trips</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Trips</em>'.
+	 * @return the meta object for the containment reference list '<em>Trips</em>'.
 	 * @see import_.Container#getTrips()
 	 * @see #getContainer()
 	 * @generated
@@ -762,10 +771,10 @@ public interface ImportPackage extends EPackage {
 	EAttribute getRealtime_Latitude();
 
 	/**
-	 * Returns the meta object for the reference '{@link import_.Realtime#getDepartureForecasts <em>Departure Forecasts</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Realtime#getDepartureForecasts <em>Departure Forecasts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Departure Forecasts</em>'.
+	 * @return the meta object for the containment reference list '<em>Departure Forecasts</em>'.
 	 * @see import_.Realtime#getDepartureForecasts()
 	 * @see #getRealtime()
 	 * @generated
@@ -904,6 +913,17 @@ public interface ImportPackage extends EPackage {
 	EAttribute getDeparture_GroupMapKey();
 
 	/**
+	 * Returns the meta object for the attribute '{@link import_.Departure#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see import_.Departure#getId()
+	 * @see #getDeparture()
+	 * @generated
+	 */
+	EAttribute getDeparture_Id();
+
+	/**
 	 * Returns the meta object for class '{@link import_.Trip <em>Trip</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -958,10 +978,10 @@ public interface ImportPackage extends EPackage {
 	EAttribute getTrip_Destination();
 
 	/**
-	 * Returns the meta object for the reference '{@link import_.Trip#getStops <em>Stops</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Trip#getStops <em>Stops</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Stops</em>'.
+	 * @return the meta object for the containment reference list '<em>Stops</em>'.
 	 * @see import_.Trip#getStops()
 	 * @see #getTrip()
 	 * @generated
@@ -1100,7 +1120,7 @@ public interface ImportPackage extends EPackage {
 		EClass CONTAINER = eINSTANCE.getContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Quays</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Quays</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1108,7 +1128,7 @@ public interface ImportPackage extends EPackage {
 		EReference CONTAINER__QUAYS = eINSTANCE.getContainer_Quays();
 
 		/**
-		 * The meta object literal for the '<em><b>Realtimes</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Realtimes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1116,7 +1136,7 @@ public interface ImportPackage extends EPackage {
 		EReference CONTAINER__REALTIMES = eINSTANCE.getContainer_Realtimes();
 
 		/**
-		 * The meta object literal for the '<em><b>Trips</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Trips</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1232,7 +1252,7 @@ public interface ImportPackage extends EPackage {
 		EAttribute REALTIME__LATITUDE = eINSTANCE.getRealtime_Latitude();
 
 		/**
-		 * The meta object literal for the '<em><b>Departure Forecasts</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Departure Forecasts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1338,6 +1358,14 @@ public interface ImportPackage extends EPackage {
 		EAttribute DEPARTURE__GROUP_MAP_KEY = eINSTANCE.getDeparture_GroupMapKey();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPARTURE__ID = eINSTANCE.getDeparture_Id();
+
+		/**
 		 * The meta object literal for the '{@link import_.impl.TripImpl <em>Trip</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1380,7 +1408,7 @@ public interface ImportPackage extends EPackage {
 		EAttribute TRIP__DESTINATION = eINSTANCE.getTrip_Destination();
 
 		/**
-		 * The meta object literal for the '<em><b>Stops</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Stops</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

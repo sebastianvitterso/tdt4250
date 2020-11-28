@@ -6,15 +6,20 @@ import import_.ImportPackage;
 import import_.Stop;
 import import_.Trip;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -115,14 +120,14 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	protected String destination = DESTINATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStops() <em>Stops</em>}' reference.
+	 * The cached value of the '{@link #getStops() <em>Stops</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStops()
 	 * @generated
 	 * @ordered
 	 */
-	protected Stop stops;
+	protected EList<Stop> stops;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,14 +237,9 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Stop getStops() {
-		if (stops != null && stops.eIsProxy()) {
-			InternalEObject oldStops = (InternalEObject)stops;
-			stops = (Stop)eResolveProxy(oldStops);
-			if (stops != oldStops) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImportPackage.TRIP__STOPS, oldStops, stops));
-			}
+	public EList<Stop> getStops() {
+		if (stops == null) {
+			stops = new EObjectContainmentEList<Stop>(Stop.class, this, ImportPackage.TRIP__STOPS);
 		}
 		return stops;
 	}
@@ -249,20 +249,13 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Stop basicGetStops() {
-		return stops;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStops(Stop newStops) {
-		Stop oldStops = stops;
-		stops = newStops;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImportPackage.TRIP__STOPS, oldStops, stops));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ImportPackage.TRIP__STOPS:
+				return ((InternalEList<?>)getStops()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -282,8 +275,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 			case ImportPackage.TRIP__DESTINATION:
 				return getDestination();
 			case ImportPackage.TRIP__STOPS:
-				if (resolve) return getStops();
-				return basicGetStops();
+				return getStops();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,6 +285,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -309,7 +302,8 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 				setDestination((String)newValue);
 				return;
 			case ImportPackage.TRIP__STOPS:
-				setStops((Stop)newValue);
+				getStops().clear();
+				getStops().addAll((Collection<? extends Stop>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -336,7 +330,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 				setDestination(DESTINATION_EDEFAULT);
 				return;
 			case ImportPackage.TRIP__STOPS:
-				setStops((Stop)null);
+				getStops().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -359,7 +353,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 			case ImportPackage.TRIP__DESTINATION:
 				return DESTINATION_EDEFAULT == null ? destination != null : !DESTINATION_EDEFAULT.equals(destination);
 			case ImportPackage.TRIP__STOPS:
-				return stops != null;
+				return stops != null && !stops.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

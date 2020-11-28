@@ -34,7 +34,7 @@ public interface Quay extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see import_.ImportPackage#getQuay_Id()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getId();

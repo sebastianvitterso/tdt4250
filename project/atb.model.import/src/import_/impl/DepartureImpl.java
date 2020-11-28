@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link import_.impl.DepartureImpl#isIsRealTime <em>Is Real Time</em>}</li>
  *   <li>{@link import_.impl.DepartureImpl#getTripId <em>Trip Id</em>}</li>
  *   <li>{@link import_.impl.DepartureImpl#getGroupMapKey <em>Group Map Key</em>}</li>
+ *   <li>{@link import_.impl.DepartureImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -257,6 +258,26 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 	 * @ordered
 	 */
 	protected String groupMapKey = GROUP_MAP_KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -513,6 +534,27 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImportPackage.DEPARTURE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -538,6 +580,8 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 				return getTripId();
 			case ImportPackage.DEPARTURE__GROUP_MAP_KEY:
 				return getGroupMapKey();
+			case ImportPackage.DEPARTURE__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -582,6 +626,9 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 				return;
 			case ImportPackage.DEPARTURE__GROUP_MAP_KEY:
 				setGroupMapKey((String)newValue);
+				return;
+			case ImportPackage.DEPARTURE__ID:
+				setId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -628,6 +675,9 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 			case ImportPackage.DEPARTURE__GROUP_MAP_KEY:
 				setGroupMapKey(GROUP_MAP_KEY_EDEFAULT);
 				return;
+			case ImportPackage.DEPARTURE__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -662,6 +712,8 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 				return TRIP_ID_EDEFAULT == null ? tripId != null : !TRIP_ID_EDEFAULT.equals(tripId);
 			case ImportPackage.DEPARTURE__GROUP_MAP_KEY:
 				return GROUP_MAP_KEY_EDEFAULT == null ? groupMapKey != null : !GROUP_MAP_KEY_EDEFAULT.equals(groupMapKey);
+			case ImportPackage.DEPARTURE__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -698,6 +750,8 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 		result.append(tripId);
 		result.append(", groupMapKey: ");
 		result.append(groupMapKey);
+		result.append(", id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

@@ -86,44 +86,44 @@ public class Utility {
 			.put("json", factory);
 		Resource resource = resourceSet.createResource
 				  (URI.createFileURI("src/util/data.json"));
-//		
-//		Busstops prinsens = AtbFactory.eINSTANCE.createBusstops();
-//		prinsens.setName("Prinsensgate");
-//		prinsens.setNodeId(1);
-//		prinsens.setStopId(1);
-//		resource.getContents().add(prinsens);
-//		try {
-//			String jsonString = mapper.writeValueAsString(resource);
-//			JsonNode jsonNode = mapper.valueToTree(prinsens);
-//			String jsonString2 = mapper.writeValueAsString(prinsens);
-//			System.out.println(jsonString2);
-//			resource.save(null);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
 		
-//		JsonNode data = mapper.valueToTree(prinsens);
-		String json = "{ \"stopId\" : \"1\" } ";
-
-
+		Busstops prinsens = AtbFactory.eINSTANCE.createBusstops();
+		prinsens.setName("Prinsensgate");
+		prinsens.setNodeId(1);
+		prinsens.setStopId(1);
+		resource.getContents().add(prinsens);
 		try {
-			JsonNode data = mapper.readTree(json);
-//			resource = mapper
-//			  .reader()
-//				.withAttribute(EMFContext.Attributes.RESOURCE_SET, resourceSet)
-//			  .withAttribute(EMFContext.Attributes.RESOURCE_URI, "src/main/resources/data.json")
-//				.forType(Resource.class)
-//				.readValue(data);
-			
-			Busstops busstops = mapper.reader()
-					.withAttribute(EMFContext.Attributes.RESOURCE, resource)
-					.forType(Busstops.class)
-					.readValue(data);
-			
-			System.out.println(busstops.getName());
+			String jsonString = mapper.writeValueAsString(resource);
+			JsonNode jsonNode = mapper.valueToTree(prinsens);
+			String jsonString2 = mapper.writeValueAsString(prinsens);
+			System.out.println(jsonString2);
+			resource.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+//		JsonNode data = mapper.valueToTree(prinsens);
+//		String json = "{ \"stopId\" : \"1\" } ";
+
+
+//		try {
+//			JsonNode data = mapper.readTree(json);
+////			resource = mapper
+////			  .reader()
+////				.withAttribute(EMFContext.Attributes.RESOURCE_SET, resourceSet)
+////			  .withAttribute(EMFContext.Attributes.RESOURCE_URI, "src/main/resources/data.json")
+////				.forType(Resource.class)
+////				.readValue(data);
+//			
+//			Busstops busstops = mapper.reader()
+//					.withAttribute(EMFContext.Attributes.RESOURCE, resource)
+//					.forType(Busstops.class)
+//					.readValue(data);
+//			
+//			System.out.println(busstops.getName());
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		
 	}

@@ -2,6 +2,7 @@
  */
 package import_;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,69 +25,39 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Container extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Quays</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Quays</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Quay}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quays</em>' containment reference.
-	 * @see #setQuays(Quay)
+	 * @return the value of the '<em>Quays</em>' containment reference list.
 	 * @see import_.ImportPackage#getContainer_Quays()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Quay getQuays();
+	EList<Quay> getQuays();
 
 	/**
-	 * Sets the value of the '{@link import_.Container#getQuays <em>Quays</em>}' containment reference.
+	 * Returns the value of the '<em><b>Realtimes</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Realtime}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quays</em>' containment reference.
-	 * @see #getQuays()
-	 * @generated
-	 */
-	void setQuays(Quay value);
-
-	/**
-	 * Returns the value of the '<em><b>Realtimes</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Realtimes</em>' containment reference.
-	 * @see #setRealtimes(Realtime)
+	 * @return the value of the '<em>Realtimes</em>' containment reference list.
 	 * @see import_.ImportPackage#getContainer_Realtimes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Realtime getRealtimes();
+	EList<Realtime> getRealtimes();
 
 	/**
-	 * Sets the value of the '{@link import_.Container#getRealtimes <em>Realtimes</em>}' containment reference.
+	 * Returns the value of the '<em><b>Trips</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Trip}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Realtimes</em>' containment reference.
-	 * @see #getRealtimes()
-	 * @generated
-	 */
-	void setRealtimes(Realtime value);
-
-	/**
-	 * Returns the value of the '<em><b>Trips</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trips</em>' containment reference.
-	 * @see #setTrips(Trip)
+	 * @return the value of the '<em>Trips</em>' containment reference list.
 	 * @see import_.ImportPackage#getContainer_Trips()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Trip getTrips();
-
-	/**
-	 * Sets the value of the '{@link import_.Container#getTrips <em>Trips</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trips</em>' containment reference.
-	 * @see #getTrips()
-	 * @generated
-	 */
-	void setTrips(Trip value);
+	EList<Trip> getTrips();
 
 } // Container

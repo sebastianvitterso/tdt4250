@@ -2,6 +2,7 @@
  */
 package import_;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -32,7 +33,7 @@ public interface Realtime extends EObject {
 	 * @return the value of the '<em>Bus Stop ID</em>' attribute.
 	 * @see #setBusStopID(String)
 	 * @see import_.ImportPackage#getRealtime_BusStopID()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getBusStopID();
@@ -114,25 +115,15 @@ public interface Realtime extends EObject {
 	void setLatitude(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Departure Forecasts</b></em>' reference.
+	 * Returns the value of the '<em><b>Departure Forecasts</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Departure}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Departure Forecasts</em>' reference.
-	 * @see #setDepartureForecasts(Departure)
+	 * @return the value of the '<em>Departure Forecasts</em>' containment reference list.
 	 * @see import_.ImportPackage#getRealtime_DepartureForecasts()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Departure getDepartureForecasts();
-
-	/**
-	 * Sets the value of the '{@link import_.Realtime#getDepartureForecasts <em>Departure Forecasts</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Departure Forecasts</em>' reference.
-	 * @see #getDepartureForecasts()
-	 * @generated
-	 */
-	void setDepartureForecasts(Departure value);
+	EList<Departure> getDepartureForecasts();
 
 } // Realtime

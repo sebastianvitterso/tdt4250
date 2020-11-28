@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="lib/jackson-core-2.11.3.jar"/>
 	<classpathentry kind="lib" path="lib/jackson-databind-2.11.3.jar"/>
 	<classpathentry kind="lib" path="lib/json-20201115.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore.xmi-2.7.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,6 +4,7 @@ package import_;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -116,25 +117,15 @@ public interface Trip extends EObject {
 	void setDestination(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Stops</b></em>' reference.
+	 * Returns the value of the '<em><b>Stops</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Stop}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stops</em>' reference.
-	 * @see #setStops(Stop)
+	 * @return the value of the '<em>Stops</em>' containment reference list.
 	 * @see import_.ImportPackage#getTrip_Stops()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Stop getStops();
-
-	/**
-	 * Sets the value of the '{@link import_.Trip#getStops <em>Stops</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stops</em>' reference.
-	 * @see #getStops()
-	 * @generated
-	 */
-	void setStops(Stop value);
+	EList<Stop> getStops();
 
 } // Trip

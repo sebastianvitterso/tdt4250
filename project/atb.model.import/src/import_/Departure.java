@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link import_.Departure#isIsRealTime <em>Is Real Time</em>}</li>
  *   <li>{@link import_.Departure#getTripId <em>Trip Id</em>}</li>
  *   <li>{@link import_.Departure#getGroupMapKey <em>Group Map Key</em>}</li>
+ *   <li>{@link import_.Departure#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see import_.ImportPackage#getDeparture()
@@ -274,5 +275,27 @@ public interface Departure extends EObject {
 	 * @generated
 	 */
 	void setGroupMapKey(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see import_.ImportPackage#getDeparture_Id()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link import_.Departure#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
 
 } // Departure

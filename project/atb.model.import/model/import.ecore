@@ -5,15 +5,22 @@
     <details key="validationDelegates" value="http://www.eclipse.org/acceleo/query/1.0"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Container">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="quays" eType="#//Quay"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realtimes" eType="#//Realtime"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trips" eType="#//Trip"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stopPlaces" upperBound="-1"
+        eType="#//StopPlace" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realtimes" upperBound="-1"
+        eType="#//Realtime" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trips" upperBound="-1"
+        eType="#//Trip" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StopPlace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quays" upperBound="-1"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Quay">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopPlaceId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="place" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -22,11 +29,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="compassBearing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Realtime">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="busStopID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="busStopID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="busStopName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="departureForecasts" eType="#//Departure"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departureForecasts" upperBound="-1"
+        eType="#//Departure" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Departure">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -42,13 +51,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRealTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tripId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupMapKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trip">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tripID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stops" eType="#//Stop"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stops" upperBound="-1"
+        eType="#//Stop" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stop">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

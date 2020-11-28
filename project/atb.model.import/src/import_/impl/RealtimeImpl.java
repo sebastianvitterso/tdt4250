@@ -6,13 +6,17 @@ import import_.Departure;
 import import_.ImportPackage;
 import import_.Realtime;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -113,14 +117,14 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 	protected float latitude = LATITUDE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDepartureForecasts() <em>Departure Forecasts</em>}' reference.
+	 * The cached value of the '{@link #getDepartureForecasts() <em>Departure Forecasts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDepartureForecasts()
 	 * @generated
 	 * @ordered
 	 */
-	protected Departure departureForecasts;
+	protected EList<Departure> departureForecasts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,14 +234,9 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Departure getDepartureForecasts() {
-		if (departureForecasts != null && departureForecasts.eIsProxy()) {
-			InternalEObject oldDepartureForecasts = (InternalEObject)departureForecasts;
-			departureForecasts = (Departure)eResolveProxy(oldDepartureForecasts);
-			if (departureForecasts != oldDepartureForecasts) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImportPackage.REALTIME__DEPARTURE_FORECASTS, oldDepartureForecasts, departureForecasts));
-			}
+	public EList<Departure> getDepartureForecasts() {
+		if (departureForecasts == null) {
+			departureForecasts = new EObjectContainmentEList<Departure>(Departure.class, this, ImportPackage.REALTIME__DEPARTURE_FORECASTS);
 		}
 		return departureForecasts;
 	}
@@ -247,20 +246,13 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Departure basicGetDepartureForecasts() {
-		return departureForecasts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDepartureForecasts(Departure newDepartureForecasts) {
-		Departure oldDepartureForecasts = departureForecasts;
-		departureForecasts = newDepartureForecasts;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImportPackage.REALTIME__DEPARTURE_FORECASTS, oldDepartureForecasts, departureForecasts));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ImportPackage.REALTIME__DEPARTURE_FORECASTS:
+				return ((InternalEList<?>)getDepartureForecasts()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -280,8 +272,7 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 			case ImportPackage.REALTIME__LATITUDE:
 				return getLatitude();
 			case ImportPackage.REALTIME__DEPARTURE_FORECASTS:
-				if (resolve) return getDepartureForecasts();
-				return basicGetDepartureForecasts();
+				return getDepartureForecasts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -291,6 +282,7 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -307,7 +299,8 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 				setLatitude((Float)newValue);
 				return;
 			case ImportPackage.REALTIME__DEPARTURE_FORECASTS:
-				setDepartureForecasts((Departure)newValue);
+				getDepartureForecasts().clear();
+				getDepartureForecasts().addAll((Collection<? extends Departure>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -334,7 +327,7 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 				setLatitude(LATITUDE_EDEFAULT);
 				return;
 			case ImportPackage.REALTIME__DEPARTURE_FORECASTS:
-				setDepartureForecasts((Departure)null);
+				getDepartureForecasts().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -357,7 +350,7 @@ public class RealtimeImpl extends MinimalEObjectImpl.Container implements Realti
 			case ImportPackage.REALTIME__LATITUDE:
 				return latitude != LATITUDE_EDEFAULT;
 			case ImportPackage.REALTIME__DEPARTURE_FORECASTS:
-				return departureForecasts != null;
+				return departureForecasts != null && !departureForecasts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -39,6 +39,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/isRealTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/tripId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/groupMapKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/id"/>
     </genClasses>
     <genClasses ecoreClass="import.ecore#//Trip">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Trip/tripID"/>
