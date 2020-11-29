@@ -143,8 +143,9 @@ public class DataFetcher {
 		List<JSONObject> stopPlaces = getDataParallell(stopPlaceUrls, SLEEP_TIME).stream()
 				.map(jsonString -> new JSONObject(jsonString))
 				.map(stopPlace -> {
-					stopPlace.put("id", stopPlace.getJSONArray("items").getJSONObject(0).getString("stopPlaceId"));
 					stopPlace.put("quays", stopPlace.getJSONArray("items"));
+					stopPlace.remove("items");
+					stopPlace.put("id", stopPlace.getJSONArray("quays").getJSONObject(0).getString("stopPlaceId"));
 					
 					stopPlace.getJSONArray("quays")
 							.forEach(quayObj -> {
@@ -175,11 +176,10 @@ public class DataFetcher {
 					
 					trip.getJSONArray("stops")
 							.forEach(stopObject -> {
-								JSONObject stop = (JSONObject) stopObject;
-								stop.put("$ref", stop.getString("busstopID"));
+								JSONObject stop = new JSONObject();
+								stop.put("$ref", ((JSONObject) stopObject).getString("busstopID"));
 								stops.add(stop);
 							});
-					
 					trip.put("stops", new JSONArray(stops));
 					return trip;
 				})
@@ -220,8 +220,6 @@ public class DataFetcher {
 					return stopPlace;
 				})
 				.collect(Collectors.toList());
-		
-		System.out.println(stopPlaces.get(0));
 		
 		JSONObject container = new JSONObject();
 		container.put("stopPlaces", new JSONArray(stopPlaces));
