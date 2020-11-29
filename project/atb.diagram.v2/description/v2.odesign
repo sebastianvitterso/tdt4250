@@ -1,16 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="v2" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="v2" version="12.0.0.2017041100">
   <ownedViewpoints name="AtbViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AtbDiagram" domainClass="import::Container" enablePopupBars="true">
       <defaultLayer name="Default">
         <containerMappings name="StopPlace" domainClass="import::StopPlace">
-          <subNodeMappings name="Quay" semanticCandidatesExpression="feature:eAllContents" domainClass="import::Quay">
-            <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW">
+          <subNodeMappings name="Quay" detailDescriptions="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create']" navigationDescriptions="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Nav']" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Click']" domainClass="import::Quay">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name +' - ' +self.compassBearing" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.eContents()->at(1).name" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Tools">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Click" forceRefresh="true" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']/@subNodeMappings[name='Quay']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramNavigationDescription" name="Nav" forceRefresh="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']">
+            <containerViewVariable name="containerView"/>
+            <containerVariable name="container"/>
+            <representationNameVariable name="diagramName"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DiagramCreationDescription" name="Create" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']">
+            <initialOperation/>
+            <containerViewVariable name="containerView"/>
+            <representationNameVariable name="diagramName"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Navigation" forceRefresh="true">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="TripsDiagram" forceRefresh="true">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TripsDiagram" domainClass="import::Container" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Trip" domainClass="import::Trip" childrenPresentation="List">
+          <subNodeMappings name="Stop" semanticCandidatesExpression="feature:eAllContents" domainClass="import::Stop">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.destination + ' - ' + self.time" tooltipExpression="aql:self.destination + ' - ' + self.time" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="5" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
         </containerMappings>
       </defaultLayer>
     </ownedRepresentations>
