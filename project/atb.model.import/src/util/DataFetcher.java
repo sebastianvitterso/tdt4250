@@ -273,14 +273,14 @@ public class DataFetcher {
 							JSONObject departure = (JSONObject) depObj;
 							JSONObject tripRef = new JSONObject();
 							tripRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
-							tripRef.put("$ref", departure.getString("tripId"));
+							tripRef.put("$ref", departure.getString("tripId").replace(":", ""));
 							departure.put("trip", tripRef);
 							objDepartures.add(departure);
 						});
 					}
 					JSONObject quayRef = new JSONObject();
 					quayRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
-					quayRef.put("$ref", obj.getString("busStopID"));
+					quayRef.put("$ref", obj.getString("busStopID").replace(":", ""));
 					obj.put("quay", quayRef);
 					
 					obj.put("departureForecasts", new JSONArray(objDepartures));
