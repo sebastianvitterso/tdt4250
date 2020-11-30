@@ -214,7 +214,7 @@ public class DataFetcher {
 		}
 		
 		
-		stopPlaces.stream()
+		stopPlaces = stopPlaces.stream()
 				.map(stopPlace -> {
 					stopPlace.put("neighbour", neighbourMap.get(stopPlace.getString("id")));
 					return stopPlace;
