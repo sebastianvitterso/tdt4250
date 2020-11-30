@@ -201,7 +201,7 @@ public class DataFetcher {
 				JSONObject neighbourFromTo = new JSONObject();
 				neighbourFromTo.put("eClass", "platform:/plugin/atb/model/import.ecore#//StopPlace");
 				neighbourFromTo.put("$ref", to);
-				neighbourMap.get(from).put(new JSONObject("{\"$ref\": \"" + to + "\"}"));	// {"$ref": " {{to}} " }	
+				neighbourMap.get(from).put(neighbourFromTo);	// {"$ref": " {{to}} " }	
 				neighbourMapSet.get(from).add(to);
 			}
 			
@@ -209,8 +209,11 @@ public class DataFetcher {
 				neighbourMap.put(to, new JSONArray());
 				neighbourMapSet.put(to, new HashSet<>());
 			}
-			if(!neighbourMapSet.get(from).contains(to)) {
-				neighbourMap.get(to).put(new JSONObject("{\"$ref\": \"" + from + "\"}"));	// {"$ref": " {{to}} " }		
+			if(!neighbourMapSet.get(to).contains(from)) {
+				JSONObject neighbourToFrom = new JSONObject();
+				neighbourToFrom.put("eClass", "platform:/plugin/atb/model/import.ecore#//StopPlace");
+				neighbourToFrom.put("$ref", from);
+				neighbourMap.get(to).put(neighbourToFrom);	// {"$ref": " {{to}} " }		
 				neighbourMapSet.get(to).add(from);
 			}
 		}
