@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import:Container
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:import="platform:/plugin/atb/model/import.ecore"
+    xsi:schemaLocation="platform:/plugin/atb/model/import.ecore import.ecore">
+  <stopPlaces
+      id="NSR:StopPlace:1"
+      neighbours="NSR:StopPlace:2">
+    <quays id="NSR:Quay:1"
+        name="Prinsen P1"
+        place="Prinsen"/>
+    <quays id="NSR:Quay:2"
+        name="Prinsen P2"
+        place="Prinsen"/>
+  </stopPlaces>
+  <stopPlaces
+      id="NSR:StopPlace:2"
+      neighbours="NSR:StopPlace:1">
+    <quays id="NSR:Quay:3"
+        name="Kongens K1"
+        place="Kongens"/>
+    <quays id="NSR:Quay:4"
+        name="Kongens K2"
+        place="Kongens"/>
+  </stopPlaces>
+  <trips tripID="123211325135133"
+      date="30.11.2020"
+      line="1"
+      destination="Hjem"
+      stops="NSR:Quay:2 NSR:Quay:4"/>
+</import:Container>

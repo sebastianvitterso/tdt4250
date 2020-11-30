@@ -71,7 +71,6 @@ public class DataFetcher {
 	
 	public static JSONObject getBusStops() {
 		long startTime = System.currentTimeMillis();
-		System.out.println("Begin.");
 		String prinsenP1 = "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71184";
 		String prinsenP2 = "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71181";
 		JSONObject prinsenP1Json = null;
@@ -216,7 +215,7 @@ public class DataFetcher {
 		
 		stopPlaces = stopPlaces.stream()
 				.map(stopPlace -> {
-					stopPlace.put("neighbour", neighbourMap.get(stopPlace.getString("id")));
+					stopPlace.put("neighbours", neighbourMap.get(stopPlace.getString("id")));
 					return stopPlace;
 				})
 				.collect(Collectors.toList());

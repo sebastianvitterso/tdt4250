@@ -45,18 +45,32 @@ import org.emfjson.jackson.module.EMFModule;
 
 public class Utility {
 	
+	
 	public static void main(String[] args) {
-		JSONObject container = DataFetcher.getBusStops();
-		parseJsonToXmi(container);
+		try {
+			EObject obj = loadEObjectFromXmi("model/test.xmi");
+			saveEObjectToJson(obj, "model/test.json");
+			EObject obj2 = loadEObjectFromJson("src/util/data.json");
+			saveEObjectToXmi(obj2, "model/data.xmi");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		
+//		System.out.println("Begin.");
+//		JSONObject container = DataFetcher.getBusStops();
+//		parseJsonToXmi(container);
+//		System.out.println("End.");
+		
 	}
 	
 	public static void parseJsonToXmi(JSONObject object) {
 		try {
 			object.put("eClass", "platform:/plugin/atb/model/import.ecore#//Container");
 			
-			Container container = (Container)loadEObjectFromStringThroughFile(object.toString(), ImportPackage.eINSTANCE);
+			Container container = (Container)loadEObjectFromStringThroughFile(object.toString(), "src/util/data.json");
 			
-			saveEObjectToXmi(container);
+			saveEObjectToXmi(container, "src/util/data.xmi");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -74,38 +88,60 @@ public class Utility {
 	    return resource.getContents().get(0);
 	}
 	
-	private static EObject loadEObjectFromStringThroughFile(String model, EPackage ePackage) throws IOException { 
-		saveToFile(model);
-		return loadEObjectFromFile(ePackage);
+	private static EObject loadEObjectFromStringThroughFile(String model, String filePath) throws IOException { 
+		saveToFile(model, filePath);
+		return loadEObjectFromJson(filePath);
 	}
 	
-	private static EObject loadEObjectFromFile(EPackage ePackage) throws IOException { 
+	private static EObject loadEObjectFromJson(String filePath) throws IOException { 
 		ResourceSet resourceSet = new ResourceSetImpl();
-		resourceSet.getPackageRegistry().put(ePackage.getNsURI(), ePackage);
+		resourceSet.getPackageRegistry().put(ImportPackage.eINSTANCE.getNsURI(), ImportPackage.eINSTANCE);
 		
 	    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("json", new JsonResourceFactory());
-	    Resource resource = resourceSet.getResource(URI.createFileURI("src/util/data.json"), true);
+	    Resource resource = resourceSet.getResource(URI.createFileURI(filePath), true);
 		
 	    return resource.getContents().get(0);
 	}
 	
-	private static void saveEObjectToXmi(EObject eObject) throws IOException {
+	private static void saveEObjectToXmi(EObject eObject, String filePath) throws IOException {
 		ResourceSet resourceSet = new ResourceSetImpl();
 		resourceSet.getResourceFactoryRegistry()
 						.getExtensionToFactoryMap()
 						.put("xmi", new XMIResourceFactoryImpl());
 		
 		Resource resource = resourceSet.createResource
-				  (URI.createFileURI("src/util/data.xmi"));
+				  (URI.createFileURI(filePath));
 		resource.getContents().add(eObject);
 		
 		resource.save(null);
 	}
 	
-	private static void saveToFile(String string) throws IOException {
-		FileWriter file = new FileWriter("src/util/data.json", StandardCharsets.UTF_8);
+	private static void saveToFile(String string, String filePath) throws IOException {
+		FileWriter file = new FileWriter(filePath, StandardCharsets.UTF_8);
 		file.write(string);
 		file.close();
+	}
+	
+	private static EObject loadEObjectFromXmi(String filePath) throws IOException { 
+		ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.getPackageRegistry().put(ImportPackage.eINSTANCE.getNsURI(), ImportPackage.eINSTANCE);
+		
+	    resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+	    Resource resource = resourceSet.getResource(URI.createFileURI("model/test.xmi"), true);
+		
+	    return resource.getContents().get(0);
+	}
+	private static void saveEObjectToJson(EObject eObject, String filePath) throws IOException {
+		ResourceSet resourceSet = new ResourceSetImpl();
+		resourceSet.getResourceFactoryRegistry()
+						.getExtensionToFactoryMap()
+						.put("json", new JsonResourceFactory());
+		
+		Resource resource = resourceSet.createResource
+				  (URI.createFileURI(filePath));
+		resource.getContents().add(eObject);
+		
+		resource.save(null);
 	}
 
 }

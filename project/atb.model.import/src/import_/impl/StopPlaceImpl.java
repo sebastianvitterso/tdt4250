@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link import_.impl.StopPlaceImpl#getId <em>Id</em>}</li>
  *   <li>{@link import_.impl.StopPlaceImpl#getQuays <em>Quays</em>}</li>
+ *   <li>{@link import_.impl.StopPlaceImpl#getNeighbours <em>Neighbours</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +68,16 @@ public class StopPlaceImpl extends MinimalEObjectImpl.Container implements StopP
 	 * @ordered
 	 */
 	protected EList<Quay> quays;
+
+	/**
+	 * The cached value of the '{@link #getNeighbours() <em>Neighbours</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNeighbours()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StopPlace> neighbours;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +136,18 @@ public class StopPlaceImpl extends MinimalEObjectImpl.Container implements StopP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<StopPlace> getNeighbours() {
+		if (neighbours == null) {
+			neighbours = new EObjectResolvingEList<StopPlace>(StopPlace.class, this, ImportPackage.STOP_PLACE__NEIGHBOURS);
+		}
+		return neighbours;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -145,6 +169,8 @@ public class StopPlaceImpl extends MinimalEObjectImpl.Container implements StopP
 				return getId();
 			case ImportPackage.STOP_PLACE__QUAYS:
 				return getQuays();
+			case ImportPackage.STOP_PLACE__NEIGHBOURS:
+				return getNeighbours();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +191,10 @@ public class StopPlaceImpl extends MinimalEObjectImpl.Container implements StopP
 				getQuays().clear();
 				getQuays().addAll((Collection<? extends Quay>)newValue);
 				return;
+			case ImportPackage.STOP_PLACE__NEIGHBOURS:
+				getNeighbours().clear();
+				getNeighbours().addAll((Collection<? extends StopPlace>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +213,9 @@ public class StopPlaceImpl extends MinimalEObjectImpl.Container implements StopP
 			case ImportPackage.STOP_PLACE__QUAYS:
 				getQuays().clear();
 				return;
+			case ImportPackage.STOP_PLACE__NEIGHBOURS:
+				getNeighbours().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +232,8 @@ public class StopPlaceImpl extends MinimalEObjectImpl.Container implements StopP
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ImportPackage.STOP_PLACE__QUAYS:
 				return quays != null && !quays.isEmpty();
+			case ImportPackage.STOP_PLACE__NEIGHBOURS:
+				return neighbours != null && !neighbours.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

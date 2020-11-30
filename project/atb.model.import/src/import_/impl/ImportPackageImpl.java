@@ -203,6 +203,15 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStopPlace_Neighbours() {
+		return (EReference)stopPlaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getQuay() {
 		return quayEClass;
 	}
@@ -612,6 +621,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		stopPlaceEClass = createEClass(STOP_PLACE);
 		createEAttribute(stopPlaceEClass, STOP_PLACE__ID);
 		createEReference(stopPlaceEClass, STOP_PLACE__QUAYS);
+		createEReference(stopPlaceEClass, STOP_PLACE__NEIGHBOURS);
 
 		quayEClass = createEClass(QUAY);
 		createEAttribute(quayEClass, QUAY__ID);
@@ -699,6 +709,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEClass(stopPlaceEClass, StopPlace.class, "StopPlace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStopPlace_Id(), ecorePackage.getEString(), "id", null, 0, 1, StopPlace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStopPlace_Quays(), this.getQuay(), null, "quays", null, 0, -1, StopPlace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStopPlace_Neighbours(), this.getStopPlace(), null, "neighbours", null, 0, -1, StopPlace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(quayEClass, Quay.class, "Quay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuay_Id(), ecorePackage.getEString(), "id", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -735,7 +746,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEAttribute(getTrip_Date(), ecorePackage.getEString(), "date", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrip_Line(), ecorePackage.getEString(), "line", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrip_Destination(), ecorePackage.getEString(), "destination", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrip_Stops(), this.getStop(), null, "stops", null, 0, -1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrip_Stops(), this.getQuay(), null, "stops", null, 0, -1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stopEClass, Stop.class, "Stop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStop_Destination(), ecorePackage.getEString(), "destination", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -141,13 +141,22 @@ public interface ImportPackage extends EPackage {
 	int STOP_PLACE__QUAYS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Neighbours</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_PLACE__NEIGHBOURS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Stop Place</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOP_PLACE_FEATURE_COUNT = 2;
+	int STOP_PLACE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Stop Place</em>' class.
@@ -505,7 +514,7 @@ public interface ImportPackage extends EPackage {
 	int TRIP__DESTINATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Stops</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Stops</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -706,6 +715,17 @@ public interface ImportPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStopPlace_Quays();
+
+	/**
+	 * Returns the meta object for the reference list '{@link import_.StopPlace#getNeighbours <em>Neighbours</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Neighbours</em>'.
+	 * @see import_.StopPlace#getNeighbours()
+	 * @see #getStopPlace()
+	 * @generated
+	 */
+	EReference getStopPlace_Neighbours();
 
 	/**
 	 * Returns the meta object for class '{@link import_.Quay <em>Quay</em>}'.
@@ -1056,10 +1076,10 @@ public interface ImportPackage extends EPackage {
 	EAttribute getTrip_Destination();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link import_.Trip#getStops <em>Stops</em>}'.
+	 * Returns the meta object for the reference list '{@link import_.Trip#getStops <em>Stops</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Stops</em>'.
+	 * @return the meta object for the reference list '<em>Stops</em>'.
 	 * @see import_.Trip#getStops()
 	 * @see #getTrip()
 	 * @generated
@@ -1246,6 +1266,14 @@ public interface ImportPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STOP_PLACE__QUAYS = eINSTANCE.getStopPlace_Quays();
+
+		/**
+		 * The meta object literal for the '<em><b>Neighbours</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STOP_PLACE__NEIGHBOURS = eINSTANCE.getStopPlace_Neighbours();
 
 		/**
 		 * The meta object literal for the '{@link import_.impl.QuayImpl <em>Quay</em>}' class.
@@ -1512,7 +1540,7 @@ public interface ImportPackage extends EPackage {
 		EAttribute TRIP__DESTINATION = eINSTANCE.getTrip_Destination();
 
 		/**
-		 * The meta object literal for the '<em><b>Stops</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Stops</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

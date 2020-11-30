@@ -14,6 +14,7 @@
     <genClasses ecoreClass="import.ecore#//StopPlace">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//StopPlace/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//StopPlace/quays"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//StopPlace/neighbours"/>
     </genClasses>
     <genClasses ecoreClass="import.ecore#//Quay">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/id"/>

@@ -17,6 +17,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="quays" upperBound="-1"
         eType="#//Quay" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="neighbours" upperBound="-1"
+        eType="#//StopPlace"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Quay">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -60,7 +62,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stops" upperBound="-1"
-        eType="#//Stop" containment="true"/>
+        eType="#//Quay"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stop">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

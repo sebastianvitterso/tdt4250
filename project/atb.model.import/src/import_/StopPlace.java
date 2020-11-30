@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link import_.StopPlace#getId <em>Id</em>}</li>
  *   <li>{@link import_.StopPlace#getQuays <em>Quays</em>}</li>
+ *   <li>{@link import_.StopPlace#getNeighbours <em>Neighbours</em>}</li>
  * </ul>
  *
  * @see import_.ImportPackage#getStopPlace()
@@ -57,5 +58,17 @@ public interface StopPlace extends EObject {
 	 * @generated
 	 */
 	EList<Quay> getQuays();
+
+	/**
+	 * Returns the value of the '<em><b>Neighbours</b></em>' reference list.
+	 * The list contents are of type {@link import_.StopPlace}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Neighbours</em>' reference list.
+	 * @see import_.ImportPackage#getStopPlace_Neighbours()
+	 * @model
+	 * @generated
+	 */
+	EList<StopPlace> getNeighbours();
 
 } // StopPlace
