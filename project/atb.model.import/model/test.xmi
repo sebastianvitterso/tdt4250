@@ -6,22 +6,22 @@
     xmlns:import="platform:/plugin/atb/model/import.ecore"
     xsi:schemaLocation="platform:/plugin/atb/model/import.ecore import.ecore">
   <stopPlaces
-      id="NSR:StopPlace:1"
-      neighbours="NSR:StopPlace:2">
-    <quays id="NSR:Quay:1"
+      id="NSRStopPlace1"
+      neighbours="NSRStopPlace2 NSRStopPlace1">
+    <quays id="NSRQuay1"
         name="Prinsen P1"
         place="Prinsen"/>
-    <quays id="NSR:Quay:2"
+    <quays id="NSRQuay2"
         name="Prinsen P2"
         place="Prinsen"/>
   </stopPlaces>
   <stopPlaces
-      id="NSR:StopPlace:2"
-      neighbours="NSR:StopPlace:1">
-    <quays id="NSR:Quay:3"
+      id="NSRStopPlace2"
+      neighbours="NSRStopPlace1 NSRStopPlace2">
+    <quays id="NSRQuay3"
         name="Kongens K1"
         place="Kongens"/>
-    <quays id="NSR:Quay:4"
+    <quays id="NSRQuay4"
         name="Kongens K2"
         place="Kongens"/>
   </stopPlaces>
@@ -29,5 +29,5 @@
       date="30.11.2020"
       line="1"
       destination="Hjem"
-      stops="NSR:Quay:2 NSR:Quay:4"/>
+      stops="NSRQuay2 NSRQuay4"/>
 </import:Container>

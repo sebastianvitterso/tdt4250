@@ -48,10 +48,13 @@ public class Utility {
 	
 	public static void main(String[] args) {
 		try {
-			EObject obj = loadEObjectFromXmi("model/test.xmi");
+			Container obj = (Container) loadEObjectFromXmi("model/test.xmi");
 			saveEObjectToJson(obj, "model/test.json");
-			EObject obj2 = loadEObjectFromJson("src/util/data.json");
-			saveEObjectToXmi(obj2, "model/data.xmi");
+			saveEObjectToXmi(obj, "src/util/data.xmi");
+			
+			
+			Container obj2 = (Container)loadEObjectFromJson("src/util/data.json");
+//			saveEObjectToXmi(obj2, "src/util/data.xmi");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

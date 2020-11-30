@@ -1,32 +1,53 @@
 {
   "eClass" : "platform:/plugin/atb/model/import.ecore#//Container",
   "stopPlaces" : [ {
-    "id" : "NSR:StopPlace:1",
+    "id" : "NSRStopPlace1",
     "quays" : [ {
-      "id" : "NSR:Quay:1",
+      "id" : "NSRQuay1",
       "name" : "Prinsen P1",
       "place" : "Prinsen"
     }, {
-      "id" : "NSR:Quay:2",
+      "id" : "NSRQuay2",
       "name" : "Prinsen P2",
       "place" : "Prinsen"
+    } ],
+    "neighbours" : [ {
+      "eClass" : "platform:/plugin/atb/model/import.ecore#//StopPlace",
+      "$ref" : "NSRStopPlace2"
+    }, {
+      "eClass" : "platform:/plugin/atb/model/import.ecore#//StopPlace",
+      "$ref" : "NSRStopPlace1"
     } ]
   }, {
-    "id" : "NSR:StopPlace:2",
+    "id" : "NSRStopPlace2",
     "quays" : [ {
-      "id" : "NSR:Quay:3",
+      "id" : "NSRQuay3",
       "name" : "Kongens K1",
       "place" : "Kongens"
     }, {
-      "id" : "NSR:Quay:4",
+      "id" : "NSRQuay4",
       "name" : "Kongens K2",
       "place" : "Kongens"
+    } ],
+    "neighbours" : [ {
+      "eClass" : "platform:/plugin/atb/model/import.ecore#//StopPlace",
+      "$ref" : "NSRStopPlace1"
+    }, {
+      "eClass" : "platform:/plugin/atb/model/import.ecore#//StopPlace",
+      "$ref" : "NSRStopPlace2"
     } ]
   } ],
   "trips" : [ {
     "tripID" : "123211325135133",
     "date" : "30.11.2020",
     "line" : "1",
-    "destination" : "Hjem"
+    "destination" : "Hjem",
+    "stops" : [ {
+      "eClass" : "platform:/plugin/atb/model/import.ecore#//Quay",
+      "$ref" : "NSRQuay2"
+    }, {
+      "eClass" : "platform:/plugin/atb/model/import.ecore#//Quay",
+      "$ref" : "NSRQuay4"
+    } ]
   } ]
 }
