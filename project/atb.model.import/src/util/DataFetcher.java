@@ -139,6 +139,7 @@ public class DataFetcher {
 		
 		Map<String, String> quayIdToStopPlaceId = new HashMap<String,String>();
 		
+		Set<String> stopPlaceIds = new HashSet<String>();
 		List<JSONObject> stopPlaces = getDataParallell(stopPlaceUrls, SLEEP_TIME).stream()
 				.map(jsonString -> new JSONObject(jsonString))
 				.map(stopPlace -> {
@@ -154,7 +155,17 @@ public class DataFetcher {
 					
 					return stopPlace;
 				})
+				.filter(stopPlace -> {
+					if(!stopPlaceIds.contains(stopPlace.getString("id"))) {
+						stopPlaceIds.add(stopPlace.getString("id"));
+						return true;
+					}
+					return false;
+				})
 				.collect(Collectors.toList());
+		
+		
+		
 		
 		System.out.println("Done with those calls in " + (System.currentTimeMillis() - startTime)/1000f  + " seconds, got " + stopPlaces.size() + " responses");
 		
@@ -175,9 +186,11 @@ public class DataFetcher {
 					
 					trip.getJSONArray("stops")
 							.forEach(stopObject -> {
-								JSONObject stop = new JSONObject();
-								stop.put("eClass", "platform:/plugin/atb/model/import.ecore#//Quay");
-								stop.put("$ref", ((JSONObject) stopObject).getString("busstopID").replace(":", ""));
+								JSONObject stop = (JSONObject) stopObject;
+								JSONObject quayRef = new JSONObject();
+								quayRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Quay");
+								quayRef.put("$ref", ((JSONObject) stopObject).getString("busstopID").replace(":", ""));
+								stop.put("quay", quayRef);
 								stops.add(stop);
 							});
 					trip.put("stops", new JSONArray(stops));
@@ -276,7 +289,7 @@ public class DataFetcher {
 				.collect(Collectors.toList());
 		
 		System.out.println(realtimes.get(0));
-
+		
 		
 		JSONObject container = new JSONObject();
 		container.put("stopPlaces", new JSONArray(stopPlaces));
