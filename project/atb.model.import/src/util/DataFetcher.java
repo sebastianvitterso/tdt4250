@@ -145,7 +145,7 @@ public class DataFetcher {
 				.map(stopPlace -> {
 					stopPlace.put("quays", stopPlace.getJSONArray("items"));
 					stopPlace.remove("items");
-					stopPlace.put("id", stopPlace.getJSONArray("quays").getJSONObject(0).getString("stopPlaceId"));
+					stopPlace.put("id", stopPlace.getJSONArray("quays").getJSONObject(0).getString("stopPlaceId").replace(":", ""));
 					
 					stopPlace.getJSONArray("quays")
 							.forEach(quayObj -> {
@@ -202,7 +202,7 @@ public class DataFetcher {
 				JSONObject neighbourFromTo = new JSONObject();
 				neighbourFromTo.put("eClass", "platform:/plugin/atb/model/import.ecore#//StopPlace");
 				neighbourFromTo.put("$ref", to);
-				neighbourMap.get(from).put(neighbourFromTo);	// {"$ref": " {{to}} " }	
+				neighbourMap.get(from).put(neighbourFromTo);	
 				neighbourMapSet.get(from).add(to);
 			}
 			
@@ -214,7 +214,7 @@ public class DataFetcher {
 				JSONObject neighbourToFrom = new JSONObject();
 				neighbourToFrom.put("eClass", "platform:/plugin/atb/model/import.ecore#//StopPlace");
 				neighbourToFrom.put("$ref", from);
-				neighbourMap.get(to).put(neighbourToFrom);	// {"$ref": " {{to}} " }		
+				neighbourMap.get(to).put(neighbourToFrom);	
 				neighbourMapSet.get(to).add(from);
 			}
 		}
@@ -223,6 +223,14 @@ public class DataFetcher {
 		stopPlaces = stopPlaces.stream()
 				.map(stopPlace -> {
 					stopPlace.put("neighbour", neighbourMap.get(stopPlace.getString("id")));
+					JSONArray stopPlaceQuays = new JSONArray();
+					stopPlace.getJSONArray("quays").forEach(quayObj -> {
+						JSONObject quay = (JSONObject) quayObj;
+						quay.put("id", quay.getString("id").replace(":", ""));
+						stopPlaceQuays.put(quay);
+					});
+					stopPlace.put("quays", stopPlaceQuays);
+					
 					return stopPlace;
 				})
 				.collect(Collectors.toList());
