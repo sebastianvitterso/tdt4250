@@ -198,6 +198,9 @@ public class DataFetcher {
 				neighbourMapSet.put(from, new HashSet<>());
 			}
 			if(!neighbourMapSet.get(from).contains(to)) {
+				JSONObject neighbourFromTo = new JSONObject();
+				neighbourFromTo.put("eClass", "platform:/plugin/atb/model/import.ecore#//StopPlace");
+				neighbourFromTo.put("$ref", to);
 				neighbourMap.get(from).put(new JSONObject("{\"$ref\": \"" + to + "\"}"));	// {"$ref": " {{to}} " }	
 				neighbourMapSet.get(from).add(to);
 			}
