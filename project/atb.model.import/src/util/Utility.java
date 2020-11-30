@@ -47,23 +47,22 @@ public class Utility {
 	
 	
 	public static void main(String[] args) {
-		try {
-			Container obj = (Container) loadEObjectFromXmi("model/test.xmi");
-			saveEObjectToJson(obj, "model/test.json");
-			saveEObjectToXmi(obj, "src/util/data.xmi");
-			
-			
-			Container obj2 = (Container)loadEObjectFromJson("src/util/data.json");
+		System.out.println("Begin.");
+//		try {
+//			Container obj = (Container) loadEObjectFromXmi("model/test.xmi");
+//			saveEObjectToJson(obj, "model/test.json");
+//			
+//			
+//			Container obj2 = (Container)loadEObjectFromJson("src/util/data.json");
 //			saveEObjectToXmi(obj2, "src/util/data.xmi");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//		
-//		System.out.println("Begin.");
-//		JSONObject container = DataFetcher.getBusStops();
-//		parseJsonToXmi(container);
-//		System.out.println("End.");
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		JSONObject container = DataFetcher.getBusStops();
+		parseJsonToXmi(container);
+		System.out.println("End.");
 		
 	}
 	
