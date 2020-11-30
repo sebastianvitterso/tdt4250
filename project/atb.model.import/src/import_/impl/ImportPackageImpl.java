@@ -455,6 +455,15 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDeparture_Trip() {
+		return (EReference)departureEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTrip() {
 		return tripEClass;
 	}
@@ -590,6 +599,15 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStop_Quay() {
+		return (EReference)stopEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImportFactory getImportFactory() {
 		return (ImportFactory)getEFactoryInstance();
 	}
@@ -652,6 +670,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		createEAttribute(departureEClass, DEPARTURE__TRIP_ID);
 		createEAttribute(departureEClass, DEPARTURE__GROUP_MAP_KEY);
 		createEAttribute(departureEClass, DEPARTURE__ID);
+		createEReference(departureEClass, DEPARTURE__TRIP);
 
 		tripEClass = createEClass(TRIP);
 		createEAttribute(tripEClass, TRIP__TRIP_ID);
@@ -669,6 +688,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		createEAttribute(stopEClass, STOP__REALTIME);
 		createEAttribute(stopEClass, STOP__LONGITUDE);
 		createEAttribute(stopEClass, STOP__LATITUDE);
+		createEReference(stopEClass, STOP__QUAY);
 	}
 
 	/**
@@ -740,13 +760,14 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEAttribute(getDeparture_TripId(), ecorePackage.getEString(), "tripId", null, 0, 1, Departure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeparture_GroupMapKey(), ecorePackage.getEString(), "groupMapKey", null, 0, 1, Departure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeparture_Id(), ecorePackage.getEString(), "id", null, 0, 1, Departure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeparture_Trip(), this.getTrip(), null, "trip", null, 0, 1, Departure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tripEClass, Trip.class, "Trip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTrip_TripID(), ecorePackage.getEString(), "tripID", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrip_Date(), ecorePackage.getEString(), "date", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrip_Line(), ecorePackage.getEString(), "line", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrip_Destination(), ecorePackage.getEString(), "destination", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrip_Stops(), this.getQuay(), null, "stops", null, 0, -1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrip_Stops(), this.getStop(), null, "stops", null, 0, -1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stopEClass, Stop.class, "Stop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStop_Destination(), ecorePackage.getEString(), "destination", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -757,6 +778,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEAttribute(getStop_Realtime(), ecorePackage.getEBoolean(), "realtime", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStop_Longitude(), ecorePackage.getEFloat(), "longitude", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStop_Latitude(), ecorePackage.getEFloat(), "latitude", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStop_Quay(), this.getQuay(), null, "quay", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

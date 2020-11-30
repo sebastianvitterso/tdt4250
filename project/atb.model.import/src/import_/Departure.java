@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link import_.Departure#getTripId <em>Trip Id</em>}</li>
  *   <li>{@link import_.Departure#getGroupMapKey <em>Group Map Key</em>}</li>
  *   <li>{@link import_.Departure#getId <em>Id</em>}</li>
+ *   <li>{@link import_.Departure#getTrip <em>Trip</em>}</li>
  * </ul>
  *
  * @see import_.ImportPackage#getDeparture()
@@ -297,5 +298,27 @@ public interface Departure extends EObject {
 	 * @generated
 	 */
 	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Trip</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Trip</em>' reference.
+	 * @see #setTrip(Trip)
+	 * @see import_.ImportPackage#getDeparture_Trip()
+	 * @model
+	 * @generated
+	 */
+	Trip getTrip();
+
+	/**
+	 * Sets the value of the '{@link import_.Departure#getTrip <em>Trip</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Trip</em>' reference.
+	 * @see #getTrip()
+	 * @generated
+	 */
+	void setTrip(Trip value);
 
 } // Departure

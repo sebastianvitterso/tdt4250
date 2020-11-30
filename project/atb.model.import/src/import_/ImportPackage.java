@@ -450,13 +450,22 @@ public interface ImportPackage extends EPackage {
 	int DEPARTURE__ID = 11;
 
 	/**
+	 * The feature id for the '<em><b>Trip</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPARTURE__TRIP = 12;
+
+	/**
 	 * The number of structural features of the '<em>Departure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPARTURE_FEATURE_COUNT = 12;
+	int DEPARTURE_FEATURE_COUNT = 13;
 
 	/**
 	 * The number of operations of the '<em>Departure</em>' class.
@@ -514,7 +523,7 @@ public interface ImportPackage extends EPackage {
 	int TRIP__DESTINATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Stops</b></em>' reference list.
+	 * The feature id for the '<em><b>Stops</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -623,13 +632,22 @@ public interface ImportPackage extends EPackage {
 	int STOP__LATITUDE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Quay</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP__QUAY = 8;
+
+	/**
 	 * The number of structural features of the '<em>Stop</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOP_FEATURE_COUNT = 8;
+	int STOP_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Stop</em>' class.
@@ -1022,6 +1040,17 @@ public interface ImportPackage extends EPackage {
 	EAttribute getDeparture_Id();
 
 	/**
+	 * Returns the meta object for the reference '{@link import_.Departure#getTrip <em>Trip</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Trip</em>'.
+	 * @see import_.Departure#getTrip()
+	 * @see #getDeparture()
+	 * @generated
+	 */
+	EReference getDeparture_Trip();
+
+	/**
 	 * Returns the meta object for class '{@link import_.Trip <em>Trip</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1076,10 +1105,10 @@ public interface ImportPackage extends EPackage {
 	EAttribute getTrip_Destination();
 
 	/**
-	 * Returns the meta object for the reference list '{@link import_.Trip#getStops <em>Stops</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Trip#getStops <em>Stops</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Stops</em>'.
+	 * @return the meta object for the containment reference list '<em>Stops</em>'.
 	 * @see import_.Trip#getStops()
 	 * @see #getTrip()
 	 * @generated
@@ -1183,6 +1212,17 @@ public interface ImportPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStop_Latitude();
+
+	/**
+	 * Returns the meta object for the reference '{@link import_.Stop#getQuay <em>Quay</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Quay</em>'.
+	 * @see import_.Stop#getQuay()
+	 * @see #getStop()
+	 * @generated
+	 */
+	EReference getStop_Quay();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1498,6 +1538,14 @@ public interface ImportPackage extends EPackage {
 		EAttribute DEPARTURE__ID = eINSTANCE.getDeparture_Id();
 
 		/**
+		 * The meta object literal for the '<em><b>Trip</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPARTURE__TRIP = eINSTANCE.getDeparture_Trip();
+
+		/**
 		 * The meta object literal for the '{@link import_.impl.TripImpl <em>Trip</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1540,7 +1588,7 @@ public interface ImportPackage extends EPackage {
 		EAttribute TRIP__DESTINATION = eINSTANCE.getTrip_Destination();
 
 		/**
-		 * The meta object literal for the '<em><b>Stops</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Stops</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1620,6 +1668,14 @@ public interface ImportPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STOP__LATITUDE = eINSTANCE.getStop_Latitude();
+
+		/**
+		 * The meta object literal for the '<em><b>Quay</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STOP__QUAY = eINSTANCE.getStop_Quay();
 
 	}
 

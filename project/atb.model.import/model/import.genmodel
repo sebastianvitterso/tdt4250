@@ -45,6 +45,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/tripId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/groupMapKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Departure/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference import.ecore#//Departure/trip"/>
     </genClasses>
     <genClasses ecoreClass="import.ecore#//Trip">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Trip/tripID"/>
@@ -62,6 +63,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/realtime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/longitude"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Stop/latitude"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference import.ecore#//Stop/quay"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

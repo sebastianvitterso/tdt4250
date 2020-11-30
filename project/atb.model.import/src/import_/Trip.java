@@ -115,15 +115,15 @@ public interface Trip extends EObject {
 	void setDestination(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Stops</b></em>' reference list.
-	 * The list contents are of type {@link import_.Quay}.
+	 * Returns the value of the '<em><b>Stops</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Stop}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stops</em>' reference list.
+	 * @return the value of the '<em>Stops</em>' containment reference list.
 	 * @see import_.ImportPackage#getTrip_Stops()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Quay> getStops();
+	EList<Stop> getStops();
 
 } // Trip

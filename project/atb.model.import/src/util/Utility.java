@@ -70,7 +70,7 @@ public class Utility {
 		try {
 			object.put("eClass", "platform:/plugin/atb/model/import.ecore#//Container");
 			
-			Container container = (Container)loadEObjectFromStringThroughFile(object.toString(), "src/util/data.json");
+			EObject container = loadEObjectFromStringThroughFile(object.toString(), "src/util/data.json");
 			
 			saveEObjectToXmi(container, "src/util/data.xmi");
 		} catch (IOException e) {

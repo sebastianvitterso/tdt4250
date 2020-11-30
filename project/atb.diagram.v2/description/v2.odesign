@@ -3,7 +3,7 @@
   <ownedViewpoints name="AtbViewpoint" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AtbDiagram" initialisation="true" domainClass="import::Container" enablePopupBars="true">
       <defaultLayer name="Default">
-        <edgeMappings sourceMapping="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']" targetMapping="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']" targetFinderExpression="aql:self.neighbours">
+        <edgeMappings name="Neighbours" sourceMapping="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']" targetMapping="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']" targetFinderExpression="aql:self.neighbours">
           <style sizeComputationExpression="2" routingStyle="tree">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -62,15 +62,16 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TripsDiagram" domainClass="import::Container" enablePopupBars="true">
       <defaultLayer name="Default">
-        <containerMappings name="Trip" domainClass="import::Trip">
-          <subNodeMappings name="Stop" semanticCandidatesExpression="feature:eAllContents" domainClass="import::Quays">
-            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:eContainer().tripId" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
+        <containerMappings name="Trip" domainClass="import::Trip" childrenPresentation="List">
+          <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" domainClass="import::Quay">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="5" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>

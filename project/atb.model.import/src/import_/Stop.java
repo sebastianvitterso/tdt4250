@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link import_.Stop#isRealtime <em>Realtime</em>}</li>
  *   <li>{@link import_.Stop#getLongitude <em>Longitude</em>}</li>
  *   <li>{@link import_.Stop#getLatitude <em>Latitude</em>}</li>
+ *   <li>{@link import_.Stop#getQuay <em>Quay</em>}</li>
  * </ul>
  *
  * @see import_.ImportPackage#getStop()
@@ -205,5 +206,27 @@ public interface Stop extends EObject {
 	 * @generated
 	 */
 	void setLatitude(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Quay</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quay</em>' reference.
+	 * @see #setQuay(Quay)
+	 * @see import_.ImportPackage#getStop_Quay()
+	 * @model
+	 * @generated
+	 */
+	Quay getQuay();
+
+	/**
+	 * Sets the value of the '{@link import_.Stop#getQuay <em>Quay</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quay</em>' reference.
+	 * @see #getQuay()
+	 * @generated
+	 */
+	void setQuay(Quay value);
 
 } // Stop

@@ -3,16 +3,19 @@
 package import_.impl;
 
 import import_.ImportPackage;
-import import_.Quay;
+import import_.Stop;
 import import_.Trip;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -113,14 +116,14 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	protected String destination = DESTINATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStops() <em>Stops</em>}' reference list.
+	 * The cached value of the '{@link #getStops() <em>Stops</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStops()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Quay> stops;
+	protected EList<Stop> stops;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,11 +233,25 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Quay> getStops() {
+	public EList<Stop> getStops() {
 		if (stops == null) {
-			stops = new EObjectResolvingEList<Quay>(Quay.class, this, ImportPackage.TRIP__STOPS);
+			stops = new EObjectContainmentEList<Stop>(Stop.class, this, ImportPackage.TRIP__STOPS);
 		}
 		return stops;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ImportPackage.TRIP__STOPS:
+				return ((InternalEList<?>)getStops()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -282,7 +299,7 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 				return;
 			case ImportPackage.TRIP__STOPS:
 				getStops().clear();
-				getStops().addAll((Collection<? extends Quay>)newValue);
+				getStops().addAll((Collection<? extends Stop>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
