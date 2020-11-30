@@ -47,14 +47,14 @@ export const container = {
       destination: "?",
       stops: [
         {
-          time: "12:43",
-          destination: "Strinda vgs.",
-          busstopID: "NSR:Quay:73030",
+          // time: "12:43", // removed
+          // destination: "Strinda vgs.", // removed
+          // busstopID: "NSR:Quay:73030", // removed
           quay: {
             $ref: "NSR:Quay:73030",
           },
-          aimedDepartureTime: "2020-11-28T12:43:00+0100",
-          expectedDepartureTime: "2020-11-28T12:43:39+0100",
+          // aimedDepartureTime: "2020-11-28T12:43:00+0100", // removed
+          // expectedDepartureTime: "2020-11-28T12:43:39+0100", // removed
         },
         // ...
       ]
