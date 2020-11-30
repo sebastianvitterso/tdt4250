@@ -176,7 +176,7 @@ public class DataFetcher {
 					trip.getJSONArray("stops")
 							.forEach(stopObject -> {
 								JSONObject stop = new JSONObject();
-								stop.put("$ref", ((JSONObject) stopObject).getString("busstopID"));
+								stop.put("$ref", ((JSONObject) stopObject).getString("busstopID").replace(":", ""));
 								stops.add(stop);
 							});
 					trip.put("stops", new JSONArray(stops));
