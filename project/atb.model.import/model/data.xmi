@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<import:StopPlace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:import="platform:/plugin/atb/model/import.ecore" id="NSR:StopPlace:74006">
-  <quays id="NSR:Quay:116013" stopPlaceId="NSR:StopPlace:74006" name="Trondheim hurtigb&#xe5;tterminal" place="Trondheim" x="10.396253" y="63.438152"/>
-  <quays id="NSR:Quay:116014" stopPlaceId="NSR:StopPlace:74006" name="Trondheim hurtigb&#xe5;tterminal" place="Trondheim" x="10.39683" y="63.4379"/>
-  <quays id="NSR:Quay:71795" stopPlaceId="NSR:StopPlace:41947" name="Trondheim hurtigb&#xe5;tterminal" place="Trondheim" x="10.39971" y="63.438255"/>
-  <neighbours href="src/util/data.json#NSR:StopPlace:43865"/>
-</import:StopPlace>
