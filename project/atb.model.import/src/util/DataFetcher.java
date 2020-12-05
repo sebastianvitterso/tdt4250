@@ -196,7 +196,7 @@ public class DataFetcher {
 								stops.add(stop);
 							});
 					trip.put("stops", new JSONArray(stops));
-					trip.put("tripID", trip.getString("tripID").replace(":", ""));
+					trip.put("tripID", trip.getString("tripID").replace(":", "").replace("_", ""));
 					return trip;
 				})
 				.collect(Collectors.toList());
@@ -282,7 +282,7 @@ public class DataFetcher {
 						JSONObject departure = (JSONObject) depObj;
 						JSONObject tripRef = new JSONObject();
 						tripRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
-						tripRef.put("$ref", departure.getString("tripId").replace(":", ""));
+						tripRef.put("$ref", departure.getString("tripId").replace(":", "").replace("_", ""));
 						JSONArray arr = new JSONArray();
 						arr.put(tripRef);
 						departure.put("trip", arr);
