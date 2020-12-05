@@ -55,7 +55,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupMapKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trip" eType="#//Trip"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trip" upperBound="-1" eType="#//Trip"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trip">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tripID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -76,6 +76,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="realtime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="quay" eType="#//Quay"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quay" upperBound="-1" eType="#//Quay"/>
   </eClassifiers>
 </ecore:EPackage>

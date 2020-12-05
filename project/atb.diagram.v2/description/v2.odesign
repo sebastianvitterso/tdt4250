@@ -108,8 +108,8 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="StopPlaceDiagram" domainClass="import::StopPlace" enablePopupBars="true">
       <defaultLayer name="Default">
-        <containerMappings name="StopPlace" semanticCandidatesExpression="aql:self.includes(element)" domainClass="import::StopPlace">
-          <subNodeMappings name="Quay" domainClass="import::Quay">
+        <containerMappings name="StopPlace" domainClass="import::StopPlace">
+          <subNodeMappings name="Quay" semanticCandidatesExpression="feature:eAllContents" domainClass="import::Quay">
             <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name +' - ' +self.compassBearing" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>

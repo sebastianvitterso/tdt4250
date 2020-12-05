@@ -450,7 +450,7 @@ public interface ImportPackage extends EPackage {
 	int DEPARTURE__ID = 11;
 
 	/**
-	 * The feature id for the '<em><b>Trip</b></em>' reference.
+	 * The feature id for the '<em><b>Trip</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -632,7 +632,7 @@ public interface ImportPackage extends EPackage {
 	int STOP__LATITUDE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Quay</b></em>' reference.
+	 * The feature id for the '<em><b>Quay</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1040,10 +1040,10 @@ public interface ImportPackage extends EPackage {
 	EAttribute getDeparture_Id();
 
 	/**
-	 * Returns the meta object for the reference '{@link import_.Departure#getTrip <em>Trip</em>}'.
+	 * Returns the meta object for the reference list '{@link import_.Departure#getTrip <em>Trip</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Trip</em>'.
+	 * @return the meta object for the reference list '<em>Trip</em>'.
 	 * @see import_.Departure#getTrip()
 	 * @see #getDeparture()
 	 * @generated
@@ -1214,10 +1214,10 @@ public interface ImportPackage extends EPackage {
 	EAttribute getStop_Latitude();
 
 	/**
-	 * Returns the meta object for the reference '{@link import_.Stop#getQuay <em>Quay</em>}'.
+	 * Returns the meta object for the reference list '{@link import_.Stop#getQuay <em>Quay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Quay</em>'.
+	 * @return the meta object for the reference list '<em>Quay</em>'.
 	 * @see import_.Stop#getQuay()
 	 * @see #getStop()
 	 * @generated
@@ -1538,7 +1538,7 @@ public interface ImportPackage extends EPackage {
 		EAttribute DEPARTURE__ID = eINSTANCE.getDeparture_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Trip</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Trip</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1670,7 +1670,7 @@ public interface ImportPackage extends EPackage {
 		EAttribute STOP__LATITUDE = eINSTANCE.getStop_Latitude();
 
 		/**
-		 * The meta object literal for the '<em><b>Quay</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Quay</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

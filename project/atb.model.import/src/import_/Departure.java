@@ -4,6 +4,7 @@ package import_;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -300,25 +301,15 @@ public interface Departure extends EObject {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Trip</b></em>' reference.
+	 * Returns the value of the '<em><b>Trip</b></em>' reference list.
+	 * The list contents are of type {@link import_.Trip}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trip</em>' reference.
-	 * @see #setTrip(Trip)
+	 * @return the value of the '<em>Trip</em>' reference list.
 	 * @see import_.ImportPackage#getDeparture_Trip()
 	 * @model
 	 * @generated
 	 */
-	Trip getTrip();
-
-	/**
-	 * Sets the value of the '{@link import_.Departure#getTrip <em>Trip</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trip</em>' reference.
-	 * @see #getTrip()
-	 * @generated
-	 */
-	void setTrip(Trip value);
+	EList<Trip> getTrip();
 
 } // Departure

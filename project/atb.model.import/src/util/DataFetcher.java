@@ -189,7 +189,9 @@ public class DataFetcher {
 								JSONObject quayRef = new JSONObject();
 								quayRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Quay");
 								quayRef.put("$ref", ((JSONObject) stopObject).getString("busstopID").replace(":", ""));
-								stop.put("quay", quayRef);
+								JSONArray arr = new JSONArray();
+								arr.put(quayRef);
+								stop.put("quay", arr);
 								stop.put("eClass", "platform:/plugin/atb/model/import.ecore#//Stop");
 								stops.add(stop);
 							});
@@ -251,51 +253,53 @@ public class DataFetcher {
 		
 		// Get all the departures. RIP API. 
 		// https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71184
-//		System.out.println("About to get the departures for " + quays.size() + " quays!");
-//		startTime = System.currentTimeMillis();
-//		
-//		
-//		List<String> departureUrls = quays.stream()
-//				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/" + quay.getString("busstopID"))
-//				.collect(Collectors.toList());
-//		List<JSONObject> realtimes = getDataParallell(departureUrls, SLEEP_TIME).stream()
-//				.map(str -> new JSONObject(str))
-//				.collect(Collectors.toList());
-//		
-//		
-//		System.out.println("Got " + realtimes.size() + " departure-lists, after " + (System.currentTimeMillis() - startTime) / 1000 + " seconds!");
-//		
-//		realtimes = realtimes.stream()
-//				.map(obj -> {
-//					List<JSONObject> objDepartures = new ArrayList<>();
-//					if(obj.has("departureForecasts")) {
-//						obj.getJSONArray("departureForecasts")
-//						.forEach(depObj -> {
-//							JSONObject departure = (JSONObject) depObj;
-//							JSONObject tripRef = new JSONObject();
-//							tripRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
-//							tripRef.put("$ref", departure.getString("tripId").replace(":", ""));
-//							departure.put("trip", tripRef);
-//							objDepartures.add(departure);
-//						});
-//					}
+		System.out.println("About to get the departures for " + quays.size() + " quays!");
+		startTime = System.currentTimeMillis();
+		
+		
+		List<String> departureUrls = quays.stream()
+				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/" + quay.getString("busstopID"))
+				.collect(Collectors.toList());
+		List<JSONObject> realtimes = getDataParallell(departureUrls, SLEEP_TIME).stream()
+				.map(str -> new JSONObject(str))
+				.collect(Collectors.toList());
+		
+		
+		System.out.println("Got " + realtimes.size() + " departure-lists, after " + (System.currentTimeMillis() - startTime) / 1000 + " seconds!");
+		
+		realtimes = realtimes.stream()
+				.map(obj -> {
+					List<JSONObject> objDepartures = new ArrayList<>();
+					if(obj.has("departureForecasts")) {
+						obj.getJSONArray("departureForecasts")
+						.forEach(depObj -> {
+							JSONObject departure = (JSONObject) depObj;
+							JSONObject tripRef = new JSONObject();
+							tripRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
+							tripRef.put("$ref", departure.getString("tripId").replace(":", ""));
+							JSONArray arr = new JSONArray();
+							arr.put(tripRef);
+							departure.put("trip", arr);
+							objDepartures.add(departure);
+						});
+					}
 //					JSONObject quayRef = new JSONObject();
 //					quayRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
 //					quayRef.put("$ref", obj.getString("busStopID").replace(":", ""));
 //					obj.put("quay", quayRef);
-//					
-//					obj.put("departureForecasts", new JSONArray(objDepartures));
-//					return obj;
-//				})
-//				.collect(Collectors.toList());
-//		
-//		System.out.println(realtimes.get(0));
+					
+					obj.put("departureForecasts", new JSONArray(objDepartures));
+					return obj;
+				})
+				.collect(Collectors.toList());
+		
+		System.out.println(realtimes.get(0));
 		
 		
 		JSONObject container = new JSONObject();
 		container.put("stopPlaces", new JSONArray(stopPlaces));
 		container.put("trips", new JSONArray(trips));
-//		container.put("realtimes", new JSONArray(realtimes));
+		container.put("realtimes", new JSONArray(realtimes));
 		
 		return container;
 		

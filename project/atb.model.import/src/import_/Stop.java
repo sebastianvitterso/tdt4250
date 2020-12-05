@@ -3,7 +3,7 @@
 package import_;
 
 import java.util.Date;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -208,25 +208,15 @@ public interface Stop extends EObject {
 	void setLatitude(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Quay</b></em>' reference.
+	 * Returns the value of the '<em><b>Quay</b></em>' reference list.
+	 * The list contents are of type {@link import_.Quay}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quay</em>' reference.
-	 * @see #setQuay(Quay)
+	 * @return the value of the '<em>Quay</em>' reference list.
 	 * @see import_.ImportPackage#getStop_Quay()
 	 * @model
 	 * @generated
 	 */
-	Quay getQuay();
-
-	/**
-	 * Sets the value of the '{@link import_.Stop#getQuay <em>Quay</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quay</em>' reference.
-	 * @see #getQuay()
-	 * @generated
-	 */
-	void setQuay(Quay value);
+	EList<Quay> getQuay();
 
 } // Stop

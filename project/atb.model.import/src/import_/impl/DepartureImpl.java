@@ -6,15 +6,16 @@ import import_.Departure;
 import import_.ImportPackage;
 
 import import_.Trip;
+import java.util.Collection;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -283,14 +284,14 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTrip() <em>Trip</em>}' reference.
+	 * The cached value of the '{@link #getTrip() <em>Trip</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTrip()
 	 * @generated
 	 * @ordered
 	 */
-	protected Trip trip;
+	protected EList<Trip> trip;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -568,37 +569,11 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Trip getTrip() {
-		if (trip != null && trip.eIsProxy()) {
-			InternalEObject oldTrip = (InternalEObject)trip;
-			trip = (Trip)eResolveProxy(oldTrip);
-			if (trip != oldTrip) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImportPackage.DEPARTURE__TRIP, oldTrip, trip));
-			}
+	public EList<Trip> getTrip() {
+		if (trip == null) {
+			trip = new EObjectResolvingEList<Trip>(Trip.class, this, ImportPackage.DEPARTURE__TRIP);
 		}
 		return trip;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Trip basicGetTrip() {
-		return trip;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTrip(Trip newTrip) {
-		Trip oldTrip = trip;
-		trip = newTrip;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImportPackage.DEPARTURE__TRIP, oldTrip, trip));
 	}
 
 	/**
@@ -634,8 +609,7 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 			case ImportPackage.DEPARTURE__ID:
 				return getId();
 			case ImportPackage.DEPARTURE__TRIP:
-				if (resolve) return getTrip();
-				return basicGetTrip();
+				return getTrip();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -645,6 +619,7 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -685,7 +660,8 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 				setId((String)newValue);
 				return;
 			case ImportPackage.DEPARTURE__TRIP:
-				setTrip((Trip)newValue);
+				getTrip().clear();
+				getTrip().addAll((Collection<? extends Trip>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -736,7 +712,7 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 				setId(ID_EDEFAULT);
 				return;
 			case ImportPackage.DEPARTURE__TRIP:
-				setTrip((Trip)null);
+				getTrip().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -775,7 +751,7 @@ public class DepartureImpl extends MinimalEObjectImpl.Container implements Depar
 			case ImportPackage.DEPARTURE__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case ImportPackage.DEPARTURE__TRIP:
-				return trip != null;
+				return trip != null && !trip.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

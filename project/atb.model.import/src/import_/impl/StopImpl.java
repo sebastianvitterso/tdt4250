@@ -5,16 +5,15 @@ package import_.impl;
 import import_.ImportPackage;
 import import_.Quay;
 import import_.Stop;
-
+import java.util.Collection;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -199,14 +198,14 @@ public class StopImpl extends MinimalEObjectImpl.Container implements Stop {
 	protected float latitude = LATITUDE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getQuay() <em>Quay</em>}' reference.
+	 * The cached value of the '{@link #getQuay() <em>Quay</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getQuay()
 	 * @generated
 	 * @ordered
 	 */
-	protected Quay quay;
+	protected EList<Quay> quay;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -400,37 +399,11 @@ public class StopImpl extends MinimalEObjectImpl.Container implements Stop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quay getQuay() {
-		if (quay != null && quay.eIsProxy()) {
-			InternalEObject oldQuay = (InternalEObject)quay;
-			quay = (Quay)eResolveProxy(oldQuay);
-			if (quay != oldQuay) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImportPackage.STOP__QUAY, oldQuay, quay));
-			}
+	public EList<Quay> getQuay() {
+		if (quay == null) {
+			quay = new EObjectResolvingEList<Quay>(Quay.class, this, ImportPackage.STOP__QUAY);
 		}
 		return quay;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Quay basicGetQuay() {
-		return quay;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setQuay(Quay newQuay) {
-		Quay oldQuay = quay;
-		quay = newQuay;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ImportPackage.STOP__QUAY, oldQuay, quay));
 	}
 
 	/**
@@ -458,8 +431,7 @@ public class StopImpl extends MinimalEObjectImpl.Container implements Stop {
 			case ImportPackage.STOP__LATITUDE:
 				return getLatitude();
 			case ImportPackage.STOP__QUAY:
-				if (resolve) return getQuay();
-				return basicGetQuay();
+				return getQuay();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -469,6 +441,7 @@ public class StopImpl extends MinimalEObjectImpl.Container implements Stop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -497,7 +470,8 @@ public class StopImpl extends MinimalEObjectImpl.Container implements Stop {
 				setLatitude((Float)newValue);
 				return;
 			case ImportPackage.STOP__QUAY:
-				setQuay((Quay)newValue);
+				getQuay().clear();
+				getQuay().addAll((Collection<? extends Quay>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -536,7 +510,7 @@ public class StopImpl extends MinimalEObjectImpl.Container implements Stop {
 				setLatitude(LATITUDE_EDEFAULT);
 				return;
 			case ImportPackage.STOP__QUAY:
-				setQuay((Quay)null);
+				getQuay().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -567,7 +541,7 @@ public class StopImpl extends MinimalEObjectImpl.Container implements Stop {
 			case ImportPackage.STOP__LATITUDE:
 				return latitude != LATITUDE_EDEFAULT;
 			case ImportPackage.STOP__QUAY:
-				return quay != null;
+				return quay != null && !quay.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
