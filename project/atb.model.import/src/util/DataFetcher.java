@@ -189,8 +189,8 @@ public class DataFetcher {
 								JSONObject quayRef = new JSONObject();
 								quayRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Quay");
 								quayRef.put("$ref", ((JSONObject) stopObject).getString("busstopID").replace(":", ""));
-//								stop.put("quay", quayRef);
-//								stop.put("eClass", "platform:/plugin/atb/model/import.ecore#//Stop");
+								stop.put("quay", quayRef);
+								stop.put("eClass", "platform:/plugin/atb/model/import.ecore#//Stop");
 								stops.add(stop);
 							});
 					trip.put("stops", new JSONArray(stops));
@@ -251,10 +251,10 @@ public class DataFetcher {
 		
 		// Get all the departures. RIP API. 
 		// https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/NSR:Quay:71184
-		System.out.println("About to get the departures for " + quays.size() + " quays!");
-		startTime = System.currentTimeMillis();
-		
-		
+//		System.out.println("About to get the departures for " + quays.size() + " quays!");
+//		startTime = System.currentTimeMillis();
+//		
+//		
 //		List<String> departureUrls = quays.stream()
 //				.map(quay -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/realtime/" + quay.getString("busstopID"))
 //				.collect(Collectors.toList());

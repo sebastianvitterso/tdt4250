@@ -33,7 +33,7 @@ public interface Trip extends EObject {
 	 * @return the value of the '<em>Trip ID</em>' attribute.
 	 * @see #setTripID(String)
 	 * @see import_.ImportPackage#getTrip_TripID()
-	 * @model
+	 * @model id="true"
 	 * @generated
 	 */
 	String getTripID();

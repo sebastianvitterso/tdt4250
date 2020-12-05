@@ -1,35 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:atb="platform:/plugin/atb/model/atb.ecore" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:tree="http://www.eclipse.org/sirius/tree/1.0.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="platform:/plugin/atb/model/atb.ecore platform:/resource/atb/model/atb.ecore http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/tree/description/1.0.0 http://www.eclipse.org/sirius/tree/1.0.0#//description">
-  <viewpoint:DAnalysis uid="_C49j4CZeEeuFyYyOgzYhdA" selectedViews="_lY2fgCZeEeuFyYyOgzYhdA" version="14.3.1.202003261200">
-    <semanticResources>file:/C:/Users/ingi/Documents/Git/tdt4250/project/atb.diagram.examples/Bussfirm.xmi</semanticResources>
-    <ownedViews xmi:type="viewpoint:DView" uid="_lY2fgCZeEeuFyYyOgzYhdA">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/atb.diagram/description/diagram.odesign#//@ownedViewpoints[name='AtbDiagramViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_BuJ2QyZhEeuFyYyOgzYhdA" name="new AtbDiagram" repPath="#_BuB6cCZhEeuFyYyOgzYhdA" changeId="34ad4b90-fc91-40c7-810d-c23b402b2282">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/atb.diagram/description/diagram.odesign#//@ownedViewpoints[name='AtbDiagramViewpoint']/@ownedRepresentations[name='AtbDiagram']"/>
-        <target xmi:type="atb:Bussfirm" href="file:/C:/Users/ingi/Documents/Git/tdt4250/project/atb.diagram.examples/Bussfirm.xmi#/"/>
-      </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_kr3x0CZrEeuFyYyOgzYhdA" name="new AtbTree" repPath="#_krpIUCZrEeuFyYyOgzYhdA" changeId="238b43d5-f5ff-455c-898a-0af8bca39cca">
-        <description xmi:type="description_2:TreeDescription" href="platform:/resource/atb.diagram/description/diagram.odesign#//@ownedViewpoints[name='AtbDiagramViewpoint']/@ownedRepresentations[name='AtbTree']"/>
-        <target xmi:type="atb:Bussfirm" href="file:/C:/Users/ingi/Documents/Git/tdt4250/project/atb.diagram.examples/Bussfirm.xmi#/"/>
-      </ownedRepresentationDescriptors>
-    </ownedViews>
-  </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram uid="_BuB6cCZhEeuFyYyOgzYhdA">
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_BuJ2QCZhEeuFyYyOgzYhdA" source="DANNOTATION_CUSTOMIZATION_KEY">
-      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_BuJ2QSZhEeuFyYyOgzYhdA"/>
-    </ownedAnnotationEntries>
-    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_BuKdUCZhEeuFyYyOgzYhdA" source="GMF_DIAGRAMS">
-      <data xmi:type="notation:Diagram" xmi:id="_BuKdUSZhEeuFyYyOgzYhdA" type="Sirius" element="_BuB6cCZhEeuFyYyOgzYhdA" measurementUnit="Pixel">
-        <styles xmi:type="notation:DiagramStyle" xmi:id="_BuKdUiZhEeuFyYyOgzYhdA"/>
-      </data>
-    </ownedAnnotationEntries>
-    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/atb.diagram/description/diagram.odesign#//@ownedViewpoints[name='AtbDiagramViewpoint']/@ownedRepresentations[name='AtbDiagram']"/>
-    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_BuB6cSZhEeuFyYyOgzYhdA"/>
-    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/atb.diagram/description/diagram.odesign#//@ownedViewpoints[name='AtbDiagramViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer"/>
-    <target xmi:type="atb:Bussfirm" href="file:/C:/Users/ingi/Documents/Git/tdt4250/project/atb.diagram.examples/Bussfirm.xmi#/"/>
-  </diagram:DSemanticDiagram>
-  <tree:DTree uid="_krpIUCZrEeuFyYyOgzYhdA">
-    <target xmi:type="atb:Bussfirm" href="file:/C:/Users/ingi/Documents/Git/tdt4250/project/atb.diagram.examples/Bussfirm.xmi#/"/>
-    <description xmi:type="description_2:TreeDescription" href="platform:/resource/atb.diagram/description/diagram.odesign#//@ownedViewpoints[name='AtbDiagramViewpoint']/@ownedRepresentations[name='AtbTree']"/>
-  </tree:DTree>
-</xmi:XMI>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" uid="_C49j4CZeEeuFyYyOgzYhdA" selectedViews="_H7OdMDZfEeusAK5t7N8Zew" version="14.3.1.202003261200">
+  <semanticResources>file:/C:/Users/ingi/Documents/Git/tdt4250/project/atb.diagram.examples/Bussfirm.xmi</semanticResources>
+  <ownedViews xmi:type="viewpoint:DView" uid="_lY2fgCZeEeuFyYyOgzYhdA">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/atb.diagram/description/diagram.odesign#//@ownedViewpoints[name='AtbDiagramViewpoint']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DView" uid="_H7OdMDZfEeusAK5t7N8Zew">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

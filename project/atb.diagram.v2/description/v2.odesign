@@ -11,7 +11,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="StopPlace" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Click']" domainClass="import::StopPlace">
+        <containerMappings name="StopPlace" domainClass="import::StopPlace">
           <subNodeMappings name="Quay" semanticCandidatesExpression="feature:eAllContents" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Click']" domainClass="import::Quay">
             <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name +' - ' +self.compassBearing" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -32,17 +32,8 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Click" forceRefresh="true" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='StopPlaceDiagram']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -100,6 +91,57 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="QuayDiagram" initialisation="true" domainClass="import::Quay" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Quay" semanticCandidatesExpression="var:element" domainClass="import::Quay">
+          <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="StopPlaceDiagram" domainClass="import::StopPlace" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="StopPlace" semanticCandidatesExpression="aql:self.includes(element)" domainClass="import::StopPlace">
+          <subNodeMappings name="Quay" domainClass="import::Quay">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name +' - ' +self.compassBearing" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.quays->at(1).name" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="RealtimeDiagram" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <containerMappings name="Realtime" semanticCandidatesExpression="aql:self.includes(element)" domainClass="import::StopPlace">
+          <subNodeMappings name="Quay" domainClass="import::Quay">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name +' - ' +self.compassBearing" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.quays->at(1).name" roundedCorner="true" widthComputationExpression="5" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
           </style>
         </containerMappings>
       </defaultLayer>
