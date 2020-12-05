@@ -267,33 +267,45 @@ public class DataFetcher {
 		
 		System.out.println("Got " + realtimes.size() + " departure-lists, after " + (System.currentTimeMillis() - startTime) / 1000 + " seconds!");
 		
-		realtimes = realtimes.stream()
-				.map(obj -> {
-					List<JSONObject> objDepartures = new ArrayList<>();
-					if(obj.has("departureForecasts")) {
-						obj.getJSONArray("departureForecasts")
-						.forEach(depObj -> {
-							JSONObject departure = (JSONObject) depObj;
-							JSONObject tripRef = new JSONObject();
-							tripRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
-							tripRef.put("$ref", departure.getString("tripId").replace(":", ""));
-							JSONArray arr = new JSONArray();
-							arr.put(tripRef);
-							departure.put("trip", arr);
-							objDepartures.add(departure);
-						});
-					}
-//					JSONObject quayRef = new JSONObject();
-//					quayRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
-//					quayRef.put("$ref", obj.getString("busStopID").replace(":", ""));
-//					obj.put("quay", quayRef);
-					
-					obj.put("departureForecasts", new JSONArray(objDepartures));
-					return obj;
-				})
-				.collect(Collectors.toList());
+		Map<String, List<JSONObject>> quayDepartures = new HashMap<String, List<JSONObject>>();
 		
-		System.out.println(realtimes.get(0));
+		realtimes.stream()
+			.forEach(realtime -> {
+				String quayId = realtime.getString("busStopID").replace(":", "");
+				if(!quayDepartures.containsKey(quayId)) {
+					quayDepartures.put(quayId, new ArrayList<>());
+				}
+				
+				List<JSONObject> objDepartures = new ArrayList<>();
+				if(realtime.has("departureForecasts")) {
+					realtime.getJSONArray("departureForecasts").forEach(depObj -> {
+						JSONObject departure = (JSONObject) depObj;
+						JSONObject tripRef = new JSONObject();
+						tripRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
+						tripRef.put("$ref", departure.getString("tripId").replace(":", ""));
+						JSONArray arr = new JSONArray();
+						arr.put(tripRef);
+						departure.put("trip", arr);
+						quayDepartures.get(quayId).add(departure);
+					});
+				}
+			});
+		
+		stopPlaces.stream()
+			.map(stopPlace -> {
+				JSONArray stopPlaceQuays = new JSONArray();
+				stopPlace.getJSONArray("quays").forEach(quayObj -> {
+					JSONObject quay = (JSONObject) quayObj;
+					quay.put("departureForecasts", new JSONArray(quayDepartures.get(quay.getString("id"))));
+					stopPlaceQuays.put(quay);
+				});
+				stopPlace.put("quays", stopPlaceQuays);
+				
+				return stopPlace;
+			})
+			.collect(Collectors.toList());
+		
+		System.out.println(stopPlaces.get(0).getJSONArray("quays").getJSONObject(0));
 		
 		
 		JSONObject container = new JSONObject();
