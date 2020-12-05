@@ -5,12 +5,19 @@ package import_.impl;
 import import_.ImportPackage;
 import import_.Quay;
 
+import import_.Realtime;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link import_.impl.QuayImpl#getX <em>X</em>}</li>
  *   <li>{@link import_.impl.QuayImpl#getY <em>Y</em>}</li>
  *   <li>{@link import_.impl.QuayImpl#getCompassBearing <em>Compass Bearing</em>}</li>
+ *   <li>{@link import_.impl.QuayImpl#getRealtimes <em>Realtimes</em>}</li>
  * </ul>
  *
  * @generated
@@ -171,6 +179,16 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 	 * @ordered
 	 */
 	protected float compassBearing = COMPASS_BEARING_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRealtimes() <em>Realtimes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRealtimes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Realtime> realtimes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -343,6 +361,32 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Realtime> getRealtimes() {
+		if (realtimes == null) {
+			realtimes = new EObjectContainmentEList<Realtime>(Realtime.class, this, ImportPackage.QUAY__REALTIMES);
+		}
+		return realtimes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ImportPackage.QUAY__REALTIMES:
+				return ((InternalEList<?>)getRealtimes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -360,6 +404,8 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 				return getY();
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				return getCompassBearing();
+			case ImportPackage.QUAY__REALTIMES:
+				return getRealtimes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -369,6 +415,7 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -392,6 +439,10 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 				return;
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				setCompassBearing((Float)newValue);
+				return;
+			case ImportPackage.QUAY__REALTIMES:
+				getRealtimes().clear();
+				getRealtimes().addAll((Collection<? extends Realtime>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -426,6 +477,9 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				setCompassBearing(COMPASS_BEARING_EDEFAULT);
 				return;
+			case ImportPackage.QUAY__REALTIMES:
+				getRealtimes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -452,6 +506,8 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 				return y != Y_EDEFAULT;
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				return compassBearing != COMPASS_BEARING_EDEFAULT;
+			case ImportPackage.QUAY__REALTIMES:
+				return realtimes != null && !realtimes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

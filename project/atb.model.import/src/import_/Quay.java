@@ -2,6 +2,7 @@
  */
 package import_;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link import_.Quay#getX <em>X</em>}</li>
  *   <li>{@link import_.Quay#getY <em>Y</em>}</li>
  *   <li>{@link import_.Quay#getCompassBearing <em>Compass Bearing</em>}</li>
+ *   <li>{@link import_.Quay#getRealtimes <em>Realtimes</em>}</li>
  * </ul>
  *
  * @see import_.ImportPackage#getQuay()
@@ -180,5 +182,17 @@ public interface Quay extends EObject {
 	 * @generated
 	 */
 	void setCompassBearing(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Realtimes</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Realtime}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Realtimes</em>' containment reference list.
+	 * @see import_.ImportPackage#getQuay_Realtimes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Realtime> getRealtimes();
 
 } // Quay

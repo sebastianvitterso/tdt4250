@@ -3,7 +3,6 @@
 package import_.impl;
 
 import import_.ImportPackage;
-import import_.Realtime;
 import import_.StopPlace;
 import import_.Trip;
 
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link import_.impl.ContainerImpl#getStopPlaces <em>Stop Places</em>}</li>
- *   <li>{@link import_.impl.ContainerImpl#getRealtimes <em>Realtimes</em>}</li>
  *   <li>{@link import_.impl.ContainerImpl#getTrips <em>Trips</em>}</li>
  * </ul>
  *
@@ -42,16 +40,6 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 	 * @ordered
 	 */
 	protected EList<StopPlace> stopPlaces;
-
-	/**
-	 * The cached value of the '{@link #getRealtimes() <em>Realtimes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRealtimes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Realtime> realtimes;
 
 	/**
 	 * The cached value of the '{@link #getTrips() <em>Trips</em>}' containment reference list.
@@ -99,18 +87,6 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Realtime> getRealtimes() {
-		if (realtimes == null) {
-			realtimes = new EObjectContainmentEList<Realtime>(Realtime.class, this, ImportPackage.CONTAINER__REALTIMES);
-		}
-		return realtimes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Trip> getTrips() {
 		if (trips == null) {
 			trips = new EObjectContainmentEList<Trip>(Trip.class, this, ImportPackage.CONTAINER__TRIPS);
@@ -128,8 +104,6 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 		switch (featureID) {
 			case ImportPackage.CONTAINER__STOP_PLACES:
 				return ((InternalEList<?>)getStopPlaces()).basicRemove(otherEnd, msgs);
-			case ImportPackage.CONTAINER__REALTIMES:
-				return ((InternalEList<?>)getRealtimes()).basicRemove(otherEnd, msgs);
 			case ImportPackage.CONTAINER__TRIPS:
 				return ((InternalEList<?>)getTrips()).basicRemove(otherEnd, msgs);
 		}
@@ -146,8 +120,6 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 		switch (featureID) {
 			case ImportPackage.CONTAINER__STOP_PLACES:
 				return getStopPlaces();
-			case ImportPackage.CONTAINER__REALTIMES:
-				return getRealtimes();
 			case ImportPackage.CONTAINER__TRIPS:
 				return getTrips();
 		}
@@ -166,10 +138,6 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 			case ImportPackage.CONTAINER__STOP_PLACES:
 				getStopPlaces().clear();
 				getStopPlaces().addAll((Collection<? extends StopPlace>)newValue);
-				return;
-			case ImportPackage.CONTAINER__REALTIMES:
-				getRealtimes().clear();
-				getRealtimes().addAll((Collection<? extends Realtime>)newValue);
 				return;
 			case ImportPackage.CONTAINER__TRIPS:
 				getTrips().clear();
@@ -190,9 +158,6 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 			case ImportPackage.CONTAINER__STOP_PLACES:
 				getStopPlaces().clear();
 				return;
-			case ImportPackage.CONTAINER__REALTIMES:
-				getRealtimes().clear();
-				return;
 			case ImportPackage.CONTAINER__TRIPS:
 				getTrips().clear();
 				return;
@@ -210,8 +175,6 @@ public class ContainerImpl extends MinimalEObjectImpl.Container implements impor
 		switch (featureID) {
 			case ImportPackage.CONTAINER__STOP_PLACES:
 				return stopPlaces != null && !stopPlaces.isEmpty();
-			case ImportPackage.CONTAINER__REALTIMES:
-				return realtimes != null && !realtimes.isEmpty();
 			case ImportPackage.CONTAINER__TRIPS:
 				return trips != null && !trips.isEmpty();
 		}

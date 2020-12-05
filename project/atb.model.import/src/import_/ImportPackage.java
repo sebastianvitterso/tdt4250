@@ -77,22 +77,13 @@ public interface ImportPackage extends EPackage {
 	int CONTAINER__STOP_PLACES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Realtimes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__REALTIMES = 1;
-
-	/**
 	 * The feature id for the '<em><b>Trips</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER__TRIPS = 2;
+	int CONTAINER__TRIPS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Container</em>' class.
@@ -101,7 +92,7 @@ public interface ImportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 3;
+	int CONTAINER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Container</em>' class.
@@ -241,13 +232,22 @@ public interface ImportPackage extends EPackage {
 	int QUAY__COMPASS_BEARING = 6;
 
 	/**
+	 * The feature id for the '<em><b>Realtimes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUAY__REALTIMES = 7;
+
+	/**
 	 * The number of structural features of the '<em>Quay</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUAY_FEATURE_COUNT = 7;
+	int QUAY_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Quay</em>' class.
@@ -681,17 +681,6 @@ public interface ImportPackage extends EPackage {
 	EReference getContainer_StopPlaces();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link import_.Container#getRealtimes <em>Realtimes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Realtimes</em>'.
-	 * @see import_.Container#getRealtimes()
-	 * @see #getContainer()
-	 * @generated
-	 */
-	EReference getContainer_Realtimes();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link import_.Container#getTrips <em>Trips</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -831,6 +820,17 @@ public interface ImportPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQuay_CompassBearing();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link import_.Quay#getRealtimes <em>Realtimes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Realtimes</em>'.
+	 * @see import_.Quay#getRealtimes()
+	 * @see #getQuay()
+	 * @generated
+	 */
+	EReference getQuay_Realtimes();
 
 	/**
 	 * Returns the meta object for class '{@link import_.Realtime <em>Realtime</em>}'.
@@ -1266,14 +1266,6 @@ public interface ImportPackage extends EPackage {
 		EReference CONTAINER__STOP_PLACES = eINSTANCE.getContainer_StopPlaces();
 
 		/**
-		 * The meta object literal for the '<em><b>Realtimes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER__REALTIMES = eINSTANCE.getContainer_Realtimes();
-
-		/**
 		 * The meta object literal for the '<em><b>Trips</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1380,6 +1372,14 @@ public interface ImportPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUAY__COMPASS_BEARING = eINSTANCE.getQuay_CompassBearing();
+
+		/**
+		 * The meta object literal for the '<em><b>Realtimes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUAY__REALTIMES = eINSTANCE.getQuay_Realtimes();
 
 		/**
 		 * The meta object literal for the '{@link import_.impl.RealtimeImpl <em>Realtime</em>}' class.

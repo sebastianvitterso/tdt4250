@@ -158,17 +158,8 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Realtimes() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getContainer_Trips() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(2);
+		return (EReference)containerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -277,6 +268,15 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 */
 	public EAttribute getQuay_CompassBearing() {
 		return (EAttribute)quayEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQuay_Realtimes() {
+		return (EReference)quayEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -633,7 +633,6 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		// Create classes and their features
 		containerEClass = createEClass(CONTAINER);
 		createEReference(containerEClass, CONTAINER__STOP_PLACES);
-		createEReference(containerEClass, CONTAINER__REALTIMES);
 		createEReference(containerEClass, CONTAINER__TRIPS);
 
 		stopPlaceEClass = createEClass(STOP_PLACE);
@@ -649,6 +648,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		createEAttribute(quayEClass, QUAY__X);
 		createEAttribute(quayEClass, QUAY__Y);
 		createEAttribute(quayEClass, QUAY__COMPASS_BEARING);
+		createEReference(quayEClass, QUAY__REALTIMES);
 
 		realtimeEClass = createEClass(REALTIME);
 		createEAttribute(realtimeEClass, REALTIME__BUS_STOP_ID);
@@ -723,7 +723,6 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(containerEClass, import_.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainer_StopPlaces(), this.getStopPlace(), null, "stopPlaces", null, 0, -1, import_.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContainer_Realtimes(), this.getRealtime(), null, "realtimes", null, 0, -1, import_.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getContainer_Trips(), this.getTrip(), null, "trips", null, 0, -1, import_.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stopPlaceEClass, StopPlace.class, "StopPlace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -739,6 +738,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEAttribute(getQuay_X(), ecorePackage.getEFloat(), "x", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuay_Y(), ecorePackage.getEFloat(), "y", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuay_CompassBearing(), ecorePackage.getEFloat(), "compassBearing", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuay_Realtimes(), this.getRealtime(), null, "realtimes", null, 0, -1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(realtimeEClass, Realtime.class, "Realtime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRealtime_BusStopID(), ecorePackage.getEString(), "busStopID", null, 0, 1, Realtime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
