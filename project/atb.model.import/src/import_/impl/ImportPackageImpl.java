@@ -275,7 +275,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuay_Realtimes() {
+	public EReference getQuay_DepartureForecasts() {
 		return (EReference)quayEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -648,7 +648,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		createEAttribute(quayEClass, QUAY__X);
 		createEAttribute(quayEClass, QUAY__Y);
 		createEAttribute(quayEClass, QUAY__COMPASS_BEARING);
-		createEReference(quayEClass, QUAY__REALTIMES);
+		createEReference(quayEClass, QUAY__DEPARTURE_FORECASTS);
 
 		realtimeEClass = createEClass(REALTIME);
 		createEAttribute(realtimeEClass, REALTIME__BUS_STOP_ID);
@@ -738,7 +738,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEAttribute(getQuay_X(), ecorePackage.getEFloat(), "x", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuay_Y(), ecorePackage.getEFloat(), "y", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuay_CompassBearing(), ecorePackage.getEFloat(), "compassBearing", null, 0, 1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuay_Realtimes(), this.getRealtime(), null, "realtimes", null, 0, -1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuay_DepartureForecasts(), this.getDeparture(), null, "departureForecasts", null, 0, -1, Quay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(realtimeEClass, Realtime.class, "Realtime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRealtime_BusStopID(), ecorePackage.getEString(), "busStopID", null, 0, 1, Realtime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

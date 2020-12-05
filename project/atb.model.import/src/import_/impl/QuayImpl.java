@@ -2,10 +2,9 @@
  */
 package import_.impl;
 
+import import_.Departure;
 import import_.ImportPackage;
 import import_.Quay;
-
-import import_.Realtime;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -34,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link import_.impl.QuayImpl#getX <em>X</em>}</li>
  *   <li>{@link import_.impl.QuayImpl#getY <em>Y</em>}</li>
  *   <li>{@link import_.impl.QuayImpl#getCompassBearing <em>Compass Bearing</em>}</li>
- *   <li>{@link import_.impl.QuayImpl#getRealtimes <em>Realtimes</em>}</li>
+ *   <li>{@link import_.impl.QuayImpl#getDepartureForecasts <em>Departure Forecasts</em>}</li>
  * </ul>
  *
  * @generated
@@ -181,14 +180,14 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 	protected float compassBearing = COMPASS_BEARING_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRealtimes() <em>Realtimes</em>}' containment reference list.
+	 * The cached value of the '{@link #getDepartureForecasts() <em>Departure Forecasts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRealtimes()
+	 * @see #getDepartureForecasts()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Realtime> realtimes;
+	protected EList<Departure> departureForecasts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -361,11 +360,11 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Realtime> getRealtimes() {
-		if (realtimes == null) {
-			realtimes = new EObjectContainmentEList<Realtime>(Realtime.class, this, ImportPackage.QUAY__REALTIMES);
+	public EList<Departure> getDepartureForecasts() {
+		if (departureForecasts == null) {
+			departureForecasts = new EObjectContainmentEList<Departure>(Departure.class, this, ImportPackage.QUAY__DEPARTURE_FORECASTS);
 		}
-		return realtimes;
+		return departureForecasts;
 	}
 
 	/**
@@ -376,8 +375,8 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ImportPackage.QUAY__REALTIMES:
-				return ((InternalEList<?>)getRealtimes()).basicRemove(otherEnd, msgs);
+			case ImportPackage.QUAY__DEPARTURE_FORECASTS:
+				return ((InternalEList<?>)getDepartureForecasts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -404,8 +403,8 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 				return getY();
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				return getCompassBearing();
-			case ImportPackage.QUAY__REALTIMES:
-				return getRealtimes();
+			case ImportPackage.QUAY__DEPARTURE_FORECASTS:
+				return getDepartureForecasts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -440,9 +439,9 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				setCompassBearing((Float)newValue);
 				return;
-			case ImportPackage.QUAY__REALTIMES:
-				getRealtimes().clear();
-				getRealtimes().addAll((Collection<? extends Realtime>)newValue);
+			case ImportPackage.QUAY__DEPARTURE_FORECASTS:
+				getDepartureForecasts().clear();
+				getDepartureForecasts().addAll((Collection<? extends Departure>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -477,8 +476,8 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				setCompassBearing(COMPASS_BEARING_EDEFAULT);
 				return;
-			case ImportPackage.QUAY__REALTIMES:
-				getRealtimes().clear();
+			case ImportPackage.QUAY__DEPARTURE_FORECASTS:
+				getDepartureForecasts().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -506,8 +505,8 @@ public class QuayImpl extends MinimalEObjectImpl.Container implements Quay {
 				return y != Y_EDEFAULT;
 			case ImportPackage.QUAY__COMPASS_BEARING:
 				return compassBearing != COMPASS_BEARING_EDEFAULT;
-			case ImportPackage.QUAY__REALTIMES:
-				return realtimes != null && !realtimes.isEmpty();
+			case ImportPackage.QUAY__DEPARTURE_FORECASTS:
+				return departureForecasts != null && !departureForecasts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

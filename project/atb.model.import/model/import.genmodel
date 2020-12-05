@@ -8,7 +8,6 @@
   <genPackages prefix="Import" disposableProviderFactory="true" ecorePackage="import.ecore#/">
     <genClasses ecoreClass="import.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/stopPlaces"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/realtimes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Container/trips"/>
     </genClasses>
     <genClasses ecoreClass="import.ecore#//StopPlace">
@@ -24,6 +23,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/x"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/y"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Quay/compassBearing"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference import.ecore#//Quay/departureForecasts"/>
     </genClasses>
     <genClasses ecoreClass="import.ecore#//Realtime">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute import.ecore#//Realtime/busStopID"/>

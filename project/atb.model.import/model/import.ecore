@@ -27,8 +27,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="compassBearing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="realtimes" upperBound="-1"
-        eType="#//Realtime" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="departureForecasts" upperBound="-1"
+        eType="#//Departure" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Realtime">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="busStopID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

@@ -232,13 +232,13 @@ public interface ImportPackage extends EPackage {
 	int QUAY__COMPASS_BEARING = 6;
 
 	/**
-	 * The feature id for the '<em><b>Realtimes</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Departure Forecasts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUAY__REALTIMES = 7;
+	int QUAY__DEPARTURE_FORECASTS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Quay</em>' class.
@@ -822,15 +822,15 @@ public interface ImportPackage extends EPackage {
 	EAttribute getQuay_CompassBearing();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link import_.Quay#getRealtimes <em>Realtimes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link import_.Quay#getDepartureForecasts <em>Departure Forecasts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Realtimes</em>'.
-	 * @see import_.Quay#getRealtimes()
+	 * @return the meta object for the containment reference list '<em>Departure Forecasts</em>'.
+	 * @see import_.Quay#getDepartureForecasts()
 	 * @see #getQuay()
 	 * @generated
 	 */
-	EReference getQuay_Realtimes();
+	EReference getQuay_DepartureForecasts();
 
 	/**
 	 * Returns the meta object for class '{@link import_.Realtime <em>Realtime</em>}'.
@@ -1374,12 +1374,12 @@ public interface ImportPackage extends EPackage {
 		EAttribute QUAY__COMPASS_BEARING = eINSTANCE.getQuay_CompassBearing();
 
 		/**
-		 * The meta object literal for the '<em><b>Realtimes</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Departure Forecasts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QUAY__REALTIMES = eINSTANCE.getQuay_Realtimes();
+		EReference QUAY__DEPARTURE_FORECASTS = eINSTANCE.getQuay_DepartureForecasts();
 
 		/**
 		 * The meta object literal for the '{@link import_.impl.RealtimeImpl <em>Realtime</em>}' class.
