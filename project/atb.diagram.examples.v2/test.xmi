@@ -1,20 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<import:Container xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:import="platform:/plugin/atb/model/import.ecore" xsi:schemaLocation="platform:/plugin/atb/model/import.ecore ../atb.model.import/model/import.ecore">
-  <stopPlaces id="S1">
-    <quays id="1" name="Kongens">
-      <departureForecasts line="1" registeredDepartureTime="2020-06-12T12:00:00.000+0200" scheduledDepartureTime="2020-06-12T12:00:00.000+0200" trip="T1"/>
+<import:Container
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:import="platform:/plugin/atb/model/import.ecore"
+    xsi:schemaLocation="platform:/plugin/atb/model/import.ecore ../atb.model.import/model/import.ecore">
+  <stopPlaces
+      id="S1">
+    <quays id="1"
+        name="Kongens">
+      <departureForecasts
+          line="1"
+          registeredDepartureTime="2020-06-12T12:00:00.000+0200"
+          scheduledDepartureTime="2020-06-12T12:00:00.000+0200"
+          trip="T1"/>
     </quays>
   </stopPlaces>
-  <stopPlaces id="S2">
-    <quays id="2" name="Tempe"/>
+  <stopPlaces
+      id="S2">
+    <quays id="2"
+        name="Tempe"/>
   </stopPlaces>
-  <trips tripID="T1" date="06.12.2020" line="1" destination="Tempe">
-    <stops destination="Kongens" busstopID="1" time="12:00" expectedDepartureTime="2020-06-12T12:00:00.000+0200" quay="1"/>
-    <stops destination="Tempe" busstopID="2" time="12:00" expectedDepartureTime="2020-06-12T12:00:00.000+0200" quay="2"/>
-    <registrations name="Ingebrigt" phoneNumber="12345678" from="1" to="2"/>
-    <registrations name="&lt;name>"/>
-    <registrations/>
-    <registrations name="1"/>
-    <registrations name="1"/>
+  <trips tripID="T1"
+      date="06.12.2020"
+      line="1"
+      destination="Tempe">
+    <stops destination="Kongens"
+        busstopID="1"
+        time="12:00"
+        expectedDepartureTime="2020-06-12T12:00:00.000+0200"
+        quay="1"/>
+    <stops destination="Tempe"
+        busstopID="2"
+        time="12:00"
+        expectedDepartureTime="2020-06-12T12:00:00.000+0200"
+        quay="2"/>
+    <registrations
+        name="Ingebrigt"
+        phoneNumber="12345678"
+        from="1"
+        to="2"/>
   </trips>
 </import:Container>

@@ -29,10 +29,10 @@
         </containerMappings>
         <toolSections name="Tools">
           <ownedTools xsi:type="tool:DoubleClickDescription" name="Click" forceRefresh="true" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']/@subNodeMappings[name='Quay']">
-            <element name="element"/>
+            <element name="clickedDeparture"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:clickedDeparture">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']"/>
               </firstModelOperations>
             </initialOperation>
@@ -77,9 +77,9 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TripsDiagram" domainClass="import::Departure" enablePopupBars="true">
       <defaultLayer name="Default">
-        <containerMappings name="DepartureContainer" semanticCandidatesExpression="var:element" domainClass="import::Departure">
+        <containerMappings name="DepartureContainer" semanticCandidatesExpression="var:clickedTrip" domainClass="import::Departure">
           <subContainerMappings name="Trip" semanticCandidatesExpression="feature:trip" domainClass="import::Trip" childrenPresentation="List">
-            <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DoubleClick']" domainClass="import::Stop">
+            <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" domainClass="import::Stop">
               <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
@@ -92,7 +92,7 @@
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
               </style>
             </subNodeMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
@@ -115,19 +115,7 @@
             <viewVariable name="containerView1"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="import::Registration" referenceName="registrations">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.eContainer().line"/>
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="from" valueExpression="var:element"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="DoubleClick" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']">
-            <element name="element1"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="import::Registration" referenceName="registrations">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'name'"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'name'"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -136,7 +124,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="DepartureDiagram" domainClass="import::Quay" enablePopupBars="true">
       <defaultLayer name="Default">
-        <containerMappings name="Quay" semanticCandidatesExpression="var:element" domainClass="import::Quay" childrenPresentation="List">
+        <containerMappings name="Quay" semanticCandidatesExpression="var:clickedDeparture" domainClass="import::Quay" childrenPresentation="List">
           <subNodeMappings name="Departure" semanticCandidatesExpression="aql:self.departureForecasts" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Trip']" domainClass="import::Departure">
             <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.line +' - '+ self.registeredDepartureTime" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -154,12 +142,10 @@
         </containerMappings>
         <toolSections>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Trip" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']/@defaultLayer/@containerMappings[name='Quay']/@subNodeMappings[name='Departure']">
-            <element name="element"/>
+            <element name="clickedTrip"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
