@@ -4,6 +4,7 @@ package import_;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -532,13 +533,22 @@ public interface ImportPackage extends EPackage {
 	int TRIP__STOPS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Registrations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRIP__REGISTRATIONS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Trip</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRIP_FEATURE_COUNT = 5;
+	int TRIP_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Trip</em>' class.
@@ -657,6 +667,82 @@ public interface ImportPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOP_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link import_.impl.RegistrationImpl <em>Registration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see import_.impl.RegistrationImpl
+	 * @see import_.impl.ImportPackageImpl#getRegistration()
+	 * @generated
+	 */
+	int REGISTRATION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRATION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Phone Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRATION__PHONE_NUMBER = 1;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRATION__FROM = 2;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRATION__TO = 3;
+
+	/**
+	 * The number of structural features of the '<em>Registration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Registration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRATION_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '<em>phone Number</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Integer
+	 * @see import_.impl.ImportPackageImpl#getphoneNumber()
+	 * @generated
+	 */
+	int PHONE_NUMBER = 8;
 
 
 	/**
@@ -1116,6 +1202,17 @@ public interface ImportPackage extends EPackage {
 	EReference getTrip_Stops();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link import_.Trip#getRegistrations <em>Registrations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Registrations</em>'.
+	 * @see import_.Trip#getRegistrations()
+	 * @see #getTrip()
+	 * @generated
+	 */
+	EReference getTrip_Registrations();
+
+	/**
 	 * Returns the meta object for class '{@link import_.Stop <em>Stop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1223,6 +1320,72 @@ public interface ImportPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStop_Quay();
+
+	/**
+	 * Returns the meta object for class '{@link import_.Registration <em>Registration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Registration</em>'.
+	 * @see import_.Registration
+	 * @generated
+	 */
+	EClass getRegistration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link import_.Registration#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see import_.Registration#getName()
+	 * @see #getRegistration()
+	 * @generated
+	 */
+	EAttribute getRegistration_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link import_.Registration#getPhoneNumber <em>Phone Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Phone Number</em>'.
+	 * @see import_.Registration#getPhoneNumber()
+	 * @see #getRegistration()
+	 * @generated
+	 */
+	EAttribute getRegistration_PhoneNumber();
+
+	/**
+	 * Returns the meta object for the reference '{@link import_.Registration#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>From</em>'.
+	 * @see import_.Registration#getFrom()
+	 * @see #getRegistration()
+	 * @generated
+	 */
+	EReference getRegistration_From();
+
+	/**
+	 * Returns the meta object for the reference '{@link import_.Registration#getTo <em>To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>To</em>'.
+	 * @see import_.Registration#getTo()
+	 * @see #getRegistration()
+	 * @generated
+	 */
+	EReference getRegistration_To();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.Integer <em>phone Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>phone Number</em>'.
+	 * @see java.lang.Integer
+	 * @model instanceClass="java.lang.Integer"
+	 *        extendedMetaData="pattern='[0-9]{8}'"
+	 * @generated
+	 */
+	EDataType getphoneNumber();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1596,6 +1759,14 @@ public interface ImportPackage extends EPackage {
 		EReference TRIP__STOPS = eINSTANCE.getTrip_Stops();
 
 		/**
+		 * The meta object literal for the '<em><b>Registrations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRIP__REGISTRATIONS = eINSTANCE.getTrip_Registrations();
+
+		/**
 		 * The meta object literal for the '{@link import_.impl.StopImpl <em>Stop</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1676,6 +1847,58 @@ public interface ImportPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STOP__QUAY = eINSTANCE.getStop_Quay();
+
+		/**
+		 * The meta object literal for the '{@link import_.impl.RegistrationImpl <em>Registration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see import_.impl.RegistrationImpl
+		 * @see import_.impl.ImportPackageImpl#getRegistration()
+		 * @generated
+		 */
+		EClass REGISTRATION = eINSTANCE.getRegistration();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REGISTRATION__NAME = eINSTANCE.getRegistration_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Phone Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REGISTRATION__PHONE_NUMBER = eINSTANCE.getRegistration_PhoneNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REGISTRATION__FROM = eINSTANCE.getRegistration_From();
+
+		/**
+		 * The meta object literal for the '<em><b>To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REGISTRATION__TO = eINSTANCE.getRegistration_To();
+
+		/**
+		 * The meta object literal for the '<em>phone Number</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Integer
+		 * @see import_.impl.ImportPackageImpl#getphoneNumber()
+		 * @generated
+		 */
+		EDataType PHONE_NUMBER = eINSTANCE.getphoneNumber();
 
 	}
 

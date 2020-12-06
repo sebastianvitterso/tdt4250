@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link import_.Trip#getLine <em>Line</em>}</li>
  *   <li>{@link import_.Trip#getDestination <em>Destination</em>}</li>
  *   <li>{@link import_.Trip#getStops <em>Stops</em>}</li>
+ *   <li>{@link import_.Trip#getRegistrations <em>Registrations</em>}</li>
  * </ul>
  *
  * @see import_.ImportPackage#getTrip()
@@ -125,5 +126,17 @@ public interface Trip extends EObject {
 	 * @generated
 	 */
 	EList<Stop> getStops();
+
+	/**
+	 * Returns the value of the '<em><b>Registrations</b></em>' containment reference list.
+	 * The list contents are of type {@link import_.Registration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Registrations</em>' containment reference list.
+	 * @see import_.ImportPackage#getTrip_Registrations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Registration> getRegistrations();
 
 } // Trip

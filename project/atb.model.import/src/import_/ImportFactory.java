@@ -85,6 +85,15 @@ public interface ImportFactory extends EFactory {
 	Stop createStop();
 
 	/**
+	 * Returns a new object of class '<em>Registration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Registration</em>'.
+	 * @generated
+	 */
+	Registration createRegistration();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

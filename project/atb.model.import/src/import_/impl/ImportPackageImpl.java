@@ -7,15 +7,19 @@ import import_.ImportFactory;
 import import_.ImportPackage;
 import import_.Quay;
 import import_.Realtime;
+import import_.Registration;
 import import_.Stop;
 import import_.StopPlace;
 import import_.Trip;
 
+import import_.util.ImportValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -75,6 +79,20 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	private EClass stopEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass registrationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType phoneNumberEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -126,6 +144,15 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 
 		// Initialize created meta-data
 		theImportPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theImportPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return ImportValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theImportPackage.freeze();
@@ -518,6 +545,15 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTrip_Registrations() {
+		return (EReference)tripEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStop() {
 		return stopEClass;
 	}
@@ -608,6 +644,60 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRegistration() {
+		return registrationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRegistration_Name() {
+		return (EAttribute)registrationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRegistration_PhoneNumber() {
+		return (EAttribute)registrationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRegistration_From() {
+		return (EReference)registrationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRegistration_To() {
+		return (EReference)registrationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getphoneNumber() {
+		return phoneNumberEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImportFactory getImportFactory() {
 		return (ImportFactory)getEFactoryInstance();
 	}
@@ -678,6 +768,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		createEAttribute(tripEClass, TRIP__LINE);
 		createEAttribute(tripEClass, TRIP__DESTINATION);
 		createEReference(tripEClass, TRIP__STOPS);
+		createEReference(tripEClass, TRIP__REGISTRATIONS);
 
 		stopEClass = createEClass(STOP);
 		createEAttribute(stopEClass, STOP__DESTINATION);
@@ -689,6 +780,15 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		createEAttribute(stopEClass, STOP__LONGITUDE);
 		createEAttribute(stopEClass, STOP__LATITUDE);
 		createEReference(stopEClass, STOP__QUAY);
+
+		registrationEClass = createEClass(REGISTRATION);
+		createEAttribute(registrationEClass, REGISTRATION__NAME);
+		createEAttribute(registrationEClass, REGISTRATION__PHONE_NUMBER);
+		createEReference(registrationEClass, REGISTRATION__FROM);
+		createEReference(registrationEClass, REGISTRATION__TO);
+
+		// Create data types
+		phoneNumberEDataType = createEDataType(PHONE_NUMBER);
 	}
 
 	/**
@@ -768,6 +868,7 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEAttribute(getTrip_Line(), ecorePackage.getEString(), "line", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrip_Destination(), ecorePackage.getEString(), "destination", null, 0, 1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTrip_Stops(), this.getStop(), null, "stops", null, 0, -1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrip_Registrations(), this.getRegistration(), null, "registrations", null, 0, -1, Trip.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stopEClass, Stop.class, "Stop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStop_Destination(), ecorePackage.getEString(), "destination", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -780,12 +881,23 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		initEAttribute(getStop_Latitude(), ecorePackage.getEFloat(), "latitude", null, 0, 1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStop_Quay(), this.getQuay(), null, "quay", null, 0, -1, Stop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(registrationEClass, Registration.class, "Registration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRegistration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Registration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRegistration_PhoneNumber(), this.getphoneNumber(), "phoneNumber", null, 0, 1, Registration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRegistration_From(), this.getQuay(), null, "from", null, 0, 1, Registration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRegistration_To(), this.getQuay(), null, "to", null, 0, 1, Registration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(phoneNumberEDataType, Integer.class, "phoneNumber", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+
 		// Create resource
 		createResource(eNS_URI);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
 	}
 
 	/**
@@ -801,6 +913,22 @@ public class ImportPackageImpl extends EPackageImpl implements ImportPackage {
 		   source,
 		   new String[] {
 			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
+		addAnnotation
+		  (phoneNumberEDataType,
+		   source,
+		   new String[] {
+			   "pattern", "[0-9]{8}"
 		   });
 	}
 

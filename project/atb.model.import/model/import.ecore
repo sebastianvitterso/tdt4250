@@ -65,6 +65,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stops" upperBound="-1"
         eType="#//Stop" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="registrations" upperBound="-1"
+        eType="#//Registration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stop">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -77,5 +79,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="quay" upperBound="-1" eType="#//Quay"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Registration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="phoneNumber" eType="#//phoneNumber"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//Quay"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Quay"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="phoneNumber" instanceClassName="java.lang.Integer">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="pattern" value="[0-9]{8}"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

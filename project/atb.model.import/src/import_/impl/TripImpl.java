@@ -3,6 +3,7 @@
 package import_.impl;
 
 import import_.ImportPackage;
+import import_.Registration;
 import import_.Stop;
 import import_.Trip;
 
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link import_.impl.TripImpl#getLine <em>Line</em>}</li>
  *   <li>{@link import_.impl.TripImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link import_.impl.TripImpl#getStops <em>Stops</em>}</li>
+ *   <li>{@link import_.impl.TripImpl#getRegistrations <em>Registrations</em>}</li>
  * </ul>
  *
  * @generated
@@ -124,6 +126,16 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * @ordered
 	 */
 	protected EList<Stop> stops;
+
+	/**
+	 * The cached value of the '{@link #getRegistrations() <em>Registrations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegistrations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Registration> registrations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -245,11 +257,25 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Registration> getRegistrations() {
+		if (registrations == null) {
+			registrations = new EObjectContainmentEList<Registration>(Registration.class, this, ImportPackage.TRIP__REGISTRATIONS);
+		}
+		return registrations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ImportPackage.TRIP__STOPS:
 				return ((InternalEList<?>)getStops()).basicRemove(otherEnd, msgs);
+			case ImportPackage.TRIP__REGISTRATIONS:
+				return ((InternalEList<?>)getRegistrations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -272,6 +298,8 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 				return getDestination();
 			case ImportPackage.TRIP__STOPS:
 				return getStops();
+			case ImportPackage.TRIP__REGISTRATIONS:
+				return getRegistrations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -301,6 +329,10 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 				getStops().clear();
 				getStops().addAll((Collection<? extends Stop>)newValue);
 				return;
+			case ImportPackage.TRIP__REGISTRATIONS:
+				getRegistrations().clear();
+				getRegistrations().addAll((Collection<? extends Registration>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -328,6 +360,9 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 			case ImportPackage.TRIP__STOPS:
 				getStops().clear();
 				return;
+			case ImportPackage.TRIP__REGISTRATIONS:
+				getRegistrations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,6 +385,8 @@ public class TripImpl extends MinimalEObjectImpl.Container implements Trip {
 				return DESTINATION_EDEFAULT == null ? destination != null : !DESTINATION_EDEFAULT.equals(destination);
 			case ImportPackage.TRIP__STOPS:
 				return stops != null && !stops.isEmpty();
+			case ImportPackage.TRIP__REGISTRATIONS:
+				return registrations != null && !registrations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
