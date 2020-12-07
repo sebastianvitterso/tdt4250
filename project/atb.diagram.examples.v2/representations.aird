@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:import="platform:/plugin/atb/model/import.ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description platform:/plugin/atb/model/import.ecore platform:/resource/atb.model.import/model/import.ecore http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:import="platform:/plugin/atb/model/import.ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_DXfAsDGHEeul6MFHXGNJmw" selectedViews="_OaHyQDGIEeul6MFHXGNJmw" version="14.3.1.202003261200">
     <referencedAnalysis xmi:type="viewpoint:DAnalysis" href="newDiagrams.aird#_upVwADWfEeuOZcFfFzbeHA"/>
     <semanticResources>test.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_OaHyQDGIEeul6MFHXGNJmw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_FlYYITfIEeum7eUcJ1zFyw" name="new AtbDiagram" repPath="#_FlXxEDfIEeum7eUcJ1zFyw" changeId="6bfa04b0-f986-4ab3-aae6-de0e643a5014">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_FlYYITfIEeum7eUcJ1zFyw" name="new AtbDiagram" repPath="#_FlXxEDfIEeum7eUcJ1zFyw" changeId="c4c20df9-dcc1-4404-81bf-698b310c5a03">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']"/>
         <target xmi:type="import:Container" href="test.xmi#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_GHnigzfIEeum7eUcJ1zFyw" name="DepartureDiagram" repPath="#_GHnigDfIEeum7eUcJ1zFyw" changeId="59b30d33-504c-4b78-9bda-e9b208b94d64">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_GHnigzfIEeum7eUcJ1zFyw" name="DepartureDiagram" repPath="#_GHnigDfIEeum7eUcJ1zFyw" changeId="dc3fd9e5-ffd0-483d-b195-76c16d1f2248">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']"/>
         <target xmi:type="import:Quay" href="test.xmi#1"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Gc09gzfIEeum7eUcJ1zFyw" name="TripsDiagram" repPath="#_Gc09gDfIEeum7eUcJ1zFyw" changeId="64a73b3b-85e2-4808-ae9b-c3f9a3056dea">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Gc09gzfIEeum7eUcJ1zFyw" name="TripsDiagram" repPath="#_Gc09gDfIEeum7eUcJ1zFyw" changeId="4e867663-7d7d-44ae-87a4-d0b1ef843248">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
         <target xmi:type="import:Departure" href="test.xmi#//@stopPlaces.0/@quays.0/@departureForecasts.0"/>
       </ownedRepresentationDescriptors>
@@ -70,7 +70,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_FlZmRjfIEeum7eUcJ1zFyw"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_FlZmQTfIEeum7eUcJ1zFyw" fontName="Segoe UI" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FlZmQjfIEeum7eUcJ1zFyw" x="255"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FlZmQjfIEeum7eUcJ1zFyw" x="260" y="25"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_FlYYJDfIEeum7eUcJ1zFyw"/>
       </data>
@@ -104,6 +104,9 @@
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_FlYYKDfIEeum7eUcJ1zFyw" name="Tempe" width="5" height="8">
       <target xmi:type="import:StopPlace" href="test.xmi#S2"/>
       <semanticElements xmi:type="import:StopPlace" href="test.xmi#S2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_FlYYKTfIEeum7eUcJ1zFyw" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="252,175,62" foregroundColor="238,201,142">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']/@style"/>
       </ownedStyle>
@@ -140,12 +143,150 @@
   <diagram:DSemanticDiagram uid="_Gc09gDfIEeum7eUcJ1zFyw">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Gc1kkDfIEeum7eUcJ1zFyw" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_Gc1kkTfIEeum7eUcJ1zFyw" type="Sirius" element="_Gc09gDfIEeum7eUcJ1zFyw" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_EfKk2Di2EeuIBOn3SuEvQQ" type="2002" element="_EfJWsDi2EeuIBOn3SuEvQQ">
+          <children xmi:type="notation:Node" xmi:id="_EfLL4Di2EeuIBOn3SuEvQQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_EfLL4Ti2EeuIBOn3SuEvQQ" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_EfLL5Di2EeuIBOn3SuEvQQ" type="3009" element="_EfJ9wDi2EeuIBOn3SuEvQQ">
+              <children xmi:type="notation:Node" xmi:id="_EfLL5zi2EeuIBOn3SuEvQQ" type="5004"/>
+              <children xmi:type="notation:Node" xmi:id="_EfLL6Di2EeuIBOn3SuEvQQ" type="7003">
+                <children xmi:type="notation:Node" xmi:id="_EfLL6zi2EeuIBOn3SuEvQQ" type="3010" element="_EfJ9wzi2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLL7Di2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLL7Ti2EeuIBOn3SuEvQQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EfLL7ji2EeuIBOn3SuEvQQ" type="3010" element="_EfJ9xTi2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLL7zi2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLL8Di2EeuIBOn3SuEvQQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EfLL8Ti2EeuIBOn3SuEvQQ" type="3010" element="_EfJ9xzi2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLL8ji2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLL8zi2EeuIBOn3SuEvQQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EfLL9Di2EeuIBOn3SuEvQQ" type="3010" element="_EfJ9yTi2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLL9Ti2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLL9ji2EeuIBOn3SuEvQQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EfLL9zi2EeuIBOn3SuEvQQ" type="3010" element="_EfKk0Di2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLL-Di2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLL-Ti2EeuIBOn3SuEvQQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EfLy8Di2EeuIBOn3SuEvQQ" type="3010" element="_EfKk0ji2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLy8Ti2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLy8ji2EeuIBOn3SuEvQQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EfLy8zi2EeuIBOn3SuEvQQ" type="3010" element="_EfKk1Di2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLy9Di2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLy9Ti2EeuIBOn3SuEvQQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EfLy9ji2EeuIBOn3SuEvQQ" type="3010" element="_EfKk1ji2EeuIBOn3SuEvQQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EfLy9zi2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12" bold="true"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EfLy-Di2EeuIBOn3SuEvQQ"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_EfLL6Ti2EeuIBOn3SuEvQQ"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_EfLL6ji2EeuIBOn3SuEvQQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_EfLL5Ti2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EfLL5ji2EeuIBOn3SuEvQQ" x="30" y="29"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_EfLL4ji2EeuIBOn3SuEvQQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_EfLL4zi2EeuIBOn3SuEvQQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_EfKk2Ti2EeuIBOn3SuEvQQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EfKk2ji2EeuIBOn3SuEvQQ" width="438" height="283"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_Gc1kkjfIEeum7eUcJ1zFyw"/>
       </data>
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_Gc2LsDfIEeum7eUcJ1zFyw" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_Gc2LsTfIEeum7eUcJ1zFyw"/>
     </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_EfJWsDi2EeuIBOn3SuEvQQ" name="1" width="30" height="8">
+      <target xmi:type="import:Departure" href="test.xmi#//@stopPlaces.0/@quays.0/@departureForecasts.0"/>
+      <semanticElements xmi:type="import:Departure" href="test.xmi#//@stopPlaces.0/@quays.0/@departureForecasts.0"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_EfJWsTi2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="114,159,207">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_EfJ9wDi2EeuIBOn3SuEvQQ" name="1 - Tempe" width="30" height="8">
+        <target xmi:type="import:Trip" href="test.xmi#T1"/>
+        <semanticElements xmi:type="import:Trip" href="test.xmi#T1"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_EfJ9wTi2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="114,159,207">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfJ9wzi2EeuIBOn3SuEvQQ" name="Kongens">
+          <target xmi:type="import:Stop" href="test.xmi#//@trips.0/@stops.0"/>
+          <semanticElements xmi:type="import:Stop" href="test.xmi#//@trips.0/@stops.0"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfJ9xDi2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="194,239,255">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfJ9xTi2EeuIBOn3SuEvQQ" name="Tempe">
+          <target xmi:type="import:Stop" href="test.xmi#//@trips.0/@stops.1"/>
+          <semanticElements xmi:type="import:Stop" href="test.xmi#//@trips.0/@stops.1"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfJ9xji2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="194,239,255">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfJ9xzi2EeuIBOn3SuEvQQ" name="Invalid feature as name">
+          <target xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.0"/>
+          <semanticElements xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.0"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfJ9yDi2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="255,245,181">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfJ9yTi2EeuIBOn3SuEvQQ" name="Invalid feature as name">
+          <target xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.1"/>
+          <semanticElements xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.1"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfJ9yji2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="255,245,181">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfKk0Di2EeuIBOn3SuEvQQ" name="Invalid feature as name">
+          <target xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.2"/>
+          <semanticElements xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.2"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfKk0Ti2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="255,245,181">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfKk0ji2EeuIBOn3SuEvQQ" name="Invalid feature as name">
+          <target xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.3"/>
+          <semanticElements xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.3"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfKk0zi2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="255,245,181">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfKk1Di2EeuIBOn3SuEvQQ" name="Invalid feature as name">
+          <target xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.4"/>
+          <semanticElements xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.4"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfKk1Ti2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="255,245,181">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_EfKk1ji2EeuIBOn3SuEvQQ" name="Invalid feature as name">
+          <target xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.5"/>
+          <semanticElements xmi:type="import:Registration" href="test.xmi#//@trips.0/@registrations.5"/>
+          <ownedStyle xmi:type="diagram:Square" uid="_EfKk1zi2EeuIBOn3SuEvQQ" labelSize="12" showIcon="false" labelPosition="node" width="15" height="3" color="255,245,181">
+            <labelFormat>bold</labelFormat>
+            <description xmi:type="style:SquareDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_Gc09gTfIEeum7eUcJ1zFyw"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/atb.diagram.v2/description/v2.odesign#//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer"/>

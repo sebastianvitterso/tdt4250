@@ -30,7 +30,7 @@
         <toolSections name="Tools">
           <ownedTools xsi:type="tool:DoubleClickDescription" name="Click" forceRefresh="true" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@containerMappings[name='StopPlace']/@subNodeMappings[name='Quay']">
             <element name="clickedDeparture"/>
-            <elementView name="elementView"/>
+            <elementView name="clickedDepartureView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:clickedDeparture">
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']"/>
@@ -72,6 +72,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="waf">
+            <mask mask="{0} : {1}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="phoneNumber" valueExpression="var:arg1"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -87,8 +96,8 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="Registration" semanticCandidatesExpression="feature:registrations" domainClass="import::Registration">
-              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
+            <subNodeMappings name="Registration" labelDirectEdit="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='waf']" semanticCandidatesExpression="feature:registrations" domainClass="import::Registration">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name+' : '+self.phoneNumber" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -143,7 +152,7 @@
         <toolSections>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Trip" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']/@defaultLayer/@containerMappings[name='Quay']/@subNodeMappings[name='Departure']">
             <element name="clickedTrip"/>
-            <elementView name="elementView"/>
+            <elementView name="clickedTripView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
             </initialOperation>
