@@ -40,7 +40,7 @@ public interface ImportPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/plugin/atb/model/import.ecore";
+	String eNS_URI = "platform:/plugin/atb.model.import/model/import.ecore";
 
 	/**
 	 * The package namespace name.

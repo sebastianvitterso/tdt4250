@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import:Container
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:import="platform:/plugin/atb.model.import/model/import.ecore">
+  <stopPlaces
+      id="S1">
+    <quays id="Q1"
+        name="Prinsen"/>
+    <quays id="Q2"
+        name="Prinsens"/>
+  </stopPlaces>
+  <stopPlaces
+      id="S1">
+    <quays id="Q3"
+        name="Kongens"/>
+    <quays id="Q4"
+        name="Kongens"/>
+  </stopPlaces>
+</import:Container>

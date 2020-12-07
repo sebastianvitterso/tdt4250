@@ -45,7 +45,7 @@ public class Utility {
 	
 	public static void parseJsonToXmi(JSONObject object) {
 		try {
-			object.put("eClass", "platform:/plugin/atb/model/import.ecore#//Container");
+			object.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//Container");
 			
 			EObject container = loadEObjectFromStringThroughFile(object.toString(), "src/util/data.json");
 			

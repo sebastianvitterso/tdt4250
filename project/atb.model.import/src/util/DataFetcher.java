@@ -187,12 +187,12 @@ public class DataFetcher {
 							.forEach(stopObject -> {
 								JSONObject stop = (JSONObject) stopObject;
 								JSONObject quayRef = new JSONObject();
-								quayRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Quay");
+								quayRef.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//Quay");
 								quayRef.put("$ref", ((JSONObject) stopObject).getString("busstopID").replace(":", ""));
 								JSONArray arr = new JSONArray();
 								arr.put(quayRef);
 								stop.put("quay", arr);
-								stop.put("eClass", "platform:/plugin/atb/model/import.ecore#//Stop");
+								stop.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//Stop");
 								stops.add(stop);
 							});
 					trip.put("stops", new JSONArray(stops));
@@ -216,7 +216,7 @@ public class DataFetcher {
 			}
 			if(!neighbourMapSet.get(from).contains(to)) {
 				JSONObject neighbourFromTo = new JSONObject();
-				neighbourFromTo.put("eClass", "platform:/plugin/atb/model/import.ecore#//StopPlace");
+				neighbourFromTo.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//StopPlace");
 				neighbourFromTo.put("$ref", to);
 				neighbourMap.get(from).put(neighbourFromTo);	
 				neighbourMapSet.get(from).add(to);
@@ -228,7 +228,7 @@ public class DataFetcher {
 			}
 			if(!neighbourMapSet.get(to).contains(from)) {
 				JSONObject neighbourToFrom = new JSONObject();
-				neighbourToFrom.put("eClass", "platform:/plugin/atb/model/import.ecore#//StopPlace");
+				neighbourToFrom.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//StopPlace");
 				neighbourToFrom.put("$ref", from);
 				neighbourMap.get(to).put(neighbourToFrom);	
 				neighbourMapSet.get(to).add(from);
@@ -281,7 +281,7 @@ public class DataFetcher {
 					realtime.getJSONArray("departureForecasts").forEach(depObj -> {
 						JSONObject departure = (JSONObject) depObj;
 						JSONObject tripRef = new JSONObject();
-						tripRef.put("eClass", "platform:/plugin/atb/model/import.ecore#//Trip");
+						tripRef.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//Trip");
 						tripRef.put("$ref", departure.getString("tripId").replace(":", "").replace("_", ""));
 						JSONArray arr = new JSONArray();
 						arr.put(tripRef);

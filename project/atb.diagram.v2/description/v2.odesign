@@ -13,7 +13,7 @@
         </edgeMappings>
         <containerMappings name="StopPlace" domainClass="import::StopPlace">
           <subNodeMappings name="Quay" semanticCandidatesExpression="aql:self.quays" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='AtbDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Click']" domainClass="import::Quay">
-            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name +' - ' +self.compassBearing" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.myService('aea')" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
