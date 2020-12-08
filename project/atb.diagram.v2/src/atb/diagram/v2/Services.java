@@ -14,11 +14,26 @@ public class Services {
     /**
     * See http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.sirius.doc%2Fdoc%2Findex.html&cp=24 for documentation on how to write service methods.
     */
-    public String myService(EObject self, String arg) {
-//      Quay quay = (Quay) self;
-      return arg;
-//      return quay.toString();
-      //aql:self.name +' - ' +self.compassBearing
+	
+	public static Quay fromQuay = null;
+	
+    public String getQuayLabel(EObject self) {
+    	if(self instanceof Quay) {
+    		Quay quay = (Quay) self;
+    		return quay.getName() + " - " + quay.getCompassBearing();
+    	}
+    	return "TUST";
+//		  aql:self.name +' - ' +self.compassBearing
+//		  aql:self.myService('aegis')
+    }
+    
+    public EObject setFromQuay(EObject self) {
+    	Quay quay = (Quay) self;
+    	fromQuay = quay;
+        return quay;
+    }
+    public EObject getFromQuay(EObject self) {
+    	return fromQuay;
     }
     
 }
