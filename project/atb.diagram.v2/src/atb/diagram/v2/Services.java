@@ -20,11 +20,9 @@ public class Services {
     public String getQuayLabel(EObject self) {
     	if(self instanceof Quay) {
     		Quay quay = (Quay) self;
-    		return quay.getName() + " - " + quay.getCompassBearing();
+    		return quay.getName() + " - " + getDirection(quay.getCompassBearing());
     	}
-    	return "TUST";
-//		  aql:self.name +' - ' +self.compassBearing
-//		  aql:self.myService('aegis')
+    	return "Failed";
     }
     
     public EObject setFromQuay(EObject self) {
@@ -34,6 +32,19 @@ public class Services {
     }
     public EObject getFromQuay(EObject self) {
     	return fromQuay;
+    }
+    
+    public String getDirection(float bearing) {
+    	if (bearing < 45 || bearing >= 315) {
+    		return "N";
+    	} else if (bearing < 135) {
+    		return "E";
+    	} else if (bearing < 225) {
+    		return "S";
+    	} else if (bearing < 315) {
+    		return "W";
+    	}
+    	return "";
     }
     
 }

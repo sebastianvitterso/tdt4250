@@ -163,18 +163,27 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="trfyguh" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']">
-            <element name="element"/>
-            <elementView name="elementView"/>
+            <element name="clickedStop"/>
+            <elementView name="clickedStopView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="import::Registration" referenceName="registrations">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="'nmame'"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="var:element"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='StopDiagram']"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="StopDiagram" domainClass="import::Stop" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Stop" semanticCandidatesExpression="var:clickedStop" domainClass="import::Stop">
+          <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="atb.diagram.v2.Services"/>
