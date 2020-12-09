@@ -98,10 +98,10 @@
         </containerMappings>
         <toolSections name="Tools1">
           <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Trip" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']/@defaultLayer/@containerMappings[name='Quay']/@subNodeMappings[name='Departure']">
-            <element name="clickedTrip"/>
-            <elementView name="clickedTripView"/>
+            <element name="clickedDeparture"/>
+            <elementView name="clickedDepartureView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:clickedTrip">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:clickedDeparture">
                 <subModelOperations xsi:type="tool_1:Let" valueExpression="aql:self.setDeparture()"/>
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
               </firstModelOperations>
@@ -110,19 +110,27 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TripsDiagram" domainClass="import::Trip" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TripsDiagram" domainClass="import::Departure" enablePopupBars="true">
       <metamodel href="platform:/plugin/atb.model.import/model/import.ecore#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="Trip" semanticCandidatesExpression="aql:self.getTripInClickedDeparture()" domainClass="import::Trip" childrenPresentation="List">
-          <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Create%20Registration']" domainClass="import::Stop">
-            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
+        <containerMappings name="DepartureContainer" semanticCandidatesExpression="var:clickedDeparture" domainClass="import::Departure">
+          <subContainerMappings name="Trip" semanticCandidatesExpression="feature:trip" domainClass="import::Trip" childrenPresentation="List">
+            <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Create%20Registration']" domainClass="import::Stop">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
@@ -130,7 +138,7 @@
           </style>
         </containerMappings>
         <toolSections name="Tools2">
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Create Registration" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='Trip']/@subNodeMappings[name='Stop']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Create Registration" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']">
             <element name="clickedStop"/>
             <elementView name="clickedStopView"/>
             <initialOperation>
