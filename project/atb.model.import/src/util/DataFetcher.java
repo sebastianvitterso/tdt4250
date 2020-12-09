@@ -98,7 +98,15 @@ public class DataFetcher {
 		List<JSONObject> quays = new ArrayList<>();
 		Set<String> quayIds = new HashSet<>();
 		
-		List<String> urls = lineIds.stream().map(str -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/trip/" + str).collect(Collectors.toList());
+		List<String> urls = lineIds.stream()
+				.map(str -> "https://bartebuss-prod.appspot.com/_ah/api/unified/v1/trip/" + str)
+//				.limit(10)
+				.collect(Collectors.toList());
+		
+		Set<String> tripIds = new HashSet<>(lineIds.stream()
+//					.limit(10)
+					.collect(Collectors.toList()
+				)); // for lookup, later.
 		
 		final long SLEEP_TIME = 20; // if we don't sleep, or the sleep time is too short, the requests might not go through.
 		List<String> lineJsonStrings = getDataParallell(urls, SLEEP_TIME);
@@ -129,6 +137,8 @@ public class DataFetcher {
 				
 			}
 		}
+		
+		quayIds.clear();
 		
 		System.out.println("\nBeginning stop-place requests, there are " + quays.size() + " of them");
 		startTime = System.currentTimeMillis();
@@ -183,6 +193,7 @@ public class DataFetcher {
 		List<JSONObject> trips = lines.stream()
 				.map(trip -> {
 					List<JSONObject> stops = new ArrayList<>();
+					List<String> stopNames = new ArrayList<>();
 					trip.getJSONArray("stops")
 							.forEach(stopObject -> {
 								JSONObject stop = (JSONObject) stopObject;
@@ -194,9 +205,17 @@ public class DataFetcher {
 								stop.put("quay", arr);
 								stop.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//Stop");
 								stops.add(stop);
+								stopNames.add(stop.getString("destination"));
 							});
 					trip.put("stops", new JSONArray(stops));
+					String tripLine = trip.getString("tripID");
 					trip.put("tripID", trip.getString("tripID").replace(":", "").replace("_", ""));
+					if(stopNames.size() > 0) {
+						trip.put("destination", stopNames.get(stopNames.size() - 1));
+					}
+					try {
+						trip.put("line", Integer.parseInt(List.of(List.of(tripLine.split(":")).get(2).split("_")).get(0)));
+					} catch (Exception e) {}
 					return trip;
 				})
 				.collect(Collectors.toList());
@@ -243,7 +262,10 @@ public class DataFetcher {
 					stopPlace.getJSONArray("quays").forEach(quayObj -> {
 						JSONObject quay = (JSONObject) quayObj;
 						quay.put("id", quay.getString("id").replace(":", ""));
-						stopPlaceQuays.put(quay);
+						if(!quayIds.contains(quay.getString("id"))) {
+							quayIds.add(quay.getString("id"));
+							stopPlaceQuays.put(quay);
+						}
 					});
 					stopPlace.put("quays", stopPlaceQuays);
 					return stopPlace;
@@ -280,13 +302,15 @@ public class DataFetcher {
 				if(realtime.has("departureForecasts")) {
 					realtime.getJSONArray("departureForecasts").forEach(depObj -> {
 						JSONObject departure = (JSONObject) depObj;
-						JSONObject tripRef = new JSONObject();
-						tripRef.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//Trip");
-						tripRef.put("$ref", departure.getString("tripId").replace(":", "").replace("_", ""));
-						JSONArray arr = new JSONArray();
-						arr.put(tripRef);
-						departure.put("trip", arr);
-						quayDepartures.get(quayId).add(departure);
+						if(tripIds.contains(departure.getString("tripId"))) {
+							JSONObject tripRef = new JSONObject();
+							tripRef.put("eClass", "platform:/plugin/atb.model.import/model/import.ecore#//Trip");
+							tripRef.put("$ref", departure.getString("tripId").replace(":", "").replace("_", ""));
+							JSONArray arr = new JSONArray();
+							arr.put(tripRef);
+							departure.put("trip", arr);
+							quayDepartures.get(quayId).add(departure);
+						}
 					});
 				}
 			});
@@ -305,7 +329,7 @@ public class DataFetcher {
 			})
 			.collect(Collectors.toList());
 		
-		System.out.println(stopPlaces.get(0).getJSONArray("quays").getJSONObject(0));
+//		System.out.println(stopPlaces.get(0).getJSONArray("quays").getJSONObject(0));
 		
 		
 		JSONObject container = new JSONObject();
