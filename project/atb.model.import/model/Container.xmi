@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<import:Container
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:import="platform:/plugin/atb.model.import/model/import.ecore">
-  <stopPlaces
-      id="S1">
-    <quays id="Q1"
-        name="Prinsen"/>
-    <quays id="Q2"
-        name="Prinsens"/>
+<import:Container xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:import="platform:/plugin/atb.model.import/model/import.ecore">
+  <stopPlaces id="S1" neighbours="S2">
+    <quays id="Q1" name="Prinsen P1" compassBearing="10.0">
+      <departureForecasts line="2" registeredDepartureTime="2020-12-08T12:00:00.000+0100" scheduledDepartureTime="2020-12-08T12:00:00.000+0100" trip="T2"/>
+    </quays>
+    <quays id="Q2" name="Prinsen P2" compassBearing="140.0"/>
   </stopPlaces>
-  <stopPlaces
-      id="S1">
-    <quays id="Q3"
-        name="Kongens"/>
-    <quays id="Q4"
-        name="Kongens"/>
+  <stopPlaces id="S2" neighbours="S1">
+    <quays id="Q3" name="Kongens K1" compassBearing="90.0">
+      <departureForecasts line="1" registeredDepartureTime="2020-12-08T12:00:00.000+0100" scheduledDepartureTime="2020-12-08T12:00:00.000+0100" trip="T1"/>
+    </quays>
+    <quays id="Q4" name="Kongens K2" compassBearing="270.0"/>
   </stopPlaces>
+  <trips tripID="T1" date="08.12.2020" line="1" destination="Prinsen">
+    <stops destination="Kongens" quay="Q3"/>
+    <stops destination="Prinsen" quay="Q2"/>
+    <registrations name="Ingebrigt" phoneNumber="95112413" from="Q3" to="Q1"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3" to="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3" to="Q3"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3" to="Q2"/>
+    <registrations name="name" phoneNumber="12345678" from="Q3" to="Q2"/>
+  </trips>
+  <trips tripID="T2" date="08.12.2020" line="2" destination="Prinsen">
+    <stops destination="Kongens" quay="Q3"/>
+    <stops destination="Prinsen" quay="Q2"/>
+    <registrations name="Ingebrigt" phoneNumber="95112413" from="Q3" to="Q1"/>
+    <registrations name="name"/>
+    <registrations name="Seb" phoneNumber="95287176" from="Q1"/>
+    <registrations name="name" from="Q1"/>
+    <registrations name="name" phoneNumber="12345678" from="Q1" to="Q3"/>
+  </trips>
 </import:Container>

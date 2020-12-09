@@ -1,9 +1,13 @@
 package atb.diagram.v2;
 
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 
+import import_.Departure;
 import import_.Quay;
+import import_.Stop;
 
 
 /**
@@ -16,6 +20,8 @@ public class Services {
     */
 	
 	public static Quay fromQuay = null;
+	public static Quay toQuay = null;
+	public static Departure clickedDeparture = null;
 	
     public String getQuayLabel(EObject self) {
     	if(self instanceof Quay) {
@@ -33,6 +39,24 @@ public class Services {
     public EObject getFromQuay(EObject self) {
     	return fromQuay;
     }
+    
+    public EObject setToQuay(EObject self) {
+		toQuay = ((Stop) self).getQuay().get(0);
+        return toQuay;
+    }
+    public EObject getToQuay(EObject self) {
+    	return toQuay;
+    }
+    
+    public EObject setDeparture(EObject self) {
+    	Departure dep = (Departure) self;
+    	clickedDeparture = dep;
+        return dep;
+    }
+    public EObject getTripInClickedDeparture(EObject self) {
+    	return clickedDeparture.getTrip().get(0);
+    }
+    
     
     public String getDirection(float bearing) {
     	if (bearing < 45 || bearing >= 315) {

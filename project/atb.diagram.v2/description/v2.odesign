@@ -34,8 +34,8 @@
             <elementView name="clickedQuayView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:clickedQuay">
+                <subModelOperations xsi:type="tool_1:Let" variableName="fromQuay" valueExpression="aql:self.setFromQuay()"/>
                 <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']"/>
-                <subModelOperations xsi:type="tool_1:Let" valueExpression="aql:self.setFromQuay()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -80,7 +80,7 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="DepartureDiagram" domainClass="import::Quay" enablePopupBars="true">
       <metamodel href="platform:/plugin/atb.model.import/model/import.ecore#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="Quay" semanticCandidatesExpression="var:clickedQuay" domainClass="import::Quay" childrenPresentation="List">
+        <containerMappings name="Quay" semanticCandidatesExpression="aql:self.getFromQuay()" domainClass="import::Quay" childrenPresentation="List">
           <subNodeMappings name="Departure" semanticCandidatesExpression="aql:self.departureForecasts" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='DepartureDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Trip']" domainClass="import::Departure">
             <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.line +' - '+ self.registeredDepartureTime" sizeComputationExpression="5" labelPosition="node" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -101,41 +101,28 @@
             <element name="clickedTrip"/>
             <elementView name="clickedTripView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:clickedTrip">
+                <subModelOperations xsi:type="tool_1:Let" valueExpression="aql:self.setDeparture()"/>
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TripsDiagram" domainClass="import::Departure" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TripsDiagram" domainClass="import::Trip" enablePopupBars="true">
       <metamodel href="platform:/plugin/atb.model.import/model/import.ecore#/"/>
       <defaultLayer name="Default">
-        <containerMappings name="DepartureContainer" semanticCandidatesExpression="var:clickedTrip" domainClass="import::Departure">
-          <subContainerMappings name="Trip" semanticCandidatesExpression="feature:trip" domainClass="import::Trip" childrenPresentation="List">
-            <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='trfyguh']" domainClass="import::Stop">
-              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelFormat>bold</labelFormat>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="Registration" labelDirectEdit="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='waf']" semanticCandidatesExpression="feature:registrations" domainClass="import::Registration">
-              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name+' : '+self.phoneNumber" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelFormat>bold</labelFormat>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
-              </style>
-            </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+        <containerMappings name="Trip" semanticCandidatesExpression="aql:self.getTripInClickedDeparture()" domainClass="import::Trip" childrenPresentation="List">
+          <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Create%20Registration']" domainClass="import::Stop">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
-          </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
@@ -143,13 +130,50 @@
           </style>
         </containerMappings>
         <toolSections name="Tools2">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Registration" nodeMappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Registration']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Go to Create Registration" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='Trip']/@subNodeMappings[name='Stop']">
+            <element name="clickedStop"/>
+            <elementView name="clickedStopView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:clickedStop">
+                <subModelOperations xsi:type="tool_1:Let" variableName="toQuay" valueExpression="aql:self.setToQuay()"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                  <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='CreateRegistrationDiagram']"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CreateRegistrationDiagram" domainClass="import::Trip" enablePopupBars="true">
+      <metamodel href="platform:/plugin/atb.model.import/model/import.ecore#/"/>
+      <defaultLayer name="Default">
+        <containerMappings name="Trip" semanticCandidatesExpression="aql:self.getTripInClickedDeparture()" domainClass="import::Trip" childrenPresentation="List">
+          <subNodeMappings name="Registration" labelDirectEdit="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='CreateRegistrationDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='waf']" semanticCandidatesExpression="feature:registrations" domainClass="import::Registration">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.name+' : '+self.phoneNumber" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.line + ' - ' + self.destination" widthComputationExpression="30" heightComputationExpression="8" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Tools2">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create Registration" nodeMappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='CreateRegistrationDiagram']/@defaultLayer/@containerMappings[name='Trip']/@subNodeMappings[name='Registration']">
             <variable name="container1"/>
             <viewVariable name="containerView1"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="import::Registration" referenceName="registrations">
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'name'"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="phoneNumber" valueExpression="aql:'12345678'"/>
                 <subModelOperations xsi:type="tool_1:SetValue" featureName="from" valueExpression="aql:self.getFromQuay()"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="to" valueExpression="aql:self.getToQuay()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -162,28 +186,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="trfyguh" mappings="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@containerMappings[name='DepartureContainer']/@subContainerMappings[name='Trip']/@subNodeMappings[name='Stop']">
-            <element name="clickedStop"/>
-            <elementView name="clickedStopView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
-                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='StopDiagram']"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
         </toolSections>
-      </defaultLayer>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="StopDiagram" domainClass="import::Stop" enablePopupBars="true">
-      <defaultLayer name="Default">
-        <nodeMappings name="Stop" semanticCandidatesExpression="var:clickedStop" domainClass="import::Stop">
-          <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelFormat>bold</labelFormat>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-          </style>
-        </nodeMappings>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="atb.diagram.v2.Services"/>
