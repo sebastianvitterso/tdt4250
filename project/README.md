@@ -31,22 +31,22 @@ Move this file into the `atb.diagram.examples.v2`-package root folder, and open 
 Add a new model instance by clicking the Add-button in the left part, and selecting the `data.xmi`-file. 
 (We've experienced that this sometimes does nothing, but retrying once or twice usually does the trick.)
 
-### 4. Run the application
+## Running the application
 
-#### Getting started
+### Getting started
 Run a new Eclipse instance from the run-menu. 
 Import the packages `atb.diagram.examples.v2` and `atb.diagram.v2` into the package explorer, and open `representations.aird` from the aforementioned `examples`-package.
 
 Create a new atb-diagram, by double clicking `atb-diagram` and selecting `Container` as the root node for the diagram. 
 This will initialize the diagram, and might take a while (the xmi-file might be over 400 000 lines long).
 
-#### Maneuvering the diagram
+### Maneuvering the diagram
 We recommend having the outline-view open in another pane in Eclipse, to help navigation within the enormous graph. 
 It is also possible to search for bus stops by clicking `Ctrl+O`, and typing in the name of the bus stop.
 
 Fun fact, the graph is a sort of map, due to the nodes being connected if they are neighbours in a bus line. It sure doesn't look like Trondheim, though. 
 
-#### Creating a registration
+### Creating a registration
 To create a registration, you must select where they boarded the bus, by double clicking the green bus-stop box. 
 When prompted to create a `new DepartureDiagram`, click `OK`. This will open a diagram showing the departures from this bus-stop. 
 To select the departure you were on, simply double click the departure-time, and click `OK` in the next prompt as well.
@@ -57,9 +57,17 @@ This final diagram shows all the travel-registrations for the selected bus-trip 
 
 To add another, simply drag from the menu on the right a `new Registration`, and drop it onto the box in the diagram. This creates a new registration, which you can click once to select, then once more to edit. The input must be formatted as `<NAME NAMESON>:<PHONE NUMBER>` to register correctly. 
 
+To go back and select another bus-route to register on, please close all the tabs except the `AtbDiagram`-tab, before restarting the process. This is to ensure consistency. 
 
 
+### Viewing all registrations
+To view all created registrations, click on `RegistrationsTree` in `representations.aird`. This shows a list of all the trips where there is at least one registration, and all of these can be expanded to show the registrations. 
 
+If this list is very long, it's possible to search for a name in the list to find the associated registration.
+
+
+## Credits
+Thanks to [Rune Martin Andersen](https://twitter.com/kvisten) for creating [Bartebuss](https://twitter.com/bartebuss), and having an open API. 
 
 
 
