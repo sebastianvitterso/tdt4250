@@ -115,7 +115,7 @@
       <defaultLayer name="Default">
         <containerMappings name="DepartureContainer" semanticCandidatesExpression="var:clickedDeparture" domainClass="import::Departure">
           <subContainerMappings name="Trip" semanticCandidatesExpression="feature:trip" domainClass="import::Trip" childrenPresentation="List">
-            <subNodeMappings name="Stop" semanticCandidatesExpression="feature:stops" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Create%20Registration']" domainClass="import::Stop">
+            <subNodeMappings name="Stop" semanticCandidatesExpression="aql:self.stops" doubleClickDescription="//@ownedViewpoints[name='AtbViewpoint']/@ownedRepresentations[name='TripsDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Go%20to%20Create%20Registration']" domainClass="import::Stop">
               <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:destination" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="15" height="3">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelFormat>bold</labelFormat>
@@ -199,12 +199,12 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:TreeDescription" name="RegistrationsTree" domainClass="import::Container">
       <subItemMappings name="Trip" domainClass="import::Trip" semanticCandidatesExpression="aql:self.trips->select(x|x.registrations->size() > 0)">
-        <defaultStyle labelExpression="feature:tripID">
+        <defaultStyle labelExpression="aql: self.line + ' - ' + self.destination + ' - (Departure from first stop: ' + self.stops->at(1).expectedDepartureTime + ')'">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Registrations" domainClass="import::Registration" semanticCandidatesExpression="feature:registrations">
-          <defaultStyle labelExpression="aql:self.name +' '+ self.phoneNumber">
+          <defaultStyle labelExpression="aql:self.name +' - '+ self.phoneNumber +' - From: '+ self.from.name +' - To: '+ self.to.name">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>

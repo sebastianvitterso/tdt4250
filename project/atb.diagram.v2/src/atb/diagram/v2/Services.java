@@ -1,13 +1,16 @@
 package atb.diagram.v2;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import import_.Departure;
 import import_.Quay;
 import import_.Stop;
+import import_.Trip;
 
 
 /**
@@ -56,7 +59,6 @@ public class Services {
     public EObject getTripInClickedDeparture(EObject self) {
     	return clickedDeparture.getTrip().get(0);
     }
-    
     
     public String getDirection(float bearing) {
     	if (bearing < 45 || bearing >= 315) {
